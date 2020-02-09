@@ -1,0 +1,12 @@
+﻿@model List<Looking4Home.Web.Models.ProductoModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Propiedades en Venta</h2>
+
+
+@foreach (var producto in Model)
+{
+  <p>@producto.Id @producto.Descripcion</p>
+}
