@@ -29,6 +29,16 @@ namespace Looking4Home.BL
 
         public void GuardarProducto(Producto producto)
         {
+
+            if (producto.Activo == true)
+            {
+                producto.Estado = "Disponible";
+            }
+            else
+            {
+                producto.Estado = "No Disponible";
+            }
+
             if (producto.Id == 0)
             {
                 _contexto.Productos.Add(producto);
@@ -42,6 +52,12 @@ namespace Looking4Home.BL
                 productoExistente.Habitaciones = producto.Habitaciones;
                 productoExistente.Metros = producto.Metros;
                 productoExistente.Precio = producto.Precio;
+                productoExistente.Estado = producto.Estado;
+            }
+
+            if (producto.Activo == true)
+            {
+               
             }
             
             _contexto.SaveChanges();

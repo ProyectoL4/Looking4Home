@@ -21,6 +21,7 @@ namespace Looking4Home.BL
         public int Habitaciones { get; set; }
         public double Metros { get; set; }
         public double Precio { get; set; }
+        public string Estado { get; set; }
         public int CategoriaId { get; set; }
         public Categoria Categoria { get; set; }
         public bool Activo { get; set; }
