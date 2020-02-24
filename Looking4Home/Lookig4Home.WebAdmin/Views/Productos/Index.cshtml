@@ -4,7 +4,7 @@
     ViewBag.Title = "Productos";
 }
 
-<h2>Productos</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Nuevo Producto", "Crear")
@@ -18,22 +18,13 @@
             @Html.DisplayNameFor(model => model.Categoria)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Estructura)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Localizacion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Parking)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Habitaciones)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Metros)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Precio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Activo)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Estado)
@@ -50,22 +41,13 @@
             @Html.DisplayFor(modelItem => item.Categoria.Descripcion)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Estructura.Descripcion)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Localizacion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Parking)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Habitaciones)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Metros)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Precio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Activo)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Estado)

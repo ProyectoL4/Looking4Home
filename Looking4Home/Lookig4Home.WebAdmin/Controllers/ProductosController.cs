@@ -11,11 +11,13 @@ namespace Lookig4Home.WebAdmin.Controllers
     {
         ProductosBL _productosBL;
         CategoriasBL _categoriasBL;
+        EstructurasBL _estructurasBL;
 
         public ProductosController()
         {
             _productosBL = new ProductosBL();
             _categoriasBL = new CategoriasBL();
+            _estructurasBL = new EstructurasBL();
         }
 
         // GET: Productos
@@ -30,6 +32,10 @@ namespace Lookig4Home.WebAdmin.Controllers
         {
             var nuevoProducto = new Producto();
             var categorias = _categoriasBL.ObtenerCategorias();
+            var estructuras = _estructurasBL.ObtenerEstructuras();
+
+            ViewBag.ListaEstructuras = 
+                new SelectList(estructuras, "Id", "Descripcion");
 
             ViewBag.ListaCategorias = 
                 new SelectList(categorias, "Id", "Descripcion");
@@ -49,6 +55,9 @@ namespace Lookig4Home.WebAdmin.Controllers
         {
             var producto = _productosBL.ObtenerProducto(id);
             var categorias = _categoriasBL.ObtenerCategorias();
+            var estructuras = _estructurasBL.ObtenerEstructuras();
+
+            ViewBag.EstructuraId = new SelectList(estructuras, "Id", "Descripcion");
 
             ViewBag.CategoriaId =
                 new SelectList(categorias, "Id", "Descripcion", producto.CategoriaId);

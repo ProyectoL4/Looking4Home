@@ -27,7 +27,7 @@ namespace Looking4Home.BL
 
         public void GuardarCategoria(Categoria categoria)
         {
-            if (categoria.Id== 0)
+            if (categoria.Id == 0)
             {
                 _contexto.Categorias.Add(categoria);
             }else

@@ -23,6 +23,7 @@ namespace Looking4Home.BL
 
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Estructura> Estructuras { get; set; }
 
     }
 }

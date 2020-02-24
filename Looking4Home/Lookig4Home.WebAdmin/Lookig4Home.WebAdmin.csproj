@@ -149,6 +149,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
+    <Compile Include="Controllers\EstructurasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -169,7 +170,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\Productos\Crear.cshtml" />
     <Content Include="Views\Productos\Editar.cshtml" />
     <Content Include="Views\Productos\Detalle.cshtml" />
@@ -179,6 +179,12 @@
     <Content Include="Views\Categorias\Editar.cshtml" />
     <Content Include="Views\Categorias\Detalle.cshtml" />
     <Content Include="Views\Categorias\Eliminar.cshtml" />
+    <Content Include="Views\Estructuras\Index.cshtml" />
+    <Content Include="Views\Estructuras\Crear.cshtml" />
+    <Content Include="Views\Estructuras\Editar.cshtml" />
+    <Content Include="Views\Estructuras\Detalle.cshtml" />
+    <Content Include="Views\Estructuras\Eliminar.cshtml" />
+    <Content Include="Views\Productos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

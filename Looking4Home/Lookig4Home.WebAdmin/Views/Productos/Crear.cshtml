@@ -32,6 +32,14 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Estructura, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ListaEstructuras", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Estructura, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Localizacion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Localizacion, new { htmlAttributes = new { @class = "form-control" } })

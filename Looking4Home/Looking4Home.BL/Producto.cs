@@ -10,6 +10,7 @@ namespace Looking4Home.BL
     {
         public Producto()
         {
+            EstructuraId = 1;
             CategoriaId = 1;
             Activo = true;
         }
@@ -24,6 +25,8 @@ namespace Looking4Home.BL
         public string Estado { get; set; }
         public int CategoriaId { get; set; }
         public Categoria Categoria { get; set; }
+        public int EstructuraId { get; set; }
+        public Estructura Estructura { get; set; }
         public bool Activo { get; set; }
 
     }

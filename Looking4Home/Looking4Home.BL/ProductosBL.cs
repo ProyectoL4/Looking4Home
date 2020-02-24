@@ -22,6 +22,7 @@ namespace Looking4Home.BL
         {
             ListadeProductos= _contexto.Productos
                 .Include("Categoria")
+                .Include("Estructura")
                 .ToList();
 
             return ListadeProductos;
@@ -47,6 +48,7 @@ namespace Looking4Home.BL
                 var productoExistente = _contexto.Productos.Find(producto.Id);
                 productoExistente.Descripcion = producto.Descripcion;
                 productoExistente.CategoriaId = producto.CategoriaId;
+                productoExistente.EstructuraId = producto.EstructuraId;
                 productoExistente.Localizacion = producto.Localizacion;
                 productoExistente.Parking = producto.Parking;
                 productoExistente.Habitaciones = producto.Habitaciones;
@@ -66,7 +68,9 @@ namespace Looking4Home.BL
         public Producto ObtenerProducto(int id)
         {
             var producto = _contexto.Productos
-                .Include("Categoria").FirstOrDefault(p => p.Id == id);
+                .Include("Categoria")
+                .Include("Estructura")
+                .FirstOrDefault(p => p.Id == id);
 
             return producto;
         }

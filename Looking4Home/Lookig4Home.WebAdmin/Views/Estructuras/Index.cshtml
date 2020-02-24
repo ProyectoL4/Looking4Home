@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Looking4Home.BL.Estructura>
+
+@{
+    ViewBag.Title = "Estructuras";
+}
+
+<h2>Estructuras</h2>
+
+<p>
+    @Html.ActionLink("Nueva Estructura", "Crear")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
+            @Html.ActionLink("Detalle", "Detalle", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
