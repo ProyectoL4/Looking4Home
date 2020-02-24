@@ -66,7 +66,7 @@ namespace Lookig4Home.WebAdmin.Controllers
         public ActionResult Eliminar(Estructura estructura)
         {
             _estructurasBL.EliminarEstructura(estructura.Id);
-            return RedirectToAction("Indes");
+            return RedirectToAction("Index");
         }
     }
 }
