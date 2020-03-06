@@ -30,6 +30,7 @@ namespace Lookig4Home.WebAdmin.Controllers
 
         public ActionResult Crear()
         {
+           
             var nuevoProducto = new Producto();
             var categorias = _categoriasBL.ObtenerCategorias();
             var estructuras = _estructurasBL.ObtenerEstructuras();
@@ -44,11 +45,42 @@ namespace Lookig4Home.WebAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Crear(Producto producto)
+        public ActionResult Crear(Producto producto, HttpPostedFileBase imagen)
         {
-            _productosBL.GuardarProducto(producto);
+            if (ModelState.IsValid)
+            {
 
-            return RedirectToAction("Index");
+                //if (imagen == null)
+                //{
+                //    ModelState.AddModelError("UrlImagen", "Seleccione una Imagen");
+                //    return View(producto);
+                //}
+             
+                    if (producto.CategoriaId == 0)
+                    {
+                        ModelState.AddModelError("CategoriaID", "Seleccione una Categoria");
+                        return View(producto);
+                    }
+
+                    if (producto.EstructuraId == 0)
+                    {
+                        ModelState.AddModelError("EstructuraId", "Seleccione una Estructura");
+                        return View(producto);
+                    }
+
+                    if (imagen != null)
+                    {
+                        producto.UrlImagen = GuardarImagen(imagen);
+                    }
+
+                    _productosBL.GuardarProducto(producto);
+
+                    return RedirectToAction("Index");
+                
+
+            }
+
+            return View(producto);
         }
 
         public ActionResult Editar(int id)
@@ -66,11 +98,34 @@ namespace Lookig4Home.WebAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar(Producto producto)
+        public ActionResult Editar(Producto producto, HttpPostedFileBase imagen)
         {
-            _productosBL.GuardarProducto(producto);
+            if (ModelState.IsValid)
+            {
 
-            return RedirectToAction("Index");
+                if (producto.CategoriaId == 0)
+                {
+                    ModelState.AddModelError("CategoriaID", "Seleccione una Categoria");
+                    return View(producto);
+                }
+
+                if (producto.EstructuraId == 0)
+                {
+                    ModelState.AddModelError("EstructuraId", "Seleccione una Estructura");
+                    return View(producto);
+                }
+
+                if (imagen != null )
+                {
+                    producto.UrlImagen = GuardarImagen(imagen);
+                }
+
+                _productosBL.GuardarProducto(producto);
+
+                return RedirectToAction("Index");
+            }
+
+            return View(producto);
         }
 
         public ActionResult Detalle(int id)
@@ -89,10 +144,19 @@ namespace Lookig4Home.WebAdmin.Controllers
 
         [HttpPost]
         public ActionResult Eliminar(Producto producto)
-        {
+        { 
             _productosBL.EliminarProducto(producto.Id);
 
             return RedirectToAction("Index");
-        } 
+        }
+
+        private string GuardarImagen(HttpPostedFileBase imagen)
+        {
+
+            string path = Server.MapPath("~/Imagenes/" + imagen.FileName);
+            imagen.SaveAs(path);
+
+            return "/imagenes/" + imagen.FileName;
+        }
     }
 }

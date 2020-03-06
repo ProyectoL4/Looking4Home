@@ -55,6 +55,11 @@ namespace Looking4Home.BL
                 productoExistente.Metros = producto.Metros;
                 productoExistente.Precio = producto.Precio;
                 productoExistente.Estado = producto.Estado;
+                if (producto.UrlImagen != null)
+                {
+                    productoExistente.UrlImagen = producto.UrlImagen;
+                }
+                
             }
 
             if (producto.Activo == true)
