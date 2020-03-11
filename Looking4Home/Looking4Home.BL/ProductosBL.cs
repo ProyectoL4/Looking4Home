@@ -87,5 +87,16 @@ namespace Looking4Home.BL
             _contexto.Productos.Remove(producto);
             _contexto.SaveChanges();
         }
+
+        public List<Producto> ObtenerProductosActivos()
+        {
+            ListadeProductos = _contexto.Productos
+                .Include("Categoria")
+                .Where(r => r.Activo == true)
+                .OrderBy(r => r.Descripcion)
+                .ToList();
+
+            return ListadeProductos;
+        }
     }
 }

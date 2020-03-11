@@ -91,8 +91,7 @@ namespace Lookig4Home.WebAdmin.Controllers
 
             ViewBag.EstructuraId = new SelectList(estructuras, "Id", "Descripcion");
 
-            ViewBag.CategoriaId =
-                new SelectList(categorias, "Id", "Descripcion", producto.CategoriaId);
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion", producto.CategoriaId);
 
             return View(producto);
         }

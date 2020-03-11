@@ -19,11 +19,15 @@ namespace Looking4Home.BL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            Database.SetInitializer(new DatosdeInicio());
         }
 
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Estructura> Estructuras { get; set; }
-
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Vendedor> Vendedores { get; set; }
+        public DbSet<Orden> Ordenes { get; set; }
+        public DbSet<OrdenDetalle> OrdenDetalles { get; set; }
     }
 }
