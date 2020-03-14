@@ -152,6 +152,7 @@
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\EstructurasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OrdenesController.cs" />
     <Compile Include="Controllers\OrdenesDetalleController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
@@ -206,6 +207,9 @@
     <Content Include="Views\Vendedores\Editar.cshtml" />
     <Content Include="Views\Vendedores\Detalle.cshtml" />
     <Content Include="Views\Vendedores\Eliminar.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
