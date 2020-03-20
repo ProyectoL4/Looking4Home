@@ -29,7 +29,7 @@ namespace Looking4Home.BL
 
         public List<OrdenDetalle> ObtenerOrdenDetalle(int ordenId)
         {
-            var listadeOrdenesDetalle = _contexto.OrdenDetalles
+            var listadeOrdenesDetalle = _contexto.OrdenDetalle
                 .Include("Producto")
                 .Where(o => o.OrdenId == ordenId).ToList();
 
@@ -38,7 +38,7 @@ namespace Looking4Home.BL
 
         public OrdenDetalle ObtenerOrdenDetallePorId(int id)
         {
-            var ordenDetalle = _contexto.OrdenDetalles
+            var ordenDetalle = _contexto.OrdenDetalle
                 .Include("Producto").FirstOrDefault(p => p.Id == id);
 
             return ordenDetalle;
@@ -75,7 +75,7 @@ namespace Looking4Home.BL
             ordenDetalle.Precio = producto.Precio;
             ordenDetalle.Total = ordenDetalle.Cantidad * ordenDetalle.Precio;
 
-            _contexto.OrdenDetalles.Add(ordenDetalle);
+            _contexto.OrdenDetalle.Add(ordenDetalle);
 
             var orden = _contexto.Ordenes.Find(ordenDetalle.OrdenId);
             orden.Total = orden.Total + ordenDetalle.Total;
@@ -85,8 +85,8 @@ namespace Looking4Home.BL
 
         public void EliminarOrdenDetalle(int id)
         {
-            var ordenDetalle = _contexto.OrdenDetalles.Find(id);
-            _contexto.OrdenDetalles.Remove(ordenDetalle);
+            var ordenDetalle = _contexto.OrdenDetalle.Find(id);
+            _contexto.OrdenDetalle.Remove(ordenDetalle);
 
             var orden = _contexto.Ordenes.Find(ordenDetalle.OrdenId);
             orden.Total = orden.Total - ordenDetalle.Total;
