@@ -23,19 +23,6 @@ namespace Looking4Home.BL
             ListadeProductos= _contexto.Productos
                 .Include("Categoria")
                 .Include("Estructura")
-                .OrderBy(r => r.Categoria.Descripcion)
-                .ThenBy(r => r.Descripcion)
-                .ToList();
-
-            return ListadeProductos;
-        }
-
-        public List<Producto> ObtenerProductosActivos()
-        {
-            ListadeProductos = _contexto.Productos
-                .Include("Categoria")
-                .Where(r => r.Activo == true)
-                .OrderBy(r => r.Descripcion)
                 .ToList();
 
             return ListadeProductos;
@@ -99,6 +86,17 @@ namespace Looking4Home.BL
 
             _contexto.Productos.Remove(producto);
             _contexto.SaveChanges();
+        }
+
+        public List<Producto> ObtenerProductosActivos()
+        {
+            ListadeProductos = _contexto.Productos
+                .Include("Categoria")
+                .Where(r => r.Activo == true)
+                .OrderBy(r => r.Descripcion)
+                .ToList();
+
+            return ListadeProductos;
         }
     }
 }

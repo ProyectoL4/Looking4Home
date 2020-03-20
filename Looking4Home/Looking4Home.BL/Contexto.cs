@@ -28,6 +28,6 @@ namespace Looking4Home.BL
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Vendedor> Vendedores { get; set; }
         public DbSet<Orden> Ordenes { get; set; }
-        public DbSet<OrdenDetalle> OrdenDetalle { get; set; }
+        public DbSet<OrdenDetalle> OrdenDetalles { get; set; }
     }
 }
