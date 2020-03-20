@@ -11,5 +11,5 @@ namespace Looking4Home.BL
         public string Producto { get; set; }
         public int Cantidad { get; set; }
         public double Total { get; set; }
-    }
+    }   
 }

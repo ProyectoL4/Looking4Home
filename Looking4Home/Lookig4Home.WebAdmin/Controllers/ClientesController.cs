@@ -18,7 +18,7 @@ namespace Lookig4Home.WebAdmin.Controllers
         public ActionResult Index()
         {
            
-            var listadeClientes = _clientesBL.ObtenerClientes();
+            var listadeClientes = _clientesBL.ObtenerClientesActivos();
 
             return View(listadeClientes);
         }
@@ -55,7 +55,6 @@ namespace Lookig4Home.WebAdmin.Controllers
 
         public ActionResult Editar(int id)
         {
-
             var cliente = _clientesBL.ObtenerCliente(id);
             return View(cliente);
         }
