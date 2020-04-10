@@ -11,6 +11,23 @@
     <h4>Producto</h4> 
     <hr />
     <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vendedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vendedor.Nombre)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Etiqueta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etiqueta.Descripcion)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Descripcion)
         </dt>
@@ -49,6 +66,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Parking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bano)
         </dd>
 
         <dt>

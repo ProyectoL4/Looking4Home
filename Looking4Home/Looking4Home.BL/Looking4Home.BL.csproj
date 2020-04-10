@@ -60,6 +60,8 @@
     <Compile Include="DatosdeInicio.cs" />
     <Compile Include="Estructura.cs" />
     <Compile Include="EstructurasBL.cs" />
+    <Compile Include="Etiqueta.cs" />
+    <Compile Include="EtiquetaBL.cs" />
     <Compile Include="Orden.cs" />
     <Compile Include="OrdenesBL.cs" />
     <Compile Include="Producto.cs" />

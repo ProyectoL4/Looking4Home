@@ -11,6 +11,22 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Vendedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vendedor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Etiqueta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etiqueta.Descripcion)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Descripcion)
         </dt>
 
@@ -51,6 +67,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Bano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bano)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Habitaciones)
         </dt>
 
@@ -82,12 +106,12 @@
             @Html.DisplayFor(model => model.Estado)
         </dd>
 
-        <d>
+        <dt>
             @Html.DisplayNameFor(model => model.UrlImagen)
-        </d>
+        </dt>
 
         <dd>
-            <img src="@Model.UrlImagen" alt="@Model.Descripcion" style="width:200px; height:auto;" />
+            <img src="@Model.UrlImagen" alt="@Model.Descripcion" style="width:200px; height:auto; padding-top:10px" />
         </dd>
 
         <dt>

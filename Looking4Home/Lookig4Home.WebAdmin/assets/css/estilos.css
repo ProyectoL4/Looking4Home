@@ -1,0 +1,80 @@
+/* Contenedor general contenido */
+.hiddencon {
+margin: 0;
+padding: 0;
+width: 410px;
+z-index:99999;
+position: fixed;
+/* Desplazamiento para ocultar hacia la derecha
+todo el ancho del bloque menos el borde */
+right: -402px;
+bottom: 5px;
+opacity: .9;
+}
+.hiddencon2 {
+top: auto;
+bottom: 10px;
+}
+/* Contenido visible al hacer hover */
+.hiddencon:hover {
+right: 0;
+}
+/* Pestaña para desplegar */
+.hiddencon-label {
+margin-top: -20px;
+margin-left: -30px;
+padding: 10px;
+position: absolute;
+top: 50%;
+display: inline-block;
+color: #f7f7f7bf;
+background: #f7f7f7bf;
+font-size: 14px;
+-moz-border-radius: 20px 0 0 20px;
+-webkit-border-radius: 20px 0 0 20px;
+border-radius: 20px 0 0 20px;
+}
+.hiddencon, .hiddencon-label {
+/* Desplegado suave con transiciones */
+-moz-transition: all 0.4s ease-in-out;
+-webkit-transition: all 0.4s ease-in-out;
+transition: all 0.4s ease-in-out;
+}
+/* El contenido incluida variante para listas */
+.hiddencon p, .hiddencon ul {
+margin: 0;
+padding: 0px;
+border: 6px solid #f7f7f7bf;
+border-right: 0;
+color: #f7f7f7bf;
+background-color: #f7f7f7bf;
+text-align:center;
+vertical-align: center;
+-moz-border-radius: 10px 0 0 10px;
+-webkit-border-radius: 10px 0 0 10px;
+border-radius: 10px 0 0 10px;
+}
+/* Estilo para listas */
+.hiddencon ul {
+margin:0;
+overflow:auto;
+}
+.hiddencon li {
+display: block;
+}
+.hiddencon li a {
+display: block;
+padding: 10px;
+border-bottom: 1px solid #333;
+color: #ddd;
+-moz-transition: all 0.4s linear;
+-webkit-transition: all 0.4s linear;
+transition: all 0.4s linear;
+}
+.hiddencon li:last-child a{
+border-bottom: 0;
+}
+.hiddencon li a:hover {
+background-color: #333;
+text-decoration: none;
+}

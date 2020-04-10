@@ -36,7 +36,7 @@ namespace Looking4Home.BL
                 clienteExistente.Nombre = cliente.Nombre;
                 clienteExistente.Contraseña = cliente.Contraseña;
                 clienteExistente.Telefono = cliente.Telefono;
-                clienteExistente.correo = cliente.correo;
+                clienteExistente.Correo = cliente.Correo;
                 clienteExistente.Celular = cliente.Celular;
                 clienteExistente.Activo = cliente.Activo;
                 if (cliente.UrlImagen != null)

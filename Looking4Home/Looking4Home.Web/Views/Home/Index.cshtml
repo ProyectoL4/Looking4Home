@@ -4,76 +4,241 @@
     ViewBag.Title = "Inicio";
 }
 
-<section class="story-area left-text center-sm-text">
+    <!-- Feature Section Begin -->
+<section class="feature-section spad">
     <div class="container">
-        <div class="heading"><h3>Escoge una, entre muchas de nuestras opciones </h3></div>
         <div class="row">
-        @foreach (var producto in Model.Where(r => r.Categoria.Descripcion == "Casa")
-            .Take(4)
-            .OrderBy(r => Guid.NewGuid())
-            )
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <span>Recomendaciones de Nuestros Agentes</span>
+                    <h2>Propiedades Unicas</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="feature-carousel owl-carousel">
+
+        @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Venta")
+        .Take(5)
+        .OrderBy(r => Guid.NewGuid())
+        )
         {
-                <div class="col-lg-3 col-md-4  col-sm-6 ">
-                    <div class="center-text mb-30"> 
-                        <div class="ïmg-200x mlr-auto pos-relative">
-                            <h6 class="ribbon-cont color-white"><div class="ribbon primary"></div><b>OFERTA</b></h6>
+
+                <div class="col-lg-4">
+                    <div class="feature-item">
+                        <div class="fi-pic set-bg" data-setbg="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)">
+                            <div class="pic-tag">
+                                <div class="f-text">Oferta</div>
+                                <div class="s-text">Se vende</div>
+                            </div>
+                            <div class="feature-author">
+                                <div class="fa-pic">
+                                    <img src="@(ViewBag.adminWebsiteUrl + producto.Vendedor.UrlImagen)" alt="">
+                                </div>
+                                <div class="fa-text">
+                                    <span>@producto.Vendedor.Nombre</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fi-text">
+                            <div class="inside-text">
+                                <h4>@producto.Descripcion</h4>
+                                <ul>
+                                    <li><i class="fa fa-map-marker"></i>@producto.Localizacion</li>
+                                    <li><i class="fa fa-tag"></i>@producto.Etiqueta.Descripcion</li>
+                                </ul>
+                                <h5 class="price">L. @producto.Precio<span>/Mensual</span></h5>
+                            </div>
+                            <ul class="room-features">
+                                <li>
+                                    <i class="fa fa-arrows"></i>
+                                    <p>@producto.Metros</p>
+                                </li>
+                                <li>
+                                    <i class="fa fa-bed"></i>
+                                    <p>@producto.Habitaciones</p>
+                                </li>
+                                <li>
+                                    <i class="fa fa-bath"></i>
+                                    <p>@producto.Bano</p>
+                                </li>
+                                <li>
+                                    <i class="fa fa-car"></i>
+                                    <p>@producto.Parking</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+        }
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Feature Section End -->
+
+
+<!-- Top Properties Section Begin -->
+<div class="top-properties-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="properties-title">
+                    <div class="section-title">
+                        <span>Propiedades en Renta</span>
+                        <h2>Exclusivas</h2>
+                    </div>
+                    <a href="#" class="top-property-all">Ver todas las propiedades</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="top-properties-carousel owl-carousel">
+
+           @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Renta")
+           .Take(3)
+           .OrderBy(r => Guid.NewGuid())
+           )
+           {
+
+            <div class="single-top-properties">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="stp-pic">
                             <img src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="">
                         </div>
-                        <h5 class="mt-20">@producto.Categoria.Descripcion</h5>
-                        <h4 class="mt-5 color-primary"><b>L. @producto.Precio</b></h4>
-                    </div><!--text-center-->
-                </div><!-- col-md-3 -->
-        }
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="stp-text">
+                            <div class="s-text">En @producto.Etiqueta.Descripcion</div>
+                            <h2>@producto.Estructura.Descripcion</h2>
+                            <div class="room-price">
+                                <span>Comenzando desde:</span>
+                                <h4>L. @producto.Precio</h4>
+                            </div>
+                            <div class="properties-location"><i class="fa fa-map-marker"></i>@producto.Localizacion</div>
+                            <p>@producto.Descripcion</p>
+                            <ul class="room-features">
+                                <li>
+                                    <i class="fa fa-arrows"></i>
+                                    <p>@producto.Metros</p>
+                                </li>
+                                <li>
+                                    <i class="fa fa-bed"></i>
+                                    <p>@producto.Habitaciones</p>
+                                </li>
+                                <li>
+                                    <i class="fa fa-bath"></i>
+                                    <p>@producto.Bano</p>
+                                </li>
+                                <li>
+                                    <i class="fa fa-car"></i>
+                                    <p>@producto.Parking</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        </div><!-- row-->
-    </div><!-- container -->
-</section>
+           }
+        </div>
+    </div>
+</div>
+<!-- Top Properties Section End -->
 
 
-
-<section class="story-area bg-seller color-white pos-relative">
-    <div class="pos-bottom triangle-up"></div>
-    <div class="pos-top triangle-bottom"></div>
-    <div class="container">
-        <h4 class="font-30 font-sm-20  center-text mb-25">Contando con <b>una amplia </b>Gama de Vendedores</h4>
-    </div><!-- container -->
-</section>
-
-
-<!--SIGUIENTE-->
-
-
-<section class="bg-lite-blue">
+<!-- Agent Section Begin -->
+<section class="agent-section spad">
     <div class="container">
         <div class="row">
-        @foreach (var producto in Model)
-        {
-
-            <div class="col-md-6">
-                <div class="sided-90x mb-30 ">
-                    <div class="s-left"><img class="br-3" src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="Menu Image"></div><!--s-left-->
-                    <div class="s-right">
-                        <h5 class="mb-10"><b>@producto.Categoria.Descripcion</b><b class="color-primary float-right">L. @producto.Precio</b></h5>
-                        <p class="pr-70">@producto.Descripcion</p>
-                    </div><!--s-right-->
-                </div><!-- sided-90x -->
-            </div><!-- food-menu -->
-
-        }
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <span>Estamos para Ayudarte</span>
+                    <h2>Nuestros Agentes</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="agent-carousel owl-carousel">
 
 
+                <div class="col-lg-3">
+                    <div class="single-agent">
+                        <div class="sa-pic">
+                            <img src="/assets/img/agent/German.jpg" alt="">
+                            <div class="hover-social">
+                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            </div>
+                        </div>
+                        <h5>German Mendoza <span>Esclavo de la Compañia</span></h5>
+                    </div>
+                </div>
 
-        </div><!-- row -->
-    </div><!-- container -->
+                <div class="col-lg-3">
+                    <div class="single-agent">
+                        <div class="sa-pic">
+                            <img src="~/assets/img/agent/agent-2.jpg" alt="">
+                            <div class="hover-social">
+                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            </div>
+                        </div>
+                        <h5>Tillie Burns <span>Marketing Manager</span></h5>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="single-agent">
+                        <div class="sa-pic">
+                            <img src="~/assets/img/agent/agent-3.jpg" alt="">
+                            <div class="hover-social">
+                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            </div>
+                        </div>
+                        <h5>Derrick Lawson <span>Company Agents</span></h5>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="single-agent">
+                        <div class="sa-pic">
+                            <img src="/assets/img/agent/agent-4.jpg" alt="">
+                            <div class="hover-social">
+                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            </div>
+                        </div>
+                        <h5>Clifford Colon <span>Saler Manager</span></h5>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="single-agent">
+                        <div class="sa-pic">
+                            <img src="/assets/img/agent/agent-5.jpg" alt="">
+                            <div class="hover-social">
+                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            </div>
+                        </div>
+                        <h5>Clifford Colon <span>Saler Manager</span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-
-
-<!--SIGUIENTE-->
-
-
-
-
-<!--SIGUIENTE-->
-
-
-
+<!-- Agent Section End -->

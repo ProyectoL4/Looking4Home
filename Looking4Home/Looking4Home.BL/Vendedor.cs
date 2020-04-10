@@ -29,7 +29,7 @@ namespace Looking4Home.BL
     public string Celular { get; set; }
 
     [EmailAddress(ErrorMessage = "Ingrese un Correo")]
-    public string correo { get; set; }
+    public string Correo { get; set; }
 
 
     [Display(Name = "Imagen")]

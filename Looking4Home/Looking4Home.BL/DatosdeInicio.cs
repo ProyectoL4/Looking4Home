@@ -11,6 +11,17 @@ namespace Looking4Home.BL
     {
         protected override void Seed(Contexto contexto)
         {
+            #region Etiqueta
+            var etiqueta1 = new Etiqueta();
+            etiqueta1.Descripcion = "Venta";
+            contexto.Etiquetas.Add(etiqueta1);
+
+            var etiqueta2 = new Etiqueta();
+            etiqueta2.Descripcion = "Renta";
+            contexto.Etiquetas.Add(etiqueta2);
+
+            #endregion
+
             #region Clientes
 
             var cliente1 = new Cliente();
@@ -18,7 +29,7 @@ namespace Looking4Home.BL
             cliente1.Contraseña = "kevin123";
             cliente1.Telefono ="98563241";
             cliente1.Celular ="93652487";
-            cliente1.correo ="Kevinamaya@gmail.com";
+            cliente1.Correo ="Kevinamaya@gmail.com";
             cliente1.Activo = true;
             contexto.Clientes.Add(cliente1);
 
@@ -27,7 +38,7 @@ namespace Looking4Home.BL
             cliente2.Contraseña = "german123";
             cliente2.Telefono = "98563241";
             cliente2.Celular = "93652487";
-            cliente2.correo = "GermanMendoza@outlook.com";
+            cliente2.Correo = "GermanMendoza@outlook.com";
             cliente2.Activo = true;
             contexto.Clientes.Add(cliente2);
 
@@ -37,7 +48,7 @@ namespace Looking4Home.BL
             cliente3.Contraseña = "andres123";
             cliente3.Telefono = "98563241";
             cliente3.Celular = "93652487";
-            cliente3.correo = "AndresBaide@aol.com";
+            cliente3.Correo = "AndresBaide@aol.com";
             cliente3.Activo = true;
             contexto.Clientes.Add(cliente3);
 
@@ -46,7 +57,7 @@ namespace Looking4Home.BL
             cliente4.Contraseña = "juan123";
             cliente4.Telefono = "98563241";
             cliente4.Celular = "93652487";
-            cliente4.correo = "JuanAlvarado@yahoo.com";
+            cliente4.Correo = "JuanAlvarado@yahoo.com";
             cliente4.Activo = true;
             contexto.Clientes.Add(cliente4);
 
@@ -124,7 +135,7 @@ namespace Looking4Home.BL
             Vendedor1.Contraseña = "euro123";
             Vendedor1.Telefono = "98563241";
             Vendedor1.Celular = "93652487";
-            Vendedor1.correo = "EuroCasas@gmail.com";
+            Vendedor1.Correo = "EuroCasas@gmail.com";
             Vendedor1.Activo = true;
             contexto.Vendedores.Add(Vendedor1);
 
@@ -133,7 +144,7 @@ namespace Looking4Home.BL
             Vendedor2.Contraseña = "roca123";
             Vendedor2.Telefono = "98563241";
             Vendedor2.Celular = "93652487";
-            Vendedor2.correo = "rocafuerte@yahoo.com";
+            Vendedor2.Correo = "rocafuerte@yahoo.com";
             Vendedor2.Activo = true;
             contexto.Vendedores.Add(Vendedor2);
 
@@ -142,7 +153,7 @@ namespace Looking4Home.BL
             Vendedor3.Contraseña = "alpine123";
             Vendedor3.Telefono = "98563241";
             Vendedor3.Celular = "93652487";
-            Vendedor3.correo = "alpine@outlook.com";
+            Vendedor3.Correo = "alpine@outlook.com";
             Vendedor3.Activo = true;
             contexto.Vendedores.Add(Vendedor3);
 
@@ -151,9 +162,134 @@ namespace Looking4Home.BL
             Vendedor4.Contraseña = "fenix123";
             Vendedor4.Telefono = "98563241";
             Vendedor4.Celular = "93652487";
-            Vendedor4.correo = "fenix@aol.com";
+            Vendedor4.Correo = "fenix@aol.com";
             Vendedor4.Activo = true;
             contexto.Vendedores.Add(Vendedor4);
+
+            #endregion
+
+
+            #region PRODUCTOS ---ES DE QUIEN LA PUEDA ARREGLAR
+            /*
+            var producto1 = new Producto();           
+            producto1.Descripcion = "Cerca de posta policial, bella vista y vecindad amistosa";
+            producto1.Localizacion = "Aun no Disponible";
+            producto1.Parking = 2;
+            producto1.Habitaciones = 4;
+            producto1.Metros = 4500;
+            producto1.Precio = 12500;
+            producto1.Bano = 4;
+            producto1.Estado = "Disponible";
+
+            producto1.VendedorId = 1;
+            producto1.EtiquetaId = 1;
+            producto1.CategoriaId = 1;
+            producto1.EstructuraId = 3;
+            producto1.UrlImagen = null;
+            contexto.Productos.Add(producto1);
+
+            var producto2 = new Producto();
+            producto2.Descripcion = "Hospital cerca de la zona, Escuela a unas cuantas cuadras";
+            producto2.Localizacion = "Aun no Disponible";
+            producto2.Parking = 1;
+            producto2.Habitaciones = 3;
+            producto2.Metros = 1200;
+            producto2.Precio = 20500;
+            producto2.Bano = 5;
+            producto2.Estado = "Disponible";
+
+            producto2.VendedorId = 2;
+            producto2.EtiquetaId = 1;
+            producto2.CategoriaId = 1;
+            producto2.EstructuraId = 2;
+            producto2.UrlImagen = null;
+            contexto.Productos.Add(producto2);
+
+            var producto3 = new Producto();
+            producto3.Descripcion = "Escuela Bilingue de facil acceso, Campo de Football cerca";
+            producto3.Localizacion = "Aun no Disponible";
+            producto3.Parking = 1;
+            producto3.Habitaciones = 3;
+            producto3.Metros = 1200;
+            producto3.Precio = 12500;
+            producto3.Bano = 5;
+            producto3.Estado = "Disponible";
+
+            producto3.VendedorId = 3;
+            producto3.EtiquetaId = 1;
+            producto3.CategoriaId = 1;
+            producto3.EstructuraId = 1;
+            producto3.UrlImagen = null;
+            contexto.Productos.Add(producto3);
+
+            var producto4 = new Producto();
+            producto4.Descripcion = "Escuela catolica cercana, bella vista";
+            producto4.Localizacion = "Aun no Disponible";
+            producto4.Parking = 8;
+            producto4.Habitaciones = 4;
+            producto4.Metros = 12000;
+            producto4.Precio = 200500;
+            producto4.Bano = 5;
+            producto4.Estado = "Disponible";
+
+            producto4.VendedorId = 4;
+            producto4.EtiquetaId = 1;
+            producto4.CategoriaId = 1;
+            producto4.EstructuraId = 4;
+            producto4.UrlImagen = null;
+            contexto.Productos.Add(producto4);
+
+            var producto5 = new Producto();
+            producto5.Descripcion = "Cerca de Hospital, bella vista y gran jardin";
+            producto5.Localizacion = "Aun no Disponible";
+            producto5.Parking = 0;
+            producto5.Habitaciones = 8;
+            producto5.Metros = 52000;
+            producto5.Precio = 200500;
+            producto5.Bano = 8;
+            producto5.Estado = "Disponible";
+
+            producto5.VendedorId = 2;
+            producto5.EtiquetaId = 1;
+            producto5.CategoriaId = 1;
+            producto5.EstructuraId = 1;
+            producto5.UrlImagen = null;
+            contexto.Productos.Add(producto5);
+
+            var producto6 = new Producto();
+            producto6.Descripcion = "Seguridad Privada, Wifi Gratis";
+            producto6.Localizacion = "Aun no Disponible";
+            producto6.Parking = 0;
+            producto6.Habitaciones = 2;
+            producto6.Metros = 200;
+            producto6.Precio = 5500;
+            producto6.Bano = 1;
+            producto6.Estado = "Disponible";
+
+            producto6.VendedorId = 1;
+            producto6.EtiquetaId = 2;
+            producto6.CategoriaId = 2;
+            producto6.EstructuraId = 4;
+            producto6.UrlImagen = null;
+            contexto.Productos.Add(producto6);
+
+            var producto7 = new Producto();
+            producto7.Descripcion = "Seguridad Privada, Wifi Gratis";
+            producto7.Localizacion = "Aun no Disponible";
+            producto7.Parking = 1;
+            producto7.Habitaciones = 3;
+            producto7.Metros = 200;
+            producto7.Precio = 6500;
+            producto7.Bano = 2;
+            producto7.Estado = "Disponible";
+
+            producto7.VendedorId = 3;
+            producto7.EtiquetaId = 2;
+            producto7.CategoriaId = 2;
+            producto7.EstructuraId = 2;
+            producto7.UrlImagen = null;
+            contexto.Productos.Add(producto7);
+            */
 
             #endregion
 

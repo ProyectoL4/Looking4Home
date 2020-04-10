@@ -12,13 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
+            @Html.DisplayNameFor(model => model.Vendedor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Etiqueta)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Categoria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estructura)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Localizacion)
@@ -38,13 +38,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
+            @Html.DisplayFor(modelItem => item.Vendedor.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Etiqueta.Descripcion)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Categoria.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estructura.Descripcion)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Localizacion)
@@ -56,7 +56,7 @@
             @Html.DisplayFor(modelItem => item.Estado)
         </td>
         <td>
-            <img src="@item.UrlImagen" alt="@item.Descripcion" style="width:64px; height:auto;" />
+            <img  src="@item.UrlImagen" alt="Imagen" style="width:64px; height:auto;" />
         </td>
         <td>
             @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |

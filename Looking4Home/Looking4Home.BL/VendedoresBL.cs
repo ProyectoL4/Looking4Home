@@ -37,7 +37,7 @@ namespace Looking4Home.BL
                 vendedorExistente.Nombre = vendedor.Nombre;
                 vendedorExistente.Contraseña = vendedor.Contraseña;
                 vendedorExistente.Telefono = vendedor.Telefono;
-                vendedorExistente.correo = vendedor.correo;
+                vendedorExistente.Correo = vendedor.Correo;
                 vendedorExistente.Celular = vendedor.Celular;
                 vendedorExistente.Activo = vendedor.Activo;
                 if (vendedor.UrlImagen != null)

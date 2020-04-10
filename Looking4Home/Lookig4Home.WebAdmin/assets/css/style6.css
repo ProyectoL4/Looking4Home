@@ -1,0 +1,108 @@
+.barra-menu-contenido{
+	  -webkit-transition: all 150ms;
+      -o-transition: all 150ms;
+      transition: all 150ms;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: block;
+	  margin: 10px 0px 0px 0px; 
+	  color: white; 
+	    height: auto;
+	
+}
+
+.barra-menu-contenido ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.barra-menu-contenido ul li{
+	border-left: 4px solid white;
+	width: 100%;
+	height: auto;
+}
+
+.barra-menu-contenido ul li a {
+    display: block;
+    width: 100%;
+    height: 38px;
+    line-height: 45px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 24px;
+    box-sizing: border-box;
+    padding-left: 12px;
+    transition: all .2s ease-in-out;
+}
+
+.barra-menu-contenido ul li a i {
+	font-size: 18px;
+	padding-left: 22px;
+        font-family: Roboto,Arial,sans-serif;
+	font-style: normal;
+	
+}
+
+.barra-menu-contenido ul li a:hover{
+	color: black;
+	background-color: #e7e7e773;
+	/*background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, .1) 50%, transparent);*/
+}
+
+
+
+
+.barra-perfil {
+	  font-family: 'Font Awesome 5 Free';
+	  -webkit-transition: all 150ms;
+      -o-transition: all 150ms;
+      transition: all 150ms;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: block;
+	  margin: 0px 0px 0px 0px; 
+	  color: black; 
+	  height: auto;
+	
+}
+
+.barra-perfil ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.barra-perfil ul li{
+	border-left: 0px solid white;
+	width: 100%;
+	height: auto;
+}
+
+.barra-perfil ul li a {
+    display: block;
+    width: 100%;
+    height: 38px;
+    line-height: 45px;
+    text-decoration: none;   
+    font-size: 14px;
+    font-weight: 900;
+    box-sizing: border-box;
+    padding-left: 0px;
+    transition: all .2s ease-in-out;
+}
+
+.barra-perfil ul li a i {
+	font-size: 14px;
+}
+
+.barra-perfil ul li a:hover{
+	color: white;
+	background-color: #040404c9;
+	/*background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, .1) 50%, transparent);*/
+}
+
+
+

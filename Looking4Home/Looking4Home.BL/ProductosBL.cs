@@ -23,6 +23,8 @@ namespace Looking4Home.BL
             ListadeProductos= _contexto.Productos
                 .Include("Categoria")
                 .Include("Estructura")
+                .Include("Vendedor")
+                .Include("Etiqueta")
                 .ToList();
 
             return ListadeProductos;
@@ -55,6 +57,10 @@ namespace Looking4Home.BL
                 productoExistente.Metros = producto.Metros;
                 productoExistente.Precio = producto.Precio;
                 productoExistente.Estado = producto.Estado;
+                productoExistente.Bano = producto.Bano;
+                productoExistente.EtiquetaId = producto.EtiquetaId;
+                productoExistente.VendedorId = producto.VendedorId;
+               
                 if (producto.UrlImagen != null)
                 {
                     productoExistente.UrlImagen = producto.UrlImagen;
@@ -75,6 +81,8 @@ namespace Looking4Home.BL
             var producto = _contexto.Productos
                 .Include("Categoria")
                 .Include("Estructura")
+                .Include("Vendedor")
+                .Include("Etiqueta")
                 .FirstOrDefault(p => p.Id == id);
 
             return producto;
@@ -92,6 +100,9 @@ namespace Looking4Home.BL
         {
             ListadeProductos = _contexto.Productos
                 .Include("Categoria")
+                .Include("Estructura")
+                .Include("Vendedor")
+                .Include("Etiqueta")
                 .Where(r => r.Activo == true)
                 .OrderBy(r => r.Descripcion)
                 .ToList();

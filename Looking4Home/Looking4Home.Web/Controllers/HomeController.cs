@@ -11,15 +11,20 @@ namespace Looking4Home.Web.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        
         public ActionResult Index()
         {
-            var productosBL = new ProductosBL();
+            var productosBL = new ProductosBL();    
             var listadeProductos = productosBL.ObtenerProductosActivos();
 
-            ViewBag.adminWebsiteUrl = 
+            var vendedoresBL = new VendedoresBL();
+            var listaVendedores = vendedoresBL.ObtenerVendedoresActivos();
+
+            ViewBag.adminWebsiteUrl =
                 ConfigurationManager.AppSettings["adminWebsiteUrl"];
 
             return View(listadeProductos);
         }
+
     }
 }

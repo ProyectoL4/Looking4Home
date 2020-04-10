@@ -14,8 +14,25 @@
     <div class="form-horizontal">
         <h4>Producto</h4>
         <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Vendedor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("VendedorId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.VendedorId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Etiqueta, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("EtiquetaId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EtiquetaId, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -58,6 +75,14 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Bano, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Bano, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Bano, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Habitaciones, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Habitaciones, new { htmlAttributes = new { @class = "form-control" } })
@@ -88,7 +113,7 @@
                 <input type="file" name="imagen" id="imagen" />
             </div>
             <div class="col-md-10">
-                <img src="@Model.UrlImagen" alt="@Model.Descripcion" style="width:200px; height:auto;" />
+                <img src="@Model.UrlImagen" alt="@Model.Descripcion" style="width:200px; height:auto; padding-top:10px" />
             </div>
         </div>
 

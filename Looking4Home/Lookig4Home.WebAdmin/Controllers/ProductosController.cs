@@ -12,12 +12,16 @@ namespace Lookig4Home.WebAdmin.Controllers
         ProductosBL _productosBL;
         CategoriasBL _categoriasBL;
         EstructurasBL _estructurasBL;
+        VendedoresBL _vendedoresBL;
+        EtiquetaBL _etiquetaBL;
 
         public ProductosController()
         {
             _productosBL = new ProductosBL();
             _categoriasBL = new CategoriasBL();
             _estructurasBL = new EstructurasBL();
+            _vendedoresBL = new VendedoresBL();
+            _etiquetaBL = new EtiquetaBL();
         }
 
         // GET: Productos
@@ -34,12 +38,20 @@ namespace Lookig4Home.WebAdmin.Controllers
             var nuevoProducto = new Producto();
             var categorias = _categoriasBL.ObtenerCategorias();
             var estructuras = _estructurasBL.ObtenerEstructuras();
+            var vendedores = _vendedoresBL.ObtenerVendedores();
+            var etiquetas = _etiquetaBL.ObtenerEtiquetas();
 
-            ViewBag.ListaEstructuras = 
+            ViewBag.EstructuraId = 
                 new SelectList(estructuras, "Id", "Descripcion");
 
-            ViewBag.ListaCategorias = 
+            ViewBag.CategoriaId = 
                 new SelectList(categorias, "Id", "Descripcion");
+
+            ViewBag.VendedorId =
+                 new SelectList(vendedores, "Id", "Nombre");
+
+            ViewBag.EtiquetaId =
+                new SelectList(etiquetas, "Id", "Descripcion");
 
             return View(nuevoProducto);
         }
@@ -58,7 +70,7 @@ namespace Lookig4Home.WebAdmin.Controllers
              
                     if (producto.CategoriaId == 0)
                     {
-                        ModelState.AddModelError("CategoriaID", "Seleccione una Categoria");
+                        ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
                         return View(producto);
                     }
 
@@ -68,7 +80,19 @@ namespace Lookig4Home.WebAdmin.Controllers
                         return View(producto);
                     }
 
-                    if (imagen != null)
+                if (producto.EtiquetaId == 0)
+                {
+                    ModelState.AddModelError("EtiquetaId", "Seleccione una Etiqueta");
+                    return View(producto);
+                }
+
+                if (producto.VendedorId == 0)
+                {
+                    ModelState.AddModelError("VendedorId", "Seleccione un Vendedor");
+                    return View(producto);
+                }
+
+                if (imagen != null)
                     {
                         producto.UrlImagen = GuardarImagen(imagen);
                     }
@@ -88,10 +112,17 @@ namespace Lookig4Home.WebAdmin.Controllers
             var producto = _productosBL.ObtenerProducto(id);
             var categorias = _categoriasBL.ObtenerCategorias();
             var estructuras = _estructurasBL.ObtenerEstructuras();
+            var vendedores = _vendedoresBL.ObtenerVendedores();
+            var etiquetas = _etiquetaBL.ObtenerEtiquetas();
 
-            ViewBag.EstructuraId = new SelectList(estructuras, "Id", "Descripcion");
+
+            ViewBag.EstructuraId = new SelectList(estructuras, "Id", "Descripcion", producto.EstructuraId);
 
             ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion", producto.CategoriaId);
+
+            ViewBag.VendedorId = new SelectList(vendedores, "Id", "Nombre", producto.VendedorId);
+
+            ViewBag.EtiquetaId = new SelectList(etiquetas, "Id", "Descripcion", producto.EtiquetaId);
 
             return View(producto);
         }
@@ -104,13 +135,25 @@ namespace Lookig4Home.WebAdmin.Controllers
 
                 if (producto.CategoriaId == 0)
                 {
-                    ModelState.AddModelError("CategoriaID", "Seleccione una Categoria");
+                    ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
                     return View(producto);
                 }
 
                 if (producto.EstructuraId == 0)
                 {
                     ModelState.AddModelError("EstructuraId", "Seleccione una Estructura");
+                    return View(producto);
+                }
+
+                if (producto.EtiquetaId == 0)
+                {
+                    ModelState.AddModelError("EtiquetaId", "Seleccione una Etiqueta");
+                    return View(producto);
+                }
+
+                if (producto.VendedorId == 0)
+                {
+                    ModelState.AddModelError("VendedorId", "Seleccione un Vendedor");
                     return View(producto);
                 }
 

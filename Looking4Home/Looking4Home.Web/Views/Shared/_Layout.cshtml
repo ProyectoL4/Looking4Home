@@ -1,88 +1,373 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
-    <title>L. 4 Home</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Looking | 4 HOME</title>
     <meta charset="UTF-8">
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
-    <link rel="stylesheet" href="~/fonts/beyond_the_mountains-webfont.css" type="text/css" />
+    <meta name="description" content="Real estate HTML Template">
+    <meta name="keywords" content="real estate, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link href="~/assets/img/favicon.ico" rel="shortcut icon" />
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900%7cRoboto:400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+
     <!-- Stylesheets -->
-    <link href="~/plugin-frameworks/bootstrap.min.css" rel="stylesheet">
-    <link href="~/plugin-frameworks/swiper.css" rel="stylesheet">
-    <link href="~/fonts/ionicons.css" rel="stylesheet">
-    <link href="~/common/styles.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/assets/css/slicknav.min.css" />
+
+    <!-- Main Stylesheets -->
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+    <link rel="stylesheet" href="~/assets/css/style2.css" />
+    <link rel="stylesheet" href="~/assets/css/owl.carousel.min.css" type="text/css">
+
+
+
 </head>
 <body>
-    <header>
-        <div class="container">
-            <a class="logo" href="#"><img src="~/images/LOGO LISTO.png" alt="Logo"></a>
-            <div class="right-area">
-                <h6><a class="plr-20 color-white btn-fill-primary" href="#">Comunicarse a: (504) 9861 6515</a></h6>
-            </div><!-- right-area -->
-            <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
-            <ul class="main-menu font-mountainsre" id="main-menu">
-<!--            <li><a href="index.html">HOME</a></li>
-                <li><a href="02_about_us.html">ABOUT US</a></li>
-                <li><a href="03_menu.html">SERVICES</a></li>
-                <li><a href="04_blog.html">NEWS</a></li>
-                <li><a href="05_contact.html">CONTACT</a></li> -->
+
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header-section">
+        <a href="index.html" class="site-logo">
+            <img style="width: 250px" src="~/assets/img/logo.png" alt="">
+        </a>
+        <nav class="header-nav">
+            <ul class="main-menu">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="about-us.html">Acerca de Nosotros</a></li>
+                <!--    <li><a href="#">Comprar</a></li>-->
+
+                <li>
+                    <a href="#">Servicios</a>
+                    <ul class="sub-menu">
+                        <li><a href="venta.html">Venta</a></li>
+                        <li><a href="vista-servicios.html">Compra</a></li>
+                        <li><a href="vista-servicios.html">Renta</a></li>
+                    </ul>
+                </li>
+                <!--<li><a href="news.html">Nuevo</a></li>-->
+                <li><a href="contact.html">Contactenos</a></li>
             </ul>
-            <div class="clearfix"></div>
-        </div><!-- container -->
+            <div class="header-right">
+                <div class="user-panel">
+                    <a href="login.html" class="login">Iniciar Sesíon</a>
+                    <a href="login.html" class="register">Registrate</a>
+                </div>
+            </div>
+        </nav>
     </header>
+    <!-- Header Section end -->
 
-    <section class="bg-5 h-500x main-slider pos-relative">
-        <div class="triangle-up pos-bottom"></div>
-        <div class="container h-100">
-            <div class="dplay-tbl">
-                <div class="dplay-tbl-cell center-text color-white pt-90">
-                    <h5><b>El mejor sitio de Compra y Venta</b></h5>
-                    <h2 class="mt-30 mb-15">Todo a tu Gusto</h2>
-                </div><!-- dplay-tbl-cell -->
-            </div><!-- dplay-tbl -->
-        </div><!-- container -->
+
+    <!--MUESTRA DE PARTE INICIAL/IMAGENES QUE CAMBIAN-->
+    <!-- Hero Section Begin  IMPORTANTE -->
+    <section class="hero-section">
+        <div class="hero-items owl-carousel">
+
+            <div class="single-hero-item set-bg" data-setbg="/assets/img/hero/hero-1.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <div class="hero-text">
+                                <p class="room-location"><i class="fa fa-map-marker"></i> 9721 Glen Creek Ave. Ballston Spa, NY</p>
+                                <h2>Villa 9721 Glen Creek</h2>
+                                <div class="room-price">
+                                    <span>Precio desde:</span>
+                                    <p>L. 3.000.000</p>
+                                </div>
+                                <ul class="room-features">
+                                    <li>
+                                        <i class="fa fa-arrows"></i>
+                                        <p>5201 sqft</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-bed"></i>
+                                        <p>8 Cuartos</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-bath"></i>
+                                        <p>7 Baños</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-car"></i>
+                                        <p>1 Garaje</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-hero-item set-bg" data-setbg="/assets/img/hero/hero-2.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <div class="hero-text">
+                                <p class="room-location"><i class="fa fa-map-marker"></i> 9721 Glen Creek Ave. Ballston Spa, NY</p>
+                                <h2>Villa 9721 Glen Creek</h2>
+                                <div class="room-price">
+                                    <span>Precio desde:</span>
+                                    <p>L. 3.000.000</p>
+                                </div>
+                                <ul class="room-features">
+                                    <li>
+                                        <i class="fa fa-arrows"></i>
+                                        <p>5201 sqft</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-bed"></i>
+                                        <p>8 Cuartos</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-bath"></i>
+                                        <p>7 Baños</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-car"></i>
+                                        <p>1 Garaje</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-hero-item set-bg" data-setbg="/assets/img/hero/hero-3.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <div class="hero-text">
+                                <p class="room-location"><i class="fa fa-map-marker"></i> 9721 Glen Creek Ave. Ballston Spa, NY</p>
+                                <h2>Villa 9721 Glen Creek</h2>
+                                <div class="room-price">
+                                    <span>Precio desde:</span>
+                                    <p>L 3.000.000</p>
+                                </div>
+                                <ul class="room-features">
+                                    <li>
+                                        <i class="fa fa-arrows"></i>
+                                        <p>5201 sqft</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-bed"></i>
+                                        <p>8 Cuarto</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-bath"></i>
+                                        <p>7 Baño</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-car"></i>
+                                        <p>1 Garaje</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--   PARTE DE TRE IMAGENES INFERIORES   -->
+        <div class="thumbnail-pic">
+            <div class="thumbs owl-carousel">
+                <div class="item">
+                    <img style="height: 94px;" src="/assets/img/hero/hero-1.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img style="height: 94px;" src="/assets/img/hero/hero-2.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img style="height: 94px;" src="/assets/img/hero/hero-3.jpg" alt="">
+                </div>
+            </div>
+        </div>
     </section>
+    <!-- Hero Section end -->
 
+    <!--BUSCADOR-->
+    <section class="hero-section set-bg">
+        <div class="search-form">
+            <div class="container">
+                <!--BUSCADOR-->
+                <div class="hero-warp">
+                    <form class="main-search-form">
+                        <div class="search-type">
+                            <div class="st-item">
+                                <input type="radio" name="st" id="buy" checked>
+                                <label for="buy">Compra</label>
+                            </div>
+                            <div class="st-item">
+                                <input type="radio" name="st" id="rent">
+                                <label for="rent">Renta</label>
+                            </div>
+                            <!--<div class="st-item">
+                                    <input type="radio" name="st" id="sell">
+                                    <label for="sell">Venta</label>
+                                </div>-->
+                            <div class="st-item">
+                                <input type="radio" name="st" id="property">
+                                <label for="property">Precio</label>
+                            </div>
+                            <div class="st-item">
+                                <input type="radio" name="st" id="agents">
+                                <label for="agents">Agentes</label>
+                            </div>
+                        </div>
+                        <div class="search-input">
+                            <input type="text" placeholder="Busca por estado o codigo postal">
+                            <button class="site-btn">Buscar</button>
+                        </div>
+                        <a href="busca-resultado.html"><p>Busca entre miles de Opciones, todo esta al alcanse de tus manos</p></a>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End  FIN IMPORTANTE -->
+
+
+    <!-- How It Works Section Begin -->
+    <section class="howit-works spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>Encuentra la Casa de tus Sueños</span>
+                        <h2>Como Trabajamos</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4" style="flex: 0 0 33.333333%;">
+                    <div class="single-howit-works">
+                        <img src="~/assets/img/howit-works/howit-works-1.png" alt="">
+                        <h4>Busca un Apartamento</h4>
+                        <p>Algo se nos ocurrira.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4" style="flex: 0 0 33.333333%;">
+                    <div class="single-howit-works">
+                        <img src="~/assets/img/howit-works/howit-works-2.png" alt="">
+                        <h4>Encuentra tu Cuarto Ideal</h4>
+                        <p>En algun lugar estara</p>
+                    </div>
+                </div>
+                <div class="col-lg-4" style="flex: 0 0 33.333333%;">
+                    <div class="single-howit-works">
+                        <img src="~/assets/img/howit-works/howit-works-3.png" alt="">
+                        <h4>Habla con nuestros Agentes</h4>
+                        <p>Cuando tengamos algunos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How It Works Section End -->
+
+    
     @RenderBody()
 
-    <footer class="pb-50  pt-70 pos-relative">
-        <div class="pos-top triangle-bottom"></div>
-        <div class="container-fluid">
-            <a href="index.html"><img style="width: 40%; height:60%" src="~/images/LOGO LISTO.png" alt="Logo"></a>
-            <div class="pt-30">
-                <p class="underline-secondary"><b>Dirección:</b></p>
-                <p>San Pedro Sula, Circunvalacion, 7ma y 4ta ave </p>
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section set-bg" data-setbg="/assets/img/footer-bg.jpg">
+        <div class="container">
+            <div class="footer-text">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="footer-logo">
+                            <div class="logo">
+                                <a href="#"><img src="~/assets/img/logo2.png" alt="" style="width: 60%"></a>
+                            </div>
+                            <p>Suscribanse y Comencemos</p>
+                            <form action="#" class="newslatter-form">
+                                <input type="text" placeholder="Ingresa tu correo...">
+                                <button type="submit"><i class="fa fa-location-arrow"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1">
+                        <div class="footer-widget">
+                            <h4>Ciudades</h4>
+                            <ul>
+                                <li><i class="fa fa-caret-right"></i> <a href="#">Florida</a></li>
+                                <li><i class="fa fa-caret-right"></i> <a href="#">New York</a></li>
+                                <li><i class="fa fa-caret-right"></i> <a href="#">Washington</a></li>
+                                <li><i class="fa fa-caret-right"></i> <a href="#">Los Angeles</a></li>
+                            </ul>
+                            <ul>
+                                <li><i class="fa fa-caret-right"></i> <a href="#">St Louis</a></li>
+                                <li><i class="fa fa-caret-right"></i> <a href="#">Jacksonville</a></li>
+                                <li><i class="fa fa-caret-right"></i> <a href="#">San Jose</a></li>
+                                <li><i class="fa fa-caret-right"></i> <a href="#">San Diego</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="footer-widget">
+                            <h4>Social</h4>
+                            <ul class="social">
+                                <li><i class="fa fa-facebook"></i> <a href="#">Facebook</a></li>
+                                <li><i class="fa fa-instagram"></i> <a href="#">Instagram</a></li>
+                                <li><i class="fa fa-twitter"></i> <a href="#">Twitter</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="footer-widget">
+                            <h4>Contactenos a</h4>
+                            <ul class="contact-option">
+                                <li><i class="fa fa-map-marker"></i> 16 Creek Ave. Farming, NY</li>
+                                <li><i class="fa fa-phone"></i> (+88) 666 121 4321</li>
+                                <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
+                                <li><i class="fa fa-clock-o"></i> Mon - Sat, 08 AM - 06 PM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="pt-30">
-                <p class="underline-secondary mb-10"><b>Telefono:</b></p>
-                <a href="tel:+53 345 7953 32453 ">+53 345 7953 32453 </a>
+            <div class="copyright-text">
+                <p><p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p></p>
             </div>
-            <div class="pt-30">
-                <p class="underline-secondary mb-10"><b>Correo Electronico:</b></p>
-                <a href="mailto:Looking4Home@gmail.com"> Looking4Home@gmail.com</a>
-            </div>
-            <ul class="icon mt-30">
-                <li><a href="#"><i class="ion-social-pinterest"></i></a></li>
-                <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                <li><a href="#"><i class="ion-social-dribbble-outline"></i></a></li>
-                <li><a href="#"><i class="ion-social-linkedin"></i></a></li>
-                <li><a href="#"><i class="ion-social-vimeo"></i></a></li>
-            </ul>
-            <p class="color-light font-9 mt-50 mt-sm-30">
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;
-                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-        </div><!-- container -->
+        </div>
     </footer>
-    <!-- SCIPTS -->
-    <script src="~/plugin-frameworks/jquery-3.2.1.min.js"></script>
-    <script src="~/plugin-frameworks/bootstrap.min.js"></script>
-    <script src="~/plugin-frameworks/swiper.js"></script>
-    <script src="~/common/scripts.js"></script>
+    <!-- Footer Section End -->
+
+
+
+    <!--====== Javascripts & Jquery ======-->
+    <script src="~/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/jquery.slicknav.min.js"></script>
+    <script src="~/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/assets/js/main.js"></script>
+
+
+    <!-- Js Plugins -->
+    <script src="~/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/js/jquery.nice-select.min.js"></script>
+
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/main2.js"></script>
+
+    <script src="~/assets/js/jquery-ui.min.js"></script>
 </body>
-</html> 
+</html>
