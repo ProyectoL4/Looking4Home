@@ -7,10 +7,10 @@ using System.Web.Mvc;
 
 namespace Lookig4Home.WebAdmin.Controllers
 {
+    [Authorize]
     public class CategoriasController : Controller
     {
         CategoriasBL _categoriasBL;
-
         public CategoriasController()
         {
             _categoriasBL = new CategoriasBL();

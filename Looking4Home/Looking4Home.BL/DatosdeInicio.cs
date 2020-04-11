@@ -132,7 +132,7 @@ namespace Looking4Home.BL
 
             var Vendedor1 = new Vendedor();
             Vendedor1.Nombre = "Euro Casas";
-            Vendedor1.Contraseña = "euro123";
+            Vendedor1.Contrasena = "euro123";
             Vendedor1.Telefono = "98563241";
             Vendedor1.Celular = "93652487";
             Vendedor1.Correo = "EuroCasas@gmail.com";
@@ -141,7 +141,7 @@ namespace Looking4Home.BL
 
             var Vendedor2 = new Vendedor();
             Vendedor2.Nombre = "Mi Roca Fuerte";
-            Vendedor2.Contraseña = "roca123";
+            Vendedor2.Contrasena = "roca123";
             Vendedor2.Telefono = "98563241";
             Vendedor2.Celular = "93652487";
             Vendedor2.Correo = "rocafuerte@yahoo.com";
@@ -150,7 +150,7 @@ namespace Looking4Home.BL
 
             var Vendedor3 = new Vendedor();
             Vendedor3.Nombre = "Alpine";
-            Vendedor3.Contraseña = "alpine123";
+            Vendedor3.Contrasena = "alpine123";
             Vendedor3.Telefono = "98563241";
             Vendedor3.Celular = "93652487";
             Vendedor3.Correo = "alpine@outlook.com";
@@ -159,7 +159,7 @@ namespace Looking4Home.BL
 
             var Vendedor4 = new Vendedor();
             Vendedor4.Nombre = "Fenix";
-            Vendedor4.Contraseña = "fenix123";
+            Vendedor4.Contrasena = "fenix123";
             Vendedor4.Telefono = "98563241";
             Vendedor4.Celular = "93652487";
             Vendedor4.Correo = "fenix@aol.com";
@@ -167,6 +167,34 @@ namespace Looking4Home.BL
             contexto.Vendedores.Add(Vendedor4);
 
             #endregion
+
+            #region Usuarios
+            var usuario1 = new Usuario();
+            usuario1.Nombre = "German Mendoza";
+            usuario1.Correo = "german.mendoza1998@gmail.com";
+            usuario1.Contrasena = Encriptar.CodificarConstrasena("12345");
+            contexto.Usuarios.Add(usuario1);
+
+            var usuario2 = new Usuario();
+            usuario2.Nombre = "Kevin Rivera";
+            usuario2.Correo = "kevrivera@gmail.com";
+            usuario2.Contrasena = Encriptar.CodificarConstrasena("12345");
+            contexto.Usuarios.Add(usuario2);
+
+            var usuario3 = new Usuario();
+            usuario3.Nombre = "Juan Alvarado";
+            usuario3.Correo = "juanalva@gmail.com";
+            usuario3.Contrasena = Encriptar.CodificarConstrasena("12345");
+            contexto.Usuarios.Add(usuario3);
+
+            var usuario4 = new Usuario();
+            usuario4.Nombre = "Andres Baide";
+            usuario4.Correo = "andreswbaide@gmail.com";
+            usuario4.Contrasena = Encriptar.CodificarConstrasena("12345");
+            contexto.Usuarios.Add(usuario4);
+
+            #endregion
+
 
 
             #region PRODUCTOS ---ES DE QUIEN LA PUEDA ARREGLAR

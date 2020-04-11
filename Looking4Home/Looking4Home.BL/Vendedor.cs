@@ -22,7 +22,7 @@ namespace Looking4Home.BL
     [Required(ErrorMessage = "Este campo es requerido.")]
     [StringLength(15, ErrorMessage = "Longitud entre 6 y 15 caracteres.", MinimumLength = 6)]
     [DataType(DataType.Password)]
-    public string Contraseña { get; set; }
+    public string Contrasena { get; set; }
     [Required(ErrorMessage = "Ingrese un Telefono")]
     public string Telefono { get; set; }
     [Required(ErrorMessage = "Ingrese un Celular")]
