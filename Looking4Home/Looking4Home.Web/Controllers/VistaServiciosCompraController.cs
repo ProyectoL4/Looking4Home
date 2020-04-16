@@ -8,26 +8,19 @@ using System.Web.Mvc;
 
 namespace Looking4Home.Web.Controllers
 {
-    public class HomeController : Controller
+    public class VistaServiciosCompraController : Controller
     {
-        // GET: Home
-        
+        // GET: VistaServiciosCompra
         public ActionResult Index()
         {
             var productosBL = new ProductosBL();
-            var listadeProductos = productosBL.ObtenerProductosActivos();
-
-            var vendedoresBL = new VendedoresBL();
-            var listaVendedores = vendedoresBL.ObtenerVendedoresActivos();
+            var listadeProductos = productosBL.ObtenerProductosActivos();           
 
             ViewBag.adminWebsiteUrl =
                 ConfigurationManager.AppSettings["adminWebsiteUrl"];
 
-            ViewBag.listaVendedores = listaVendedores;
-
 
             return View(listadeProductos);
         }
-
     }
 }

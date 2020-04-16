@@ -116,7 +116,7 @@ $(document).ready(function() {
 		
 		// Set the background image of the new active container
 		$("#headerimg" + activeContainer).css({
-			"background-image" : "url(assets/img/" + photoObject.image + ")",
+			"background-image" : "url(/assets/img/" + photoObject.image + ")",
 			"display" : "block",
 			"z-index" : currentZindex
 		});

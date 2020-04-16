@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Lookig4Home.WebAdmin.Controllers
 {
+    [Authorize]
     public class VendedoresController : Controller
     {
         VendedoresBL _vendedoresBL;
@@ -34,7 +35,7 @@ namespace Lookig4Home.WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (vendedor.Contraseña == "")
+                if (vendedor.Contrasena == "")
                 {
                     ModelState.AddModelError("Contraseña", "Seleccione una Categoria");
                     return View(vendedor);
@@ -65,7 +66,7 @@ namespace Lookig4Home.WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (vendedor.Contraseña == "")
+                if (vendedor.Contrasena == "")
                 {
                     ModelState.AddModelError("Contraseña", "Seleccione una Contraseña");
                     return View(vendedor);

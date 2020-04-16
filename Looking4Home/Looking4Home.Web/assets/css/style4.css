@@ -13,3 +13,10 @@
   background-size: cover;
   transition: all .50s ease-in-out;
 }
+
+.form-control imput{
+    -webkit-appearance: menulist-button;
+    background-color: black !important;
+    background-image: none !important;
+    color: -internal-light-dark-color(black, white) !important;
+}

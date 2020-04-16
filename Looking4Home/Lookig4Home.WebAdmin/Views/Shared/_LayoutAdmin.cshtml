@@ -1,6 +1,48 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <script>
+
+        var timeoutID;
+
+        function setup() {
+          this.addEventListener("mousemove", resetTimer, false);
+          this.addEventListener("mousedown", resetTimer, false);
+          this.addEventListener("keypress", resetTimer, false);
+          this.addEventListener("DOMMouseScroll", resetTimer, false);
+          this.addEventListener("mousewheel", resetTimer, false);
+          this.addEventListener("touchmove", resetTimer, false);
+          this.addEventListener("MSPointerMove", resetTimer, false);
+
+          startTimer();
+        }
+        setup();
+
+        function startTimer() {
+          // wait 2 seconds before calling goInactive
+            timeoutID = window.setTimeout(goInactive, 120000); //60000 segundos equivalentes en 1 minuto
+        }
+
+        function resetTimer(e) {
+          window.clearTimeout(timeoutID);
+
+          goActive();
+        }
+
+        function goInactive() {
+          // do something
+          // alert("inactivo");
+            window.location.href = "/login";
+        }
+
+        function goActive() {
+          // do something
+
+          startTimer();
+}
+    </script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap-clearmin.min.css">
@@ -33,7 +75,7 @@
     <div class="hiddencon">
         <div class="hiddencon-label">&#9679;</div>
         <!--AUDIO-->
-
+        <!--
         <p style="line-height: 0.8;">
             <audio width="12" height="150" controls loop>
                 <source src="~/assets/multimedia/musica 2.ogg" type="audio/ogg">
@@ -41,6 +83,11 @@
                 Your browser does not support the audio element.
             </audio>
         </p>
+        -->
+        <p>
+            <iframe width="320" height="220" src="https://www.youtube.com/embed/watch?v=K4DyBUG242c&list=RDK4DyBUG242c&start_radio=1&t=1&t=19"  autoplay controls ></iframe>
+        </p>
+        
         <!--</video>
         <p style="line-height: 0.8;>
             <video width="220" height="220"  autoplay loop controls >
@@ -109,7 +156,7 @@
                     <div class="container5">
                         <div class="div-img">
                             <img class="img" src="~/assets/img/lobo.jpg" alt="Foto10" style="z-index: 1">
-                            <!--<div class="text" style="color: white;"> German se la come!</div>-->
+                           
                             <label style="font-size: 8px; color: black"><strong>German Mendoza</strong></label>
 
                         </div>
@@ -149,5 +196,8 @@
     <script src="~/assets/js/clearmin.min.js"></script>
     <script src="~/assets/js/demo/home.js"></script>
     <script src="~/assets/js/script.js"></script>
+
+
+
 </body>
 </html>

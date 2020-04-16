@@ -1,0 +1,114 @@
+﻿@model List<Looking4Home.BL.Producto>
+
+@{
+    ViewBag.Title = "Vista Compra";
+}
+
+<!-- Hero Section end -->
+<section class="hero-section set-bg" data-setbg="~/assets/img/hero/hero-2.jpg" style="padding-top: 290px; padding-bottom: 34px">
+    <div class="search-form">
+        <div class="container">
+            <!--BUSCADOR-->
+            <div class="hero-warp">
+                <form class="main-search-form">
+                    <div class="search-type">
+                        <div class="st-item">
+                            <input type="radio" name="st" id="buy" checked>
+                            <label for="buy">Compra</label>
+                        </div>
+                        <div class="st-item">
+                            <input type="radio" name="st" id="rent">
+                            <label for="rent">Renta</label>
+                        </div>
+                        <!--<div class="st-item">
+                                <input type="radio" name="st" id="sell">
+                                <label for="sell">Venta</label>
+                            </div>-->
+                        <div class="st-item">
+                            <input type="radio" name="st" id="property">
+                            <label for="property">Precio</label>
+                        </div>
+                        <div class="st-item">
+                            <input type="radio" name="st" id="agents">
+                            <label for="agents">Agentes</label>
+                        </div>
+                    </div>
+                    <div class="search-input">
+                        <input type="text" placeholder="Busca por estado o codigo postal">
+                        <button class="site-btn">Buscar</button>
+                    </div>
+                    <p>Busca entre miles de Opciones, todo esta al alcanse de tus manos</p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Hero Section End  FIN IMPORTANTE -->
+
+<hr>
+
+<h2 style="padding-left: 106px;">*NOMBRE DE ELECCION DE SERVICIO*</h2>
+
+<!-- Blog Section end -->
+<section class="blog-section spad">
+    <div class="container">
+
+
+        <div class="row">
+
+        @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Venta" && r.Categoria.Descripcion == "Casa")
+                                .Take(8)
+                                .OrderBy(r => Guid.NewGuid())
+                                )
+        {
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog-item">
+                            <img src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="">
+
+                            <div class="blog-text">
+                                <div class="blog-date">@producto.Localizacion</div>
+                                <h4>L. @producto.Precio</h4>
+                                <p>@producto.Descripcion</p>
+                                <a href="#" class="readmore-btn">Leer Mas</a>
+                            </div>
+                        </div>
+                    </div>
+        }
+        </div>
+
+        <div class="blog-item feature-blog">
+            <div class="row">
+            @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Venta" && r.Categoria.Descripcion == "Departamento")
+            .Take(1)
+            .OrderBy(r => Guid.NewGuid())
+            )
+            {
+                <div class="col-lg-6">
+                    <img src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <div class="blog-text">
+                        <div class="blog-date">L. @producto.Precio </div>
+                        <h4>@producto.Localizacion</h4>
+                        <p>@producto.Descripcion</p>
+                        <a href="#" class="readmore-btn">Leer Mas</a>
+                    </div>
+                </div>
+            }
+            </div>
+        </div>
+
+        
+        <div class="site-pagination">
+            <a href="#">01.</a>
+            <a href="#" class="active">02.</a>
+            <a href="#">03.</a>
+            <a href="#">04.</a>
+        </div>
+       
+    </div>
+</section>
+<!-- Blog Section end -->
+

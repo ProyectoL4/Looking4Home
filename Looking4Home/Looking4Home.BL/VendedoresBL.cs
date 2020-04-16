@@ -19,6 +19,8 @@ namespace Looking4Home.BL
 
         public List<Vendedor> ObtenerVendedores()
         {
+           
+
             ListadeVendedores = _contexto.Vendedores.ToList();
             return ListadeVendedores;
         }
@@ -35,7 +37,7 @@ namespace Looking4Home.BL
             {
                 var vendedorExistente = _contexto.Vendedores.Find(vendedor.Id);
                 vendedorExistente.Nombre = vendedor.Nombre;
-                vendedorExistente.Contraseña = vendedor.Contraseña;
+                vendedorExistente.Contrasena = vendedor.Contrasena;
                 vendedorExistente.Telefono = vendedor.Telefono;
                 vendedorExistente.Correo = vendedor.Correo;
                 vendedorExistente.Celular = vendedor.Celular;

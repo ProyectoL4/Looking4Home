@@ -13,3 +13,11 @@
   background-size: cover;
   transition: all .50s ease-in-out;
 }
+
+input:-internal-autofill-selected {
+    -webkit-box-shadow: 0 0 0px 10px white inset!important;
+    -webkit-appearance: menulist-button;
+    background-color: transparent !important;
+    background-image: none !important;
+    color: -internal-light-dark-color(white, white) !important;
+}
