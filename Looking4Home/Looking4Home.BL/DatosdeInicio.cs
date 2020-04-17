@@ -131,13 +131,13 @@ namespace Looking4Home.BL
             #region Vendedor
 
             var Vendedor1 = new Vendedor();
-            Vendedor1.Nombre = "Euro Casas";
+            Vendedor1.Nombre = cliente1.Nombre;
             Vendedor1.Descripcion = "Experto en Ventas y financiamiento";
-            Vendedor1.Contrasena = "euro123";
-            Vendedor1.Telefono = "98563241";
-            Vendedor1.Celular = "93652487";
-            Vendedor1.Correo = "EuroCasas@gmail.com";
-            Vendedor1.Activo = true;
+            Vendedor1.Contrasena = cliente1.Contraseña;
+            Vendedor1.Telefono = cliente1.Telefono;
+            Vendedor1.Celular = cliente1.Celular;
+            Vendedor1.Correo = cliente1.Correo;
+            Vendedor1.Activo = cliente1.Activo;
             contexto.Vendedores.Add(Vendedor1);
 
             var Vendedor2 = new Vendedor();

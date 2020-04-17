@@ -25,7 +25,7 @@ namespace Looking4Home.BL
             return ListadeVendedores;
         }
 
-
+       
 
         public void GuardarVendedor(Vendedor vendedor)
         {
