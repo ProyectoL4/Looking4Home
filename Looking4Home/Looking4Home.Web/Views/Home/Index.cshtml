@@ -262,48 +262,50 @@
 
                 <div class="col-lg-4">
                     <div class="feature-item">
-                        <div class="fi-pic set-bg" data-setbg="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)">
-                            <div class="pic-tag">
-                                <div class="f-text">Oferta</div>
-                                <div class="s-text">Se vende</div>
-                            </div>
-                            <div class="feature-author">
-                                <div class="fa-pic">
-                                    <img src="@(ViewBag.adminWebsiteUrl + producto.Vendedor.UrlImagen)" alt="">
+                        <a href="/PropiedadIndividual"><!--Link al que se enviara-->
+                            <div class="fi-pic set-bg" data-setbg="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)">
+                                <div class="pic-tag">
+                                    <div class="f-text">Oferta</div>
+                                    <div class="s-text">Se vende</div>
                                 </div>
-                                <div class="fa-text">
-                                    <span>@producto.Vendedor.Nombre</span>
+                                <div class="feature-author">
+                                    <div class="fa-pic">
+                                        <img src="@(ViewBag.adminWebsiteUrl + producto.Vendedor.UrlImagen)" alt="">
+                                    </div>
+                                    <div class="fa-text">
+                                        <span>@producto.Vendedor.Nombre</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="fi-text">
-                            <div class="inside-text">
-                                <h4>@producto.Descripcion</h4>
-                                <ul>
-                                    <li><i class="fa fa-map-marker"></i>@producto.Localizacion</li>
-                                    <li><i class="fa fa-tag"></i>@producto.Etiqueta.Descripcion</li>
+                            <div class="fi-text">
+                                <div class="inside-text">
+                                    <h4>@producto.Descripcion</h4>
+                                    <ul>
+                                        <li><i class="fa fa-map-marker"></i>@producto.Localizacion</li>
+                                        <li><i class="fa fa-tag"></i>@producto.Etiqueta.Descripcion</li>
+                                    </ul>
+                                    <h5 class="price">L. @producto.Precio<span>/Mensual</span></h5>
+                                </div>
+                                <ul class="room-features">
+                                    <li>
+                                        <i class="fa fa-arrows"></i>
+                                        <p>@producto.Metros</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-bed"></i>
+                                        <p>@producto.Habitaciones</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-bath"></i>
+                                        <p>@producto.Bano</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-car"></i>
+                                        <p>@producto.Parking</p>
+                                    </li>
                                 </ul>
-                                <h5 class="price">L. @producto.Precio<span>/Mensual</span></h5>
                             </div>
-                            <ul class="room-features">
-                                <li>
-                                    <i class="fa fa-arrows"></i>
-                                    <p>@producto.Metros</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-bed"></i>
-                                    <p>@producto.Habitaciones</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-bath"></i>
-                                    <p>@producto.Bano</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-car"></i>
-                                    <p>@producto.Parking</p>
-                                </li>
-                            </ul>
-                        </div>
+                        </a>
                     </div>
                 </div>
 

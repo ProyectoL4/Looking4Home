@@ -308,10 +308,14 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AcercaDeController.cs" />
+    <Compile Include="Controllers\ContactanosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CompraController.cs" />
+    <Compile Include="Controllers\PropiedadIndividualController.cs" />
     <Compile Include="Controllers\RentaController.cs" />
+    <Compile Include="Controllers\VenderController.cs" />
     <Compile Include="Controllers\VistaServiciosCompraController.cs" />
+    <Compile Include="Controllers\VistaServiciosRentaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -339,6 +343,10 @@
     <Content Include="Views\Compra\Index2.cshtml" />
     <Content Include="Views\AcercaDe\Index.cshtml" />
     <Content Include="Views\VistaServiciosCompra\Index.cshtml" />
+    <Content Include="Views\VistaServiciosRenta\Index.cshtml" />
+    <Content Include="Views\Vender\Index.cshtml" />
+    <Content Include="Views\Contactanos\Index.cshtml" />
+    <Content Include="Views\PropiedadIndividual\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

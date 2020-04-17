@@ -487,9 +487,10 @@ Intro section
 	display: inline-block;
 	font-size: 18px;
 	font-weight: 700;
-	color: #ff000a;
-	border-bottom: 1px solid #ff000a;
+	color: #2cbdb8;
+	border-bottom: 1px solid  #2cbdb8;
 	line-height: 1;
+    	padding-top: 6px;
 }
 
 .readmore-btn:hover {
@@ -747,17 +748,18 @@ Blog page
 
 .blog-item img {
 	min-width: 100%;
+    	height: 180px;
 }
 
 .blog-item .blog-date {
 	font-size: 16px;
 	font-weight: 700;
 	color: #6a6a6a;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 .blog-item h4 {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .blog-item .blog-text {
@@ -770,11 +772,11 @@ Blog page
 }
 
 .blog-item.feature-blog .blog-text {
-	padding-top: 60px;
+	padding-top: 25px;
 }
 
 .blog-item.feature-blog h4 {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 
 .site-pagination {
