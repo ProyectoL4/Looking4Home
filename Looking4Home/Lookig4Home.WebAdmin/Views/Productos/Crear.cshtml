@@ -72,8 +72,12 @@
                 <div id="ModalMapPreview" style="width:100%; height:350px;"></div>
                 <div class="clearfix"> &nbsp;</div>
 
-                <script>       
+                <script>
 
+                </script>
+
+
+                <script>                           
                               
                     $('#ModalMapPreview').locationpicker({
                         radius: 0,
@@ -83,10 +87,14 @@
                         },
                         enableAutocomplete: true,
                         inputBinding: {
-                            locationNameInput: $('LocalizacionId').click(function () {
+                            locationNameInput: $('#LocalizacionId').click(function () {
                                 var input = document.getElementById('LocalizacionId');
                                 var searchBox = new google.maps.places.SearchBox(input);
                                 map.control[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+                                map.addListener('ModalMapPreview', function () {
+                                    searchBox.setBounds(map.getBounds());
+                                })
                             })
                         }
                     })
