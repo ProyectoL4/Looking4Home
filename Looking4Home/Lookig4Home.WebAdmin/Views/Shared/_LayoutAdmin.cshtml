@@ -21,7 +21,7 @@
 
         function startTimer() {
           // wait 2 seconds before calling goInactive
-            timeoutID = window.setTimeout(goInactive, 120000); //60000 segundos equivalentes en 1 minuto
+            timeoutID = window.setTimeout(goInactive, 3600000); //60000 segundos equivalentes en 1 minuto
         }
 
         function resetTimer(e) {
@@ -51,7 +51,10 @@
     <link rel="stylesheet" type="text/css" href="~/assets/css/small-n-flat.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/custom.css">
-    <script src="https://kit.fontawesome.com/b2a02a7e75.js" crossorigin="anonymous"></script>
+    <!--Google Maps-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script src="https://kit.fontawesome.com/b2a02a7e75.js" crossorigin="anonymous"></script>
     <!--------PERFIL-------->
     <link rel="stylesheet" type="text/css" href="~/assets/css/style7.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/style5.css" />
@@ -162,7 +165,7 @@
                         </div>
                         <nav class="barra-perfil">
                             <ul>
-                                <hr>
+                                
                                 <li><a href="#">Perfil</a></li>
 
                                 <li><a href="/Login" class="btn-exit-system"><i class="fas fa-power-off"> Cerrar Sesión</i></a></li>

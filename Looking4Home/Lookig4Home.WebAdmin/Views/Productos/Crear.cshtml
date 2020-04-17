@@ -6,6 +6,10 @@
 
 <h2>Crear</h2>
 
+    <!--Plugin Maps-->
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyA5EQH1HKVgK9nHh-kUEDVKjt5bvVC59lA"></script>
+<script src="~/assets/js/locationpicker.jquery.js"></script>
+
 
 @using (Html.BeginForm("Crear", "Productos", FormMethod.Post, new { enctype = "multipart/form-data"} )) 
 {  
@@ -57,21 +61,47 @@
             </div>
         </div>
 
+
         <div class="form-group">
             @Html.LabelFor(model => model.Localizacion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Localizacion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Localizacion, new { htmlAttributes = new { @Class = "form-control", @id = "LocalizacionId", @placeholder = "Busca un lugar"} })
                 @Html.ValidationMessageFor(model => model.Localizacion, "", new { @class = "text-danger" })
+                <p></p>   
+                            
+                <div id="ModalMapPreview" style="width:100%; height:350px;"></div>
+                <div class="clearfix"> &nbsp;</div>
+
+                <script>       
+
+                              
+                    $('#ModalMapPreview').locationpicker({
+                        radius: 0,
+                        location: {
+                            latitude: 15.529231,
+                            longitude: -88.037419
+                        },
+                        enableAutocomplete: true,
+                        inputBinding: {
+                            locationNameInput: $('LocalizacionId').click(function () {
+                                var input = document.getElementById('LocalizacionId');
+                                var searchBox = new google.maps.places.SearchBox(input);
+                                map.control[google.maps.ControlPosition.TOP_LEFT].push(input);
+                            })
+                        }
+                    })
+                </script>
             </div>
         </div>
 
+                
         <div class="form-group">
             @Html.LabelFor(model => model.Parking,  htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Parking, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Parking, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>       
 
         <div class="form-group">
             @Html.LabelFor(model => model.Bano, "Baño", htmlAttributes: new { @class = "control-label col-md-2" })

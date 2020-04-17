@@ -93,6 +93,14 @@ namespace Lookig4Home.WebAdmin.Controllers
                     return View(producto);
                 }
 
+                if(producto.Localizacion == "")
+                {
+                    ModelState.AddModelError("LocalizacionId", "Seleccione una direccion");
+                    return View(producto);
+                }
+
+                
+
                 if (imagen != null)
                     {
                         producto.UrlImagen = GuardarImagen(imagen);
