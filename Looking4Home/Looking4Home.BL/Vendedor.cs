@@ -17,6 +17,10 @@ namespace Looking4Home.BL
     public int Id { get; set; }
     [Required(ErrorMessage = "Ingrese un Nombre")]
     public string Nombre { get; set; }
+    
+    [Required(ErrorMessage = "Ingrese una Descripcion")]
+    public string Descripcion { get; set; }
+    
 
     [Display(Name = "Contraseña")]
     [Required(ErrorMessage = "Este campo es requerido.")]

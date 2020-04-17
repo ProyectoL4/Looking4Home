@@ -132,6 +132,7 @@ namespace Looking4Home.BL
 
             var Vendedor1 = new Vendedor();
             Vendedor1.Nombre = "Euro Casas";
+            Vendedor1.Descripcion = "Experto en Ventas y financiamiento";
             Vendedor1.Contrasena = "euro123";
             Vendedor1.Telefono = "98563241";
             Vendedor1.Celular = "93652487";
@@ -141,6 +142,7 @@ namespace Looking4Home.BL
 
             var Vendedor2 = new Vendedor();
             Vendedor2.Nombre = "Mi Roca Fuerte";
+            Vendedor2.Descripcion = "Experto en Compra y Ventas";
             Vendedor2.Contrasena = "roca123";
             Vendedor2.Telefono = "98563241";
             Vendedor2.Celular = "93652487";
@@ -150,6 +152,7 @@ namespace Looking4Home.BL
 
             var Vendedor3 = new Vendedor();
             Vendedor3.Nombre = "Alpine";
+            Vendedor3.Descripcion = "Veterano en lo que a Venta de casas respecta, con mas de 20 años en servicio";
             Vendedor3.Contrasena = "alpine123";
             Vendedor3.Telefono = "98563241";
             Vendedor3.Celular = "93652487";
@@ -159,6 +162,7 @@ namespace Looking4Home.BL
 
             var Vendedor4 = new Vendedor();
             Vendedor4.Nombre = "Fenix";
+            Vendedor4.Descripcion = "Nuevo, pero emprendedor y abriendoce paso en el mundo";
             Vendedor4.Contrasena = "fenix123";
             Vendedor4.Telefono = "98563241";
             Vendedor4.Celular = "93652487";
