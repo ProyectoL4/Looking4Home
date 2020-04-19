@@ -34,8 +34,8 @@ namespace Looking4Home.BL
 
         [Range(1, 1000000000, ErrorMessage = "Colocar un valor mayor a 0")]
         public int Bano { get; set; }
-
-        public string Estado { get; set; }
+        
+        public string Estado { get; set; }        
 
         public int VendedorId { get; set; }
         public Vendedor Vendedor { get; set; }

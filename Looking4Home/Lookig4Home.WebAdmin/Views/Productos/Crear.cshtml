@@ -38,7 +38,7 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Descripcion, "Dirección exacta", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
@@ -65,40 +65,34 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Localizacion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Localizacion, new { htmlAttributes = new { @Class = "form-control", @id = "LocalizacionId", @placeholder = "Busca un lugar"} })
-                @Html.ValidationMessageFor(model => model.Localizacion, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Localizacion, new { htmlAttributes = new { @Class = "form-control", @id = "LocalizacionId"} })
+                @Html.ValidationMessageFor(model => model.Localizacion, "", new { @class = "text-danger" })                
                 <p></p>   
                             
                 <div id="ModalMapPreview" style="width:100%; height:350px;"></div>
                 <div class="clearfix"> &nbsp;</div>
+                
+
 
                 <script>
+                    //$('#Localizacion').click(function (e) {
+                    //    e.preventDefault();
+                    //});
 
-                </script>
-
-
-                <script>                           
-                              
                     $('#ModalMapPreview').locationpicker({
                         radius: 0,
                         location: {
                             latitude: 15.529231,
                             longitude: -88.037419
                         },
-                        enableAutocomplete: true,
                         inputBinding: {
-                            locationNameInput: $('#LocalizacionId').click(function () {
-                                var input = document.getElementById('LocalizacionId');
-                                var searchBox = new google.maps.places.SearchBox(input);
-                                map.control[google.maps.ControlPosition.TOP_LEFT].push(input);
+                            locationNameInput: $('#LocalizacionId')
+                        },
+                        enableAutocomplete: true
 
-                                map.addListener('ModalMapPreview', function () {
-                                    searchBox.setBounds(map.getBounds());
-                                })
-                            })
-                        }
-                    })
-                </script>
+                    });
+                </script>                  
+
             </div>
         </div>
 

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Looking 4 Home - Login</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
+    <link rel="stylesheet" href="assets/css/style5.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style4.css">
+
+
+</head>
+<body id="target" class="limpio">
+    <!-- partial:index.partial.html -->
+    <div class="login-wrap" id="myID">
+        <div class="login-html" id="myID">
+            <form method="post" action="~/Login">
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Iniciar Sesíon</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrarse</label>
+                @RenderBody()
+            </form>            
+        </div>
+    </div>
+    <!-- partial -->
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>

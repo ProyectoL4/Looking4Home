@@ -173,6 +173,11 @@ namespace Looking4Home.BL
             #endregion
 
             #region Usuarios
+            var UsuarioAdmin = new Usuario();
+            UsuarioAdmin.Nombre = "admin";            
+            UsuarioAdmin.Contrasena = Encriptar.CodificarConstrasena("123");
+            contexto.Usuarios.Add(UsuarioAdmin);
+
             var usuario1 = new Usuario();
             usuario1.Nombre = "German Mendoza";
             usuario1.Correo = "german.mendoza1998@gmail.com";
@@ -199,7 +204,13 @@ namespace Looking4Home.BL
 
             #endregion
 
-
+            #region UsuariosWeb
+            var usuarioweb1 = new UsuarioWeb();
+            usuarioweb1.Nombre = "admin";
+            usuarioweb1.CorreoE = "admin@gmail.com";
+            usuarioweb1.Contrasena = Encriptar.CodificarConstrasena("123");
+            contexto.UsuariosWebs.Add(usuarioweb1);
+            #endregion
 
             #region PRODUCTOS ---ES DE QUIEN LA PUEDA ARREGLAR
             /*

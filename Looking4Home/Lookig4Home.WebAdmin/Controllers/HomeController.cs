@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Looking4Home.BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +10,18 @@ namespace Lookig4Home.WebAdmin.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        UsuariosBL _usuariosBL;
+
+        public HomeController()
+        {
+            _usuariosBL = new UsuariosBL();
+        }
+
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            var listadeUsuarios = _usuariosBL.ObtenerUsuarios();
+            return View(listadeUsuarios);
         }
     }
 }

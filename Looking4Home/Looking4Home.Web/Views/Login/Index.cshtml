@@ -1,0 +1,66 @@
+﻿@model Looking4Home.BL.UsuarioWeb
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+    <div class="login-form">
+        <div class="sign-in-htm">
+            <div class="group">
+                  <label for="username" class="label">Usuario</label>
+                  <input type="text" name="username" id="username" class="input">
+                </div>
+                <div class="group">
+                    <label for="UserPassword" class="label">Contraseña</label>
+                    <input id="UserPassword" name="password" type="password" class="input" data-type="password">
+                </div>
+                <div class="group">
+                    <input id="check" type="checkbox" class="check" checked>
+                    <label for="check"><span class="icon"></span> Recordarme</label>
+                </div>
+                <div class="group">
+                    <div class="col-xs-6">
+                        <button type="submit" class="button" style="text-align: center;" value="Iniciar">Iniciar</button>
+                    </div>                    
+
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                    <a href="#forgot">Olvidaste tu Constraseña?</a>
+                </div>   
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })    
+            </div>
+
+        <!--Registro-->      
+        @using (Html.BeginForm("Crear", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="sign-up-htm">
+                <div class="form-group">
+                    <div class="group">
+                        @Html.LabelFor(model => model.Nombre, "Usuario", htmlAttributes: new { @class = "label" })
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "input" } })
+                    </div>
+                    <div class="group">
+                        @Html.LabelFor(model => model.Contrasena, "Contraseña", htmlAttributes: new { @class = "label" })
+                        @Html.EditorFor(model => model.Contrasena, new { htmlAttributes = new { @class = "input", @type = "password" } })
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Repetir Contraseña</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        @Html.LabelFor(model => model.CorreoE, "Correo Electronico", htmlAttributes: new { @class = "label" })
+                        @Html.EditorFor(model => model.CorreoE, new { htmlAttributes = new { @class = "input" } })
+                    </div>
+                    <div class="group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="button" value="Registrarme">
+                        </div>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <label for="tab-1">Ya estas Registrado?</label>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+ 

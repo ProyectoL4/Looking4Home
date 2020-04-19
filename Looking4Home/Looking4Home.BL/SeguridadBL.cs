@@ -23,11 +23,28 @@ namespace Looking4Home.BL
             var usuario = _contexto.Usuarios.
                 FirstOrDefault(r => r.Nombre == nombreUsuario && r.Contrasena == contrasenaEncriptada || r.Correo == correo 
                 && r.Contrasena == contrasenaEncriptada);
+
+            
             if (usuario != null)
             {
                 return true;
             }
 
+            return false;
+        }
+
+        public bool AutorizacionWeb(string usuario, string contrasenaWeb, string correoWeb)
+        {
+            var contrasenaEncriptadaWeb = Encriptar.CodificarConstrasena(contrasenaWeb);
+
+            var usuarioWeb = _contexto.UsuariosWebs
+                .FirstOrDefault(r => r.Nombre == usuario && r.Contrasena == contrasenaEncriptadaWeb
+                || r.CorreoE == correoWeb && r.Contrasena == contrasenaEncriptadaWeb);
+
+            if (usuarioWeb != null)
+            {
+                return true;
+            }
             return false;
         }
     }

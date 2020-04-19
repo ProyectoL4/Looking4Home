@@ -20,7 +20,7 @@ namespace Looking4Home.BL
 
         public List<Categoria> ObtenerCategorias()
         {
-            ListadeCategorias = _contexto.Categorias.ToList();
+          ListadeCategorias = _contexto.Categorias.ToList();
 
             return ListadeCategorias;
         }

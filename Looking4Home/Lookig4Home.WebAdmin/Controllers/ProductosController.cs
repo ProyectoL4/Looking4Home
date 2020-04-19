@@ -92,13 +92,6 @@ namespace Lookig4Home.WebAdmin.Controllers
                     ModelState.AddModelError("VendedorId", "Seleccione un Vendedor");
                     return View(producto);
                 }
-
-                if(producto.Localizacion == "")
-                {
-                    ModelState.AddModelError("LocalizacionId", "Seleccione una direccion");
-                    return View(producto);
-                }
-
                 
 
                 if (imagen != null)
