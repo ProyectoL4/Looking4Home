@@ -31,6 +31,5 @@ namespace Looking4Home.BL
         public DbSet<Orden> Ordenes { get; set; }
         public DbSet<OrdenDetalle> OrdenDetalles { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<UsuarioWeb> UsuariosWebs { get; set; }
     }
 }
