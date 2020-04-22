@@ -1,7 +1,17 @@
-﻿@model IEnumerable<Looking4Home.BL.Categoria>
+﻿@using Pagination
+@using Pagination.Models
+@using Looking4Home.BL
+@using Lookig4Home.WebAdmin.Models
+@model IPageSourceModel<Categoria, SearchModel>
 
 @{
     ViewBag.Title = "Categorias";
+}
+
+@{
+    var results = Model.OrderBy(s => s.Descripcion).Query();
+    var items = results.Results.Select(r => r);
+    var pages = results.LinkPages(PageLinker.CreateDynamic(true, "←", "→"));
 }
 
 <h2>Categorias</h2>
@@ -9,25 +19,66 @@
 <p>
     @Html.ActionLink("Nueva Categoria", "Crear")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
-            @Html.ActionLink("Detalle", "Detalle", new { id=item.Id }) |
-            @Html.ActionLink("Eliminar", "Eliminar", new { id=item.Id })
-        </td>
-    </tr>
-}
+<!-- Busqueda -->
+<div>
+    <form action="#" method="get" class="form-inline">
+        <div class="input-group">
+            <input class="form-control" type="text" name="SearchText" id="SearchText" value="@Model.Request.SearchText" />
+        </div>
+        <input class="btn btn-primary" type="submit" value="Buscar" />
+    </form>
+</div>
 
-</table>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                Descripcion
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in items)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+                    @Html.ActionLink("Detalle", "Detalle", new { id = item.Id }) |
+                    @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<!-- Paginacion -->
+<div>
+    <p>@pages.TotalItemCount registros en @pages.TotalPageCount @(pages.TotalPageCount == 1 ? "página" : "páginas")</p>
+    <p>Página actual: @pages.First(p => p.IsRequestedPage).LinkPageBase1</p>
+    <ul class="pages">
+        @foreach (var page in pages)
+        {
+            if (page.IsPageRange)
+            {
+                <li>...</li>
+            }
+            else
+            {
+                if (page.IsRequestedPage)
+                {
+                    <li><strong>@page.LinkText</strong></li>
+                }
+                else
+                {
+                    <li>@Html.PageLink(page)</li>
+                }
+            }
+        }
+    </ul>
+</div>
+<script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>

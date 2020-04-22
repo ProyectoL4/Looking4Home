@@ -51,7 +51,7 @@
     <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/custom.css">
     <!--Google Maps-->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="~/assets/css/bootstrap-theme.min.css">
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script src="https://kit.fontawesome.com/b2a02a7e75.js" crossorigin="anonymous"></script>
     <!--------PERFIL-------->
@@ -99,6 +99,38 @@
             </video>
         </p>-->
     </div>
+
+
+    <header id="cm-header">
+        <nav class="cm-navbar cm-navbar-primary">
+            <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
+            <div class="cm-flex">
+                <h1></h1>
+                <form id="cm-search" action="index.html" method="get">
+                    <input type="search" name="q" autocomplete="off" placeholder="Search...">
+                </form>
+            </div>
+            <div class="dropdown pull-right">
+                <button onclick="myFunction()" class="btn btn-primary md-account-circle-white" data-toggle="dropdown"></button>
+                <div id="myDropdown" class="dropdown-content">
+                    <div class="container5">
+                        <div class="div-img">
+                            <img class="img" src="~/assets/img/lobo.jpg" alt="Foto10" style="z-index: 1">
+                            <label style="font-size: 8px; color: black"><strong></strong></label>
+                        </div>
+                        <nav class="barra-perfil">
+                            <ul>
+                                <li><a href="#">Perfil</a></li>
+                                <li><a href="/Login" class="btn-exit-system"><i class="fas fa-power-off"> Cerrar Sesión</i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
     <div id="cm-menu">
         <nav class="cm-navbar cm-navbar-primary">
             <div class="cm-flex">

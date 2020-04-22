@@ -1,4 +1,6 @@
-﻿using Looking4Home.BL;
+﻿using Lookig4Home.WebAdmin.Models;
+using Looking4Home.BL;
+using Pagination;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +19,25 @@ namespace Lookig4Home.WebAdmin.Controllers
         }
 
         // GET: Categorias
-        public ActionResult Index()
+        public ActionResult Index(SearchModel model)
         {
-            var listadeCategorias = _categoriasBL.ObtenerCategorias();
-            return View(listadeCategorias);
+            var factory = new PageSourceFactory
+            {
+
+                MaxItemsPerPage = 10, // maximo elementos por pagina
+                DefaultItemsPerPage = 5 // elementos por pagina
+            };
+
+            var listadeCategorias =
+                _categoriasBL.ObtenerCategorias().AsQueryable(); // Marcar como AsQueryable
+
+            var searchText = model.SearchText;
+            if (!string.IsNullOrWhiteSpace(searchText)) listadeCategorias
+                    = listadeCategorias.Where(c => c.Descripcion.ToLower().Contains(searchText.ToLower())); // Buscar en descripcion de la categoria
+
+            var source = factory.CreateSource(listadeCategorias, model);
+
+            return View(source); // enviar el query al view
         }
 
         public ActionResult Crear()

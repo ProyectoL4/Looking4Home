@@ -1,22 +1,36 @@
-﻿@model List<Looking4Home.BL.Producto>
+﻿@using Pagination
+@using Pagination.Models
+@using Looking4Home.BL
+@using Lookig4Home.Web.Models
+@model IPageSourceModel<Producto, SearchModel>
 
 @{
-    ViewBag.Title = "Vista Renta";
+    ViewBag.Title = "Vista Compra";
 }
+
+@{
+    var results = Model.OrderBy(s => s.Descripcion).Query();
+    var productos = results.Results.Select(r => r);
+    var pages = results.LinkPages(PageLinker.CreateDynamic(true, "<<", ">>"));
+}
+
 <!-- Hero Section end -->
 <section class="hero-section set-bg" data-setbg="assets/img/hero/hero-2.jpg" style="padding-top: 290px; padding-bottom: 34px">
     <div class="search-form">
         <div class="container">
+
+
+
             <!--BUSCADOR-->
             <div class="hero-warp">
                 <form class="main-search-form">
                     <div class="search-type">
                         <div class="st-item">
-                            <input type="radio" name="st" id="buy" >
+                            <input type="radio" name="st" id="buy" checked>
                             <label for="buy">Compra</label>
                         </div>
                         <div class="st-item">
-                            <input type="radio" name="st" id="rent" checked>
+                            <input type="radio" name="st" id="rent">
                             <label for="rent">Renta</label>
                         </div>
                         <!--<div class="st-item">
@@ -49,14 +63,38 @@
 
 <h2 style="padding-left: 106px;"></h2>
 
+<!-- Busqueda -->
+<!--
+<div>
+    <form action="#" method="get" class="form-inline">
+        <div class="input-group">
+            <input autocomplete="off" class="form-control" type="text" name="SearchText" id="SearchText" value="@Model.Request.SearchText" />
+        </div>
+        <input class="btn btn-primary" type="submit" value="Buscar" />
+    </form>
+</div>
+
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                Descripcion
+            </th>
+            <th></th>
+        </tr>
+
+    </table>
+</div>
+
+
 <!-- Blog Section end -->
 <section class="blog-section spad">
     <div class="container">
 
-
         <div class="row">
 
-            @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Renta" && r.Categoria.Descripcion == "Casa")
+            @foreach (var producto in productos.Where(r => r.Etiqueta.Descripcion == "Renta" && r.Categoria.Descripcion == "Casa")
                                 .Take(8)
                                 .OrderBy(r => r.Id)
                                 )
@@ -128,8 +166,9 @@
 
         <div class="blog-item feature-blog">
             <div class="row">
-                @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Renta" && r.Categoria.Descripcion == "Departamento")
-        .Take(1))
+                @foreach (var producto in productos.Where(r => r.Etiqueta.Descripcion == "Renta" && r.Categoria.Descripcion == "Departamento")
+            .Take(1)
+            .OrderBy(r => r.Id))
                 {
                     <div class="col-lg-6">
                         <img style="height: 300px;" src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="">
@@ -192,12 +231,37 @@
             </div>
         </div>
 
+        <!-- Paginacion -->
 
         <div class="site-pagination">
-            <a href="#">01.</a>
-            <a href="#" class="active">02.</a>
-            <a href="#">03.</a>
-            <a href="#">04.</a>
+
+            <p>@pages.TotalItemCount registros en @pages.TotalPageCount @(pages.TotalPageCount == 1 ? "página" : "páginas")</p>
+            <p>Página actual: @pages.First(p => p.IsRequestedPage).LinkPageBase1</p>
+
+            @foreach (var page in pages)
+            {
+                if (page.IsPageRange)
+                {
+                    <a>...</a>
+                }
+                else
+                {
+                    if (page.IsRequestedPage)
+                    {
+                        <a class="active"><strong>@page.LinkText</strong></a>
+                    }
+                    else
+                    {
+                        <a>@Html.PageLink(page)</a>
+                    }
+                }
+            }
+
+
+            <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+
+
+
         </div>
 
     </div>
