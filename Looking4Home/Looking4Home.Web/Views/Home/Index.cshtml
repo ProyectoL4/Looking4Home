@@ -134,7 +134,6 @@
 <!-- Hero Section end -->
 
 
-@{ string compra = "Compra";}
 
 
 <!--BUSCADOR-->
@@ -151,7 +150,7 @@
                             <a href="/Compra">
 
                                 <input type="radio" name="st" id="buy" checked>
-                                <label for="buy">@compra</label>
+                                <label for="buy">Compra</label>
                             </a>
                         </div>
 
@@ -184,12 +183,12 @@
 
 
 
-
-                    <div class="search-input">
-                        <input type="text" placeholder="Busca por estado o codigo postal">
-                        <button class="site-btn">Buscar</button>
-                    </div>
-
+                        @{string prueba = null; }
+                        <div class="search-input">
+                            <input type="text" placeholder="Busca por estado o codigo postal" value="@prueba">
+                            <button class="site-btn">@Html.ActionLink("Buscador", "Buscar" , new { buscar = prueba })</button>
+                        </div>
+                  
 
 
                     <a href="/Compra"><p>Busca entre miles de Opciones, todo esta al alcanse de tus manos</p></a>

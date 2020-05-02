@@ -351,6 +351,7 @@
     <Content Include="Views\Vender\Index.cshtml" />
     <Content Include="Views\Contactanos\Index.cshtml" />
     <Content Include="Views\PropiedadIndividual\Index.cshtml" />
+    <Content Include="Views\Home\Buscar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

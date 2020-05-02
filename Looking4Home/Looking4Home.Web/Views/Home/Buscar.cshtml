@@ -64,7 +64,7 @@
 <h2 style="padding-left: 106px;"></h2>
 
 <!-- Busqueda -->
-
+<!--
 <div>
     <form action="#" method="get" class="form-inline">
         <div class="input-group">
@@ -167,8 +167,8 @@
         <div class="blog-item feature-blog">
             <div class="row">
                 @foreach (var producto in productos.Where(r => r.Etiqueta.Descripcion == "Venta" && r.Categoria.Descripcion == "Departamento")
-    .Take(1)
-    .OrderBy(r => r.Id))
+.Take(1)
+.OrderBy(r => r.Id))
                 {
                     <div class="col-lg-6">
                         <img style="height: 300px;" src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="">
