@@ -317,6 +317,7 @@
     <Compile Include="Controllers\CompraController.cs" />
     <Compile Include="Controllers\PropiedadIndividualController.cs" />
     <Compile Include="Controllers\RentaController.cs" />
+    <Compile Include="Controllers\ResultadoBusquedaController.cs" />
     <Compile Include="Controllers\VenderController.cs" />
     <Compile Include="Controllers\VistaServiciosCompraController.cs" />
     <Compile Include="Controllers\VistaServiciosRentaController.cs" />
@@ -352,6 +353,7 @@
     <Content Include="Views\Contactanos\Index.cshtml" />
     <Content Include="Views\PropiedadIndividual\Index.cshtml" />
     <Content Include="Views\Home\Buscar.cshtml" />
+    <Content Include="Views\ResultadoBusqueda\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

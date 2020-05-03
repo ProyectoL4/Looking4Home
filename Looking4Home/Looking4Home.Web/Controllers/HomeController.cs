@@ -35,11 +35,20 @@ namespace Looking4Home.Web.Controllers
         [HttpPost]
         public ActionResult Index(string buscar)
         {
-            return View();
+            
+            if (string.IsNullOrEmpty(buscar))
+            {
+                return View();
+            }
+
+            // q es query, no quise poner buscar = buscar para que no haya confusion
+            // este q es parte de la url, por ejemplo
+            // http://localhost:51123/ResultadoBusqueda/?q=casa
+            return RedirectToAction("Index", "ResultadoBusqueda", new { q = buscar });
         }
 
 
-        //GET: Buscar
+        //GET: Buscar        
         public ActionResult Buscar(SearchModel model)
         {
             var productosBL = new ProductosBL();

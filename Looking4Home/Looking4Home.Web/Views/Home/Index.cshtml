@@ -142,23 +142,24 @@
         <div class="container">
             <!--BUSCADOR-->
             <div class="hero-warp">
-                <form class="main-search-form">
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "main-search-form" }))
+                {
                     <div class="search-type">
 
 
-                        <div class="st-item">
+                        <!--<div class="st-item">
                             <a href="/Compra">
 
                                 <input type="radio" name="st" id="buy" checked>
                                 <label for="buy">Compra</label>
                             </a>
-                        </div>
+                        </div>-->
 
 
-                        <div class="st-item">
+                        <!--<div class="st-item">
                             <input type="radio" name="st" id="rent" >
                             <label for="rent">Renta</label>
-                        </div>
+                        </div>-->
 
 
                         <!--<div class="st-item">
@@ -167,32 +168,28 @@
                             </div>-->
 
 
-                        <div class="st-item">
+                        <!--<div class="st-item">
                             <input type="radio" name="st" id="property">
                             <label for="property">Precio</label>
-                        </div>
+                        </div>-->
 
 
-                        <div class="st-item">
+                        <!--<div class="st-item">
                             <input type="radio" name="st" id="agents">
                             <label for="agents">Agentes</label>
-                        </div>
+                        </div>-->
 
 
                     </div>
 
 
-
-                        @{string prueba = null; }
-                        <div class="search-input">
-                            <input type="text" placeholder="Busca por estado o codigo postal" value="@prueba">
-                            <button class="site-btn">@Html.ActionLink("Buscador", "Buscar" , new { buscar = prueba })</button>
-                        </div>
-                  
-
+                    <div class="search-input">
+                        <input id="buscar" name="buscar" type="text" placeholder="Busca por estado o codigo postal">
+                        <button class="site-btn" type="submit">Buscar</button>
+                    </div>
 
                     <a href="/Compra"><p>Busca entre miles de Opciones, todo esta al alcanse de tus manos</p></a>
-                </form>
+                }
             </div>
 
         </div>:
@@ -254,9 +251,9 @@
             <div class="feature-carousel owl-carousel">
 
         @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Venta")
-        .Take(6)
-        .OrderBy(r => Guid.NewGuid())
-        )
+.Take(6)
+.OrderBy(r => Guid.NewGuid())
+)
         {
 
                 <div class="col-lg-4">
@@ -308,7 +305,7 @@
                     </div>
                 </div>
 
-        }
+            }
 
             </div>
         </div>
