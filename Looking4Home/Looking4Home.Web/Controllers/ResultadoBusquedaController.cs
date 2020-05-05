@@ -38,14 +38,20 @@ namespace Looking4Home.Web.Controllers
                 DefaultItemsPerPage = 9 // elementos por pagina
             };
 
-            var source = factory.CreateSource(resultados);
-            
+            var model = new SearchModel()
+            {
+                SearchText = buscar,
+            };
+
+
+            var source = factory.CreateSource(resultados, model);
+
             //FIN
 
             ViewBag.adminWebsiteUrl =
                     ConfigurationManager.AppSettings["adminWebsiteUrl"];
 
-            return View(source);
+            return View(resultados);
         }
     }
 }

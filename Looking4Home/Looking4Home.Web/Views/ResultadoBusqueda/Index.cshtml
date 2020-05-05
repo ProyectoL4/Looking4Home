@@ -5,7 +5,7 @@
 @model IPageSourceModel<Producto, SearchModel>
 
 @{
-    ViewBag.Title = "Resultados de Busqueda";
+    ViewBag.Title = "Vista Compra";
 }
 
 @{
@@ -14,8 +14,10 @@
     var pages = results.LinkPages(PageLinker.CreateDynamic(true, "<<", ">>"));
 }
 
-
-
+<div style="padding-top: 150px;">
+    <h2>Resultado Busqueda</h2>
+    @if (Model != null)
+    {
         <!----------------------------------------------->
         <!-- Hero Section end -->
         <section class="hero-section set-bg" data-setbg="assets/img/hero/hero-2.jpg" style="padding-top: 290px; padding-bottom: 34px">
@@ -65,6 +67,31 @@
         <hr>
 
         <h2 style="padding-left: 106px;"></h2>
+
+        <!-- Busqueda -->
+        <!--
+        <div>
+            <form action="#" method="get" class="form-inline">
+                <div class="input-group">
+                    <input autocomplete="off" class="form-control" type="text" name="SearchText" id="SearchText" value="@Model.Request.SearchText" />
+                </div>
+                <input class="btn btn-primary" type="submit" value="Buscar" />
+            </form>
+        </div>
+
+
+        <div>
+            <table class="table">
+                <tr>
+                    <th>
+                        Descripcion
+                    </th>
+                    <th></th>
+                </tr>
+
+            </table>
+        </div>
+
 
         <!-- Blog Section end -->
         <section class="blog-section spad">
@@ -245,6 +272,19 @@
             </div>
         </section>
         <!-- Blog Section end -->
+
+    }
+    else
+    {
+        <p>No se encontraron resultados</p>
+    }
+</div>
+
+
+
+
+
+
 
 
 
