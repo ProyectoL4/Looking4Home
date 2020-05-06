@@ -47,31 +47,19 @@ namespace Looking4Home.Web.Controllers
             return RedirectToAction("Index", "ResultadoBusqueda", new { q = buscar });
         }
 
-
-        //GET: Buscar        
-        public ActionResult Buscar(SearchModel model)
+        [HttpPost]
+        public ActionResult Index2(string buscar)
         {
-            var productosBL = new ProductosBL();
-            var listadeProductos = productosBL.ObtenerProductosActivos().AsQueryable();  // Marcar como AsQueryable
 
-            var factory = new PageSourceFactory
+            if (string.IsNullOrEmpty(buscar))
             {
+                return View();
+            }
 
-                MaxItemsPerPage = 10, // maximo elementos por pagina
-                DefaultItemsPerPage = 9 // elementos por pagina
-            };
-
-            var searchText = model.SearchText;
-            if (!string.IsNullOrWhiteSpace(searchText)) listadeProductos
-                    = listadeProductos.Where(c => c.Descripcion.ToLower().Contains(searchText)); // Buscar en descripcion de la categoria
-
-            var source = factory.CreateSource(listadeProductos, model);
-
-            ViewBag.adminWebsiteUrl =
-                ConfigurationManager.AppSettings["adminWebsiteUrl"];
-
-            return View(source);
-
+            // q es query, no quise poner buscar = buscar para que no haya confusion
+            // este q es parte de la url, por ejemplo
+            // http://localhost:51123/ResultadoBusqueda/?q=casa
+            return RedirectToAction("Index", "PropiedadIndividual", new { q = buscar });
         }
 
     }

@@ -145,54 +145,40 @@
                 @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "main-search-form" }))
                 {
                     <div class="search-type">
-
-
-                        <!--<div class="st-item">
-                            <a href="/Compra">
-
+                        <div class="search-type">
+                            <div class="st-item">
                                 <input type="radio" name="st" id="buy" checked>
                                 <label for="buy">Compra</label>
-                            </a>
-                        </div>-->
-
-
-                        <!--<div class="st-item">
-                            <input type="radio" name="st" id="rent" >
-                            <label for="rent">Renta</label>
-                        </div>-->
-
-
-                        <!--<div class="st-item">
+                            </div>
+                            <div class="st-item">
+                                <input type="radio" name="st" id="rent">
+                                <label for="rent">Renta</label>
+                            </div>
+                            <!--<div class="st-item">
                                 <input type="radio" name="st" id="sell">
                                 <label for="sell">Venta</label>
                             </div>-->
-
-
-                        <!--<div class="st-item">
-                            <input type="radio" name="st" id="property">
-                            <label for="property">Precio</label>
-                        </div>-->
-
-
-                        <!--<div class="st-item">
-                            <input type="radio" name="st" id="agents">
-                            <label for="agents">Agentes</label>
-                        </div>-->
-
-
+                            <div class="st-item">
+                                <input type="radio" name="st" id="property">
+                                <label for="property">Precio</label>
+                            </div>
+                            <div class="st-item">
+                                <input type="radio" name="st" id="agents">
+                                <label for="agents">Agentes</label>
+                            </div>
+                        </div>
                     </div>
-
 
                     <div class="search-input">
                         <input id="buscar" name="buscar" type="text" placeholder="Busca por estado o codigo postal">
                         <button class="site-btn" type="submit">Buscar</button>
                     </div>
 
-                    <a href="/Compra"><p>Busca entre miles de Opciones, todo esta al alcanse de tus manos</p></a>
+                    <a href=""><p>Busca entre miles de Opciones, todo esta al alcanse de tus manos</p></a>
                 }
             </div>
 
-        </div>:
+        </div>
     </div>
 </section>
 <!-- Hero Section End  FIN IMPORTANTE -->
@@ -251,14 +237,13 @@
             <div class="feature-carousel owl-carousel">
 
         @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Venta")
-.Take(6)
-.OrderBy(r => Guid.NewGuid())
-)
+        .Take(6)
+        .OrderBy(r => Guid.NewGuid())
+        )
         {
 
                 <div class="col-lg-4">
                     <div class="feature-item">
-                        <a href="/PropiedadIndividual"><!--Link al que se enviara-->
                             <div class="fi-pic set-bg" data-setbg="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)">
                                 <div class="pic-tag">
                                     <div class="f-text">Oferta</div>
@@ -275,12 +260,23 @@
                             </div>
                             <div class="fi-text">
                                 <div class="inside-text">
-                                    <h4>@producto.Descripcion</h4>
+
+                            @using (Html.BeginForm("Index2", "Home", FormMethod.Post)) //aqui
+                            {
+                                
+                                
+                                <h4>@producto.Descripcion </h4>
+                                <input id="buscar" name="buscar" type="hidden" placeholder="" value="@producto.Descripcion" style="border: 0;">
                                     <ul>
                                         <li><i class="fa fa-map-marker"></i>@producto.Localizacion</li>
-                                        <li><i class="fa fa-tag"></i>@producto.Etiqueta.Descripcion</li>
+                                        <li  ><i class="fa fa-tag"></i>@producto.Etiqueta.Descripcion</li>
                                     </ul>
                                     <h5 class="price">L. @producto.Precio<span>/Mensual</span></h5>
+                                    <div><button class="site-btn" type="submit">Buscar</button></div>
+
+                                    
+                            }
+
                                 </div>
                                 <ul class="room-features">
                                     <li>
@@ -301,11 +297,10 @@
                                     </li>
                                 </ul>
                             </div>
-                        </a>
                     </div>
-                </div>
-
-            }
+                </div>     
+                
+        }
 
             </div>
         </div>

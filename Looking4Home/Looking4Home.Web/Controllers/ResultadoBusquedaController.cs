@@ -29,8 +29,6 @@ namespace Looking4Home.Web.Controllers
             var resultados = _productosBL.ObtenerProductos(buscar).AsQueryable();
 
             //PAGINACION
-            //var listadeProductos = _productosBL.ObtenerProductosActivos().AsQueryable();  // Marcar como AsQueryable
-
             var factory = new PageSourceFactory
             {
 
@@ -43,7 +41,6 @@ namespace Looking4Home.Web.Controllers
                 SearchText = buscar,
             };
 
-
             var source = factory.CreateSource(resultados, model);
 
             //FIN
@@ -51,7 +48,7 @@ namespace Looking4Home.Web.Controllers
             ViewBag.adminWebsiteUrl =
                     ConfigurationManager.AppSettings["adminWebsiteUrl"];
 
-            return View(resultados);
+            return View(source);
         }
     }
 }

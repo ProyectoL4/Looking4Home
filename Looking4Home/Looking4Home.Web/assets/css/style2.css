@@ -1742,7 +1742,8 @@ ul, ol {
 	margin-bottom: 10px;
 }
 .pd-details-text .property-more-pic .product-pic-zoom img {
-	min-width: 100%;
+	min-width: 824px;
+    	height: 410px;
 }
 .pd-details-text .property-more-pic .product-thumbs .product-thumbs-track .pt {
 	cursor: pointer;
@@ -1874,6 +1875,7 @@ ul, ol {
 }
 .pd-details-text .property-contactus .agent-desc img {
 	min-width: 100%;
+    	max-width: 260px;
 	margin-bottom: 16px;
 }
 .pd-details-text .property-contactus .agent-desc .agent-title {
