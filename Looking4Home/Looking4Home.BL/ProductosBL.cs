@@ -32,6 +32,19 @@ namespace Looking4Home.BL
             return ListadeProductos;
         }
 
+        public List<Producto> ObtenerProductosIndividuales(string buscar)
+        {
+            ListadeProductos = _contexto.Productos
+                .Include("Categoria")
+                .Include("Estructura")
+                .Include("Vendedor")
+                .Include("Etiqueta")
+                .Where(r => r.Descripcion.ToLower().Contains(buscar.ToLower())) // busca en cualquier parte de la descripcion
+                .ToList();
+
+            return ListadeProductos;
+        }
+
         public List<Producto> ObtenerProductos()
         {
             ListadeProductos= _contexto.Productos

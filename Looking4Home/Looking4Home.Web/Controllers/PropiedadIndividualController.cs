@@ -30,7 +30,7 @@ namespace Looking4Home.Web.Controllers
                 return View();
             }
 
-            var resultados = _productosBL.ObtenerProductos(buscar).AsQueryable();
+            var resultados = _productosBL.ObtenerProductosIndividuales(buscar).AsQueryable();
 
             //PAGINACION
             var factory = new PageSourceFactory
