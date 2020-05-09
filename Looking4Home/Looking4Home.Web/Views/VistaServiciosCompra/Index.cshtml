@@ -14,6 +14,8 @@
     var pages = results.LinkPages(PageLinker.CreateDynamic(true, "<<", ">>"));
 }
 
+@if (Model != null)
+{
 <!-- Hero Section end -->
 <section class="hero-section set-bg" data-setbg="assets/img/hero/hero-2.jpg" style="padding-top: 290px; padding-bottom: 34px">
     <div class="search-form">
@@ -167,8 +169,8 @@
         <div class="blog-item feature-blog">
             <div class="row">
                 @foreach (var producto in productos.Where(r => r.Etiqueta.Descripcion == "Venta" && r.Categoria.Descripcion == "Departamento")
-    .Take(1)
-    .OrderBy(r => r.Id))
+                .Take(1)
+                .OrderBy(r => r.Id))
                 {
                     <div class="col-lg-6">
                         <img style="height: 300px;" src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="">
@@ -257,13 +259,15 @@
                 }
             }
 
-
             <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
-
-
 
         </div>
 
     </div>
 </section>
 <!-- Blog Section end -->
+}
+else
+{
+    <p>No se encontraron resultados</p>
+}

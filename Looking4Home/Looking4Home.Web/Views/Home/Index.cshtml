@@ -144,38 +144,30 @@
             <div class="hero-warp">
                 @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "main-search-form" }))
                 {
-                    <div class="search-type">
-                        <div class="search-type">
-                            <div class="st-item">
-                                <input type="radio" name="st" id="buy" checked>
-                                <label for="buy">Compra</label>
-                            </div>
-                            <div class="st-item">
-                                <input type="radio" name="st" id="rent">
-                                <label for="rent">Renta</label>
-                            </div>
-                            <!--<div class="st-item">
-                                <input type="radio" name="st" id="sell">
-                                <label for="sell">Venta</label>
-                            </div>-->
-                            <div class="st-item">
-                                <input type="radio" name="st" id="property">
-                                <label for="property">Precio</label>
-                            </div>
-                            <div class="st-item">
-                                <input type="radio" name="st" id="agents">
-                                <label for="agents">Agentes</label>
-                            </div>
-                        </div>
-                    </div>
 
+
+                                <div id="ItemList" class="search-type">
+
+                                    @foreach (var item in ViewBag.ItemList)
+
+                                    {
+                                        <div class="st-item">
+                                            <input type="radio" name="st" id="Check_@item.Nombre" checked="@item.IsCheck">
+                                            <label for="Check_@item.Nombre">@item.Nombre</label>
+                                        </div>
+                                    }
+
+                                </div>
+                            
+                                          
                     <div class="search-input">
                         <input id="buscar" name="buscar" type="text" placeholder="Busca por estado o codigo postal">
-                        <button class="site-btn" type="submit">Buscar</button>
+                        <button onclick="SaveList()" class="site-btn" type="submit">Buscar</button>
                     </div>
 
-                    <a href=""><p>Busca entre miles de Opciones, todo esta al alcanse de tus manos</p></a>
+                    <p>Busca entre miles de Opciones, todo esta al alcanse de tus manos</p>
                 }
+
             </div>
 
         </div>
@@ -328,7 +320,6 @@
 
     <div class="container">
         <div class="top-properties-carousel owl-carousel">
-
            @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Renta")
            .Take(3)
            .OrderBy(r => Guid.NewGuid())
@@ -396,7 +387,6 @@
         <div class="row">
             <div class="agent-carousel owl-carousel">
 
-
                 @foreach (var vendedor in ViewBag.listaVendedores)
 
                 {
@@ -411,7 +401,6 @@
                                     <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
                                 </div>
                             </div>
-
                             <h5>@vendedor.Nombre<span>@vendedor.Descripcion</span></h5>
                         </div>
                     </div>
@@ -419,7 +408,49 @@
                 }
 
             </div>
-        </div>
+
+      </div>
     </div>
 </section>
 <!-- Agent Section End -->
+
+
+<script>
+    var SaveList = function () {
+
+        var arrItem = [];
+        var commaSeparatedIds = "";
+
+        $("#ItemList input[type=radio]").each(function (index, val) {
+
+            debugger
+            var checkId = $(val).attr("Id");
+
+            var arr = checkId.split('_');
+
+            var currentCheckboxId = arr[1];
+
+            var Ischecked = $("#" + checkId).is(":checked", true);
+
+            if (Ischecked) {
+
+                arrItem.push(currentCheckboxId);
+            }
+        })
+
+        if (arrItem.length != 0) {
+
+            commaSeparatedIds = arrItem.toString();
+
+            $.ajax({
+
+                url: "/Home/SaveList",
+                type: "POST",
+                data: { ItemList: commaSeparatedIds },
+                success: function (response) {
+                    //code here
+                }
+            })
+        }
+    }
+</script>

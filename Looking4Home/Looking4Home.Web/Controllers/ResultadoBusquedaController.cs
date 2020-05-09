@@ -21,12 +21,15 @@ namespace Looking4Home.Web.Controllers
         {
             var buscar = Request.QueryString["q"];
 
+            var etiqueta = Request.QueryString["w"];
+
             if (string.IsNullOrEmpty(buscar))
             {
                 return View();
             }
 
-            var resultados = _productosBL.ObtenerProductos(buscar).AsQueryable();
+            var resultados = _productosBL.ObtenerProductos(buscar, etiqueta).AsQueryable(); //ORIGINAL
+            //var resultados = _productosBL.ObtenerProductosActivos().AsQueryable();
 
             //PAGINACION
             var factory = new PageSourceFactory
@@ -41,8 +44,12 @@ namespace Looking4Home.Web.Controllers
                 SearchText = buscar,
             };
 
-            var source = factory.CreateSource(resultados, model);
+            //EXTRA
+            //var searchText = model.SearchText;
+            //if (!string.IsNullOrWhiteSpace(searchText)) resultados
+            //     = resultados.Where(c => c.Descripcion.ToLower().Contains(searchText)); // Buscar en descripcion de la categoria
 
+            var source = factory.CreateSource(resultados, model);
             //FIN
 
             ViewBag.adminWebsiteUrl =

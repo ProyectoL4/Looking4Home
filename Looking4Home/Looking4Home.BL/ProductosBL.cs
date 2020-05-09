@@ -18,14 +18,15 @@ namespace Looking4Home.BL
             ListadeProductos = new List<Producto>();
         }
 
-        public List<Producto> ObtenerProductos(string buscar)
+        public List<Producto> ObtenerProductos(string buscar, string etiqueta)
         {
             ListadeProductos = _contexto.Productos
                 .Include("Categoria")
                 .Include("Estructura")
                 .Include("Vendedor")
                 .Include("Etiqueta")
-                .Where(r => r.Descripcion.ToLower().Contains(buscar.ToLower())) // busca en cualquier parte de la descripcion
+                .Where(r => r.Descripcion.ToLower().Contains(buscar.ToLower()) &&
+                            r.Etiqueta.Descripcion.ToLower().Contains(etiqueta.ToLower())) // busca en cualquier parte de la descripcion
                 .ToList();
 
             return ListadeProductos;
