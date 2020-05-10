@@ -58,17 +58,13 @@ namespace Lookig4Home.WebAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Crear(Producto producto, HttpPostedFileBase imagen)
+        public ActionResult Crear(Producto producto, HttpPostedFileBase imagen, HttpPostedFileBase imagen2, 
+            HttpPostedFileBase imagen3, HttpPostedFileBase imagen4, HttpPostedFileBase imagen5)
         {
             if (ModelState.IsValid)
             {
 
-                //if (imagen == null)
-                //{
-                //    ModelState.AddModelError("UrlImagen", "Seleccione una Imagen");
-                //    return View(producto);
-                //}
-             
+
                     if (producto.CategoriaId == 0)
                     {
                         ModelState.AddModelError("CategoriaId", "Seleccione una Categoria");
@@ -94,10 +90,15 @@ namespace Lookig4Home.WebAdmin.Controllers
                 }
                 
 
-                if (imagen != null)
+                if (imagen != null && imagen2 != null && imagen3 != null && imagen4 != null && imagen5 != null)
                     {
                         producto.UrlImagen = GuardarImagen(imagen);
-                    }
+                        producto.UrlImagen2 = GuardarImagen2(imagen2);
+                        producto.UrlImagen3 = GuardarImagen3(imagen3);
+                        producto.UrlImagen4 = GuardarImagen4(imagen4);
+                        producto.UrlImagen5 = GuardarImagen5(imagen5);
+
+                }
 
                     _productosBL.GuardarProducto(producto);
 
@@ -130,7 +131,8 @@ namespace Lookig4Home.WebAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar(Producto producto, HttpPostedFileBase imagen)
+        public ActionResult Editar(Producto producto, HttpPostedFileBase imagen, HttpPostedFileBase imagen2,
+            HttpPostedFileBase imagen3, HttpPostedFileBase imagen4, HttpPostedFileBase imagen5)
         {
             if (ModelState.IsValid)
             {
@@ -159,9 +161,14 @@ namespace Lookig4Home.WebAdmin.Controllers
                     return View(producto);
                 }
 
-                if (imagen != null )
+                if (imagen != null && imagen2 != null && imagen3 != null && imagen4 != null && imagen5 != null)
                 {
                     producto.UrlImagen = GuardarImagen(imagen);
+                    producto.UrlImagen2 = GuardarImagen2(imagen2);
+                    producto.UrlImagen3 = GuardarImagen3(imagen3);
+                    producto.UrlImagen4 = GuardarImagen4(imagen4);
+                    producto.UrlImagen5 = GuardarImagen5(imagen5);
+
                 }
 
                 _productosBL.GuardarProducto(producto);
@@ -201,6 +208,47 @@ namespace Lookig4Home.WebAdmin.Controllers
             imagen.SaveAs(path);
 
             return "/imagenes/" + imagen.FileName;
+
+        }
+
+        private string GuardarImagen2(HttpPostedFileBase imagen2)
+        {
+
+            string path = Server.MapPath("~/Imagenes/" + imagen2.FileName);
+            imagen2.SaveAs(path);
+
+            return "/imagenes/" + imagen2.FileName;
+
+        }
+
+        private string GuardarImagen3(HttpPostedFileBase imagen3)
+        {
+
+            string path = Server.MapPath("~/Imagenes/" + imagen3.FileName);
+            imagen3.SaveAs(path);
+
+            return "/imagenes/" + imagen3.FileName;
+
+        }
+
+        private string GuardarImagen4(HttpPostedFileBase imagen4)
+        {
+
+            string path = Server.MapPath("~/Imagenes/" + imagen4.FileName);
+            imagen4.SaveAs(path);
+
+            return "/imagenes/" + imagen4.FileName;
+
+        }
+
+        private string GuardarImagen5(HttpPostedFileBase imagen5)
+        {
+
+            string path = Server.MapPath("~/Imagenes/" + imagen5.FileName);
+            imagen5.SaveAs(path);
+
+            return "/imagenes/" + imagen5.FileName;
+
         }
     }
 }

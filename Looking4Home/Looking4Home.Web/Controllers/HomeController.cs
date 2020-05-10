@@ -23,7 +23,7 @@ namespace Looking4Home.Web.Controllers
             var listaVendedores = vendedoresBL.ObtenerVendedoresActivos();
 
             List<Busqueda> ItemList = new List<Busqueda>();
-            ItemList.Add(new Busqueda { ItemID = 1, Idtext = "buy", Nombre = "Compra", IsCheck = true});
+            ItemList.Add(new Busqueda { ItemID = 1, Idtext = "buy", Nombre = "Venta", IsCheck = true});
             ItemList.Add(new Busqueda { ItemID = 2, Idtext = "rent", Nombre = "Renta", IsCheck = false });
             ItemList.Add(new Busqueda { ItemID = 3, Idtext = "property", Nombre = "Precio", IsCheck = false });
             ItemList.Add(new Busqueda { ItemID = 4, Idtext = "agents", Nombre = "Vendedores", IsCheck = false });
@@ -40,14 +40,14 @@ namespace Looking4Home.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string buscar)
+        public ActionResult Index(string buscar, string ItemList)
         {
             var productosBL = new ProductosBL();
             var listadeProductos = productosBL.ObtenerProductosActivos();
 
             var vendedoresBL = new VendedoresBL();
             var listaVendedores = vendedoresBL.ObtenerVendedoresActivos();
-           
+
             if (string.IsNullOrEmpty(buscar))
             {
                 List<Busqueda> ItemList2 = new List<Busqueda>();
@@ -69,7 +69,7 @@ namespace Looking4Home.Web.Controllers
             // q es query, no quise poner buscar = buscar para que no haya confusion
             // este q es parte de la url, por ejemplo
             // http://localhost:51123/ResultadoBusqueda/?q=casa
-            return RedirectToAction("Index", "ResultadoBusqueda", new { q = buscar });
+            return RedirectToAction("Index", "ResultadoBusqueda", new { q = buscar, w = ItemList });
         }
 
         [HttpPost]
@@ -88,7 +88,7 @@ namespace Looking4Home.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveList(string ItemList)
+        public ActionResult SaveList(string buscar, string ItemList)
         {
             //string[] arr = ItemList.Split(',');
 
@@ -99,9 +99,14 @@ namespace Looking4Home.Web.Controllers
 
             //}
 
+            if (string.IsNullOrEmpty(buscar))
+            {
+                return View();
+            }
+
             //return Json("", JsonRequestBehavior.AllowGet);
             // http://localhost:51123/ResultadoBusqueda/?q=casa
-            return RedirectToAction("Index", "ResultadoBusqueda", new { w = ItemList});
+            return RedirectToAction("Index", "ResultadoBusqueda", new {q = buscar, w = ItemList});
         }
     }
 }

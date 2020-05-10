@@ -26,7 +26,7 @@ namespace Looking4Home.BL
                 .Include("Vendedor")
                 .Include("Etiqueta")
                 .Where(r => r.Descripcion.ToLower().Contains(buscar.ToLower()) &&
-                            r.Etiqueta.Descripcion.ToLower().Contains(etiqueta.ToLower())) // busca en cualquier parte de la descripcion
+                            r.Etiqueta.Descripcion.Contains(etiqueta)) // busca en cualquier parte de la descripcion
                 .ToList();
 
             return ListadeProductos;
@@ -88,9 +88,14 @@ namespace Looking4Home.BL
                 productoExistente.EtiquetaId = producto.EtiquetaId;
                 productoExistente.VendedorId = producto.VendedorId;
                
-                if (producto.UrlImagen != null)
+                if (producto.UrlImagen != null || producto.UrlImagen2 != null || producto.UrlImagen3 != null 
+                    || producto.UrlImagen4 != null || producto.UrlImagen5 != null)
                 {
                     productoExistente.UrlImagen = producto.UrlImagen;
+                    productoExistente.UrlImagen2 = producto.UrlImagen2;
+                    productoExistente.UrlImagen3 = producto.UrlImagen3;
+                    productoExistente.UrlImagen4 = producto.UrlImagen4;
+                    productoExistente.UrlImagen5 = producto.UrlImagen5;
                 }
                 
             }

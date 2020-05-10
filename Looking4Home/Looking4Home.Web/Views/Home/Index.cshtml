@@ -142,7 +142,7 @@
         <div class="container">
             <!--BUSCADOR-->
             <div class="hero-warp">
-                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "main-search-form" }))
+                @using (Html.BeginForm("SaveList", "Home", FormMethod.Post, new { @class = "main-search-form" }))
                 {
 
 
@@ -444,9 +444,9 @@
 
             $.ajax({
 
-                url: "/Home/SaveList",
+                url: "/Home/Index",
                 type: "POST",
-                data: { ItemList: commaSeparatedIds },
+                data: { buscar: $('#buscar').val(), ItemList: commaSeparatedIds },
                 success: function (response) {
                     //code here
                 }

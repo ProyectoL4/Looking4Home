@@ -42,6 +42,7 @@ namespace Looking4Home.Web.Controllers
             var model = new SearchModel()
             {
                 SearchText = buscar,
+                
             };
 
             //EXTRA

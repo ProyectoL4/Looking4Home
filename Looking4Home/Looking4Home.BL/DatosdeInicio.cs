@@ -227,6 +227,10 @@ namespace Looking4Home.BL
             producto1.EstructuraId = 1;
             producto1.EtiquetaId = 1;
             producto1.UrlImagen = null;
+            producto1.UrlImagen2 = null;
+            producto1.UrlImagen3 = null;
+            producto1.UrlImagen4 = null;
+            producto1.UrlImagen5 = null;
             contexto.Productos.Add(producto1);
 
 
@@ -245,6 +249,10 @@ namespace Looking4Home.BL
             producto2.CategoriaId = 1;
             producto2.EstructuraId = 2;
             producto2.UrlImagen = null;
+            producto2.UrlImagen2 = null;
+            producto2.UrlImagen3 = null;
+            producto2.UrlImagen4 = null;
+            producto2.UrlImagen5 = null;
             contexto.Productos.Add(producto2);
 
 
@@ -263,6 +271,10 @@ namespace Looking4Home.BL
             producto3.CategoriaId = 1;
             producto3.EstructuraId = 1;
             producto3.UrlImagen = null;
+            producto3.UrlImagen2 = null;
+            producto3.UrlImagen3 = null;
+            producto3.UrlImagen4 = null;
+            producto3.UrlImagen5 = null;
             contexto.Productos.Add(producto3);
 
 
@@ -281,6 +293,10 @@ namespace Looking4Home.BL
             producto4.CategoriaId = 1;
             producto4.EstructuraId = 4;
             producto4.UrlImagen = null;
+            producto4.UrlImagen2 = null;
+            producto4.UrlImagen3 = null;
+            producto4.UrlImagen4 = null;
+            producto4.UrlImagen5 = null;
             contexto.Productos.Add(producto4);
 
 
@@ -299,6 +315,10 @@ namespace Looking4Home.BL
             producto5.CategoriaId = 1;
             producto5.EstructuraId = 1;
             producto5.UrlImagen = null;
+            producto5.UrlImagen2 = null;
+            producto5.UrlImagen3 = null;
+            producto5.UrlImagen4 = null;
+            producto5.UrlImagen5 = null;
             contexto.Productos.Add(producto5);
 
 
@@ -317,6 +337,10 @@ namespace Looking4Home.BL
             producto6.CategoriaId = 1;
             producto6.EstructuraId = 4;
             producto6.UrlImagen = null;
+            producto6.UrlImagen2 = null;
+            producto6.UrlImagen3 = null;
+            producto6.UrlImagen4 = null;
+            producto6.UrlImagen5 = null;
             contexto.Productos.Add(producto6);
 
 
@@ -335,6 +359,10 @@ namespace Looking4Home.BL
             producto7.CategoriaId = 1;
             producto7.EstructuraId = 2;
             producto7.UrlImagen = null;
+            producto7.UrlImagen2 = null;
+            producto7.UrlImagen3 = null;
+            producto7.UrlImagen4 = null;
+            producto7.UrlImagen5 = null;
             contexto.Productos.Add(producto7);
 
 
@@ -353,6 +381,10 @@ namespace Looking4Home.BL
             producto8.CategoriaId = 1;
             producto8.EstructuraId = 4;
             producto8.UrlImagen = null;
+            producto8.UrlImagen2 = null;
+            producto8.UrlImagen3 = null;
+            producto8.UrlImagen4 = null;
+            producto8.UrlImagen5 = null;
             contexto.Productos.Add(producto8);
 
 
@@ -371,6 +403,10 @@ namespace Looking4Home.BL
             producto9.CategoriaId = 2;
             producto9.EstructuraId = 2;
             producto9.UrlImagen = null;
+            producto9.UrlImagen2 = null;
+            producto9.UrlImagen3 = null;
+            producto9.UrlImagen4 = null;
+            producto9.UrlImagen5 = null;
             contexto.Productos.Add(producto9);
 
 
@@ -389,6 +425,10 @@ namespace Looking4Home.BL
             producto10.CategoriaId = 1;
             producto10.EstructuraId = 4;
             producto10.UrlImagen = null;
+            producto10.UrlImagen2 = null;
+            producto10.UrlImagen3 = null;
+            producto10.UrlImagen4 = null;
+            producto10.UrlImagen5 = null;
             contexto.Productos.Add(producto10);
 
             #endregion
