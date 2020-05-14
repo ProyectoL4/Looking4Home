@@ -79,8 +79,7 @@
                     <div class="col-xl-6 p-0" style="max-width: 60%;">
                         <div class="search-results">
                             <!--INICIO-->
-                            @foreach (var producto in productos.Where(r => r.Etiqueta.Descripcion == "Venta")
-                            .Take(8)
+                            @foreach (var producto in productos.Take(8)
                             .OrderBy(r => r.Id))
                              {
 
@@ -210,7 +209,6 @@
     {
         <p>No se encontraron resultados</p>
     }
-</div>
 
 
 

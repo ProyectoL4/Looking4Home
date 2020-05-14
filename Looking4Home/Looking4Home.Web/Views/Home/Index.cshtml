@@ -5,7 +5,7 @@
 }
 
 
-    <!--MUESTRA DE PARTE INICIAL/IMAGENES QUE CAMBIAN-->
+<!--MUESTRA DE PARTE INICIAL/IMAGENES QUE CAMBIAN-->
 <!-- Hero Section Begin  IMPORTANTE -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">
@@ -132,10 +132,6 @@
     </div>
 </section>
 <!-- Hero Section end -->
-
-
-
-
 <!--BUSCADOR-->
 <section class="hero-section set-bg">
     <div class="search-form">
@@ -144,37 +140,34 @@
             <div class="hero-warp">
                 @using (Html.BeginForm("SaveList", "Home", FormMethod.Post, new { @class = "main-search-form" }))
                 {
+                    <div id="ItemList" class="search-type">
+
+                        @foreach (var item in ViewBag.ItemList)
+
+                        {
+                            <div class="st-item">
+                                <input type="radio" name="st" id="Check_@item.Nombre" checked="@item.IsCheck">
+                                <label onclick="setItemList('@item.Nombre')" for="Check_@item.Nombre">@item.Nombre</label>
+                            </div>
+                        }
+
+                    </div>
 
 
-                                <div id="ItemList" class="search-type">
-
-                                    @foreach (var item in ViewBag.ItemList)
-
-                                    {
-                                        <div class="st-item">
-                                            <input type="radio" name="st" id="Check_@item.Nombre" checked="@item.IsCheck">
-                                            <label for="Check_@item.Nombre">@item.Nombre</label>
-                                        </div>
-                                    }
-
-                                </div>
-                            
-                                          
                     <div class="search-input">
                         <input id="buscar" name="buscar" type="text" placeholder="Busca por estado o codigo postal">
-                        <button onclick="SaveList()" class="site-btn" type="submit">Buscar</button>
+                        <input id="itemList" name="itemList" type="hidden">
+                        <button class="site-btn" type="submit">Buscar</button>
                     </div>
 
                     <p>Busca entre miles de Opciones, todo esta al alcanse de tus manos</p>
                 }
-
             </div>
 
         </div>
     </div>
 </section>
 <!-- Hero Section End  FIN IMPORTANTE -->
-
 <!-- How It Works Section Begin -->
 <section class="howit-works spad">
     <div class="container">
@@ -212,9 +205,7 @@
     </div>
 </section>
 <!-- How It Works Section End -->
-
-
-    <!-- Feature Section Begin -->
+<!-- Feature Section Begin -->
 <section class="feature-section spad">
     <div class="container">
         <div class="row">
@@ -228,14 +219,14 @@
         <div class="row">
             <div class="feature-carousel owl-carousel">
 
-        @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Venta")
-        .Take(6)
-        .OrderBy(r => Guid.NewGuid())
-        )
-        {
+                @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Venta")
+    .Take(6)
+    .OrderBy(r => Guid.NewGuid())
+    )
+                {
 
-                <div class="col-lg-4">
-                    <div class="feature-item">
+                    <div class="col-lg-4">
+                        <div class="feature-item">
                             <div class="fi-pic set-bg" data-setbg="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)">
                                 <div class="pic-tag">
                                     <div class="f-text">Oferta</div>
@@ -253,21 +244,21 @@
                             <div class="fi-text">
                                 <div class="inside-text">
 
-                            @using (Html.BeginForm("Index2", "Home", FormMethod.Post)) //aqui
-                            {
-                                
-                                
-                                <h4>@producto.Descripcion </h4>
-                                <input id="buscar" name="buscar" type="hidden" placeholder="" value="@producto.Descripcion" style="border: 0;">
-                                    <ul>
-                                        <li><i class="fa fa-map-marker"></i>@producto.Localizacion</li>
-                                        <li  ><i class="fa fa-tag"></i>@producto.Etiqueta.Descripcion</li>
-                                    </ul>
-                                    <h5 class="price">L. @producto.Precio<span>/Mensual</span></h5>
-                                    <div><button class="site-btn" type="submit">Buscar</button></div>
+                                    @using (Html.BeginForm("Index2", "Home", FormMethod.Post)) //aqui
+                                    {
 
-                                    
-                            }
+
+                                        <h4>@producto.Descripcion </h4>
+                                        <input id="buscar" name="buscar" type="hidden" placeholder="" value="@producto.Descripcion" style="border: 0;">
+                                        <ul>
+                                            <li><i class="fa fa-map-marker"></i>@producto.Localizacion</li>
+                                            <li><i class="fa fa-tag"></i>@producto.Etiqueta.Descripcion</li>
+                                        </ul>
+                                        <h5 class="price">L. @producto.Precio<span>/Mensual</span></h5>
+                                        <div><button class="site-btn" type="submit">Buscar</button></div>
+
+
+                                    }
 
                                 </div>
                                 <ul class="room-features">
@@ -289,18 +280,16 @@
                                     </li>
                                 </ul>
                             </div>
+                        </div>
                     </div>
-                </div>     
-                
-        }
+
+                }
 
             </div>
         </div>
     </div>
 </section>
 <!-- Feature Section End -->
-
-
 <!-- Top Properties Section Begin -->
 <div class="top-properties-section spad">
     <div class="container">
@@ -320,59 +309,57 @@
 
     <div class="container">
         <div class="top-properties-carousel owl-carousel">
-           @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Renta")
+            @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Renta")
            .Take(3)
            .OrderBy(r => Guid.NewGuid())
            )
-           {
+            {
 
-            <div class="single-top-properties">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="stp-pic">
-                            <img src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="stp-text">
-                            <div class="s-text">En @producto.Etiqueta.Descripcion</div>
-                            <h2>@producto.Estructura.Descripcion</h2>
-                            <div class="room-price">
-                                <span>Comenzando desde:</span>
-                                <h4>L. @producto.Precio</h4>
+                <div class="single-top-properties">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="stp-pic">
+                                <img src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="">
                             </div>
-                            <div class="properties-location"><i class="fa fa-map-marker"></i>@producto.Localizacion</div>
-                            <p>@producto.Descripcion</p>
-                            <ul class="room-features">
-                                <li>
-                                    <i class="fa fa-arrows"></i>
-                                    <p>@producto.Metros</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-bed"></i>
-                                    <p>@producto.Habitaciones</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-bath"></i>
-                                    <p>@producto.Bano</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-car"></i>
-                                    <p>@producto.Parking</p>
-                                </li>
-                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="stp-text">
+                                <div class="s-text">En @producto.Etiqueta.Descripcion</div>
+                                <h2>@producto.Estructura.Descripcion</h2>
+                                <div class="room-price">
+                                    <span>Comenzando desde:</span>
+                                    <h4>L. @producto.Precio</h4>
+                                </div>
+                                <div class="properties-location"><i class="fa fa-map-marker"></i>@producto.Localizacion</div>
+                                <p>@producto.Descripcion</p>
+                                <ul class="room-features">
+                                    <li>
+                                        <i class="fa fa-arrows"></i>
+                                        <p>@producto.Metros</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-bed"></i>
+                                        <p>@producto.Habitaciones</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-bath"></i>
+                                        <p>@producto.Bano</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-car"></i>
+                                        <p>@producto.Parking</p>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-           }
+            }
         </div>
     </div>
 </div>
 <!-- Top Properties Section End -->
-
-
 <!-- Agent Section Begin -->
 <section class="agent-section spad">
     <div class="container">
@@ -409,48 +396,38 @@
 
             </div>
 
-      </div>
+        </div>
     </div>
 </section>
 <!-- Agent Section End -->
 
 
-<script>
-    var SaveList = function () {
+@section scripts {
+    <script>
+    var arrItem = [];
+    var commaSeparatedIds = "";
 
-        var arrItem = [];
-        var commaSeparatedIds = "";
+    $("#ItemList input[type=radio]").each(function (index, val) {
+        var checkId = $(val).attr("Id");
 
-        $("#ItemList input[type=radio]").each(function (index, val) {
+        var arr = checkId.split('_');
 
-            debugger
-            var checkId = $(val).attr("Id");
+        var currentCheckboxId = arr[1];
 
-            var arr = checkId.split('_');
+        var Ischecked = $("#" + checkId).is(":checked", true);
 
-            var currentCheckboxId = arr[1];
-
-            var Ischecked = $("#" + checkId).is(":checked", true);
-
-            if (Ischecked) {
-
-                arrItem.push(currentCheckboxId);
-            }
-        })
-
-        if (arrItem.length != 0) {
-
-            commaSeparatedIds = arrItem.toString();
-
-            $.ajax({
-
-                url: "/Home/Index",
-                type: "POST",
-                data: { buscar: $('#buscar').val(), ItemList: commaSeparatedIds },
-                success: function (response) {
-                    //code here
-                }
-            })
+        if (Ischecked) {
+            arrItem.push(currentCheckboxId);
         }
+
+
+        if (index == 0) {
+            $('input#itemList').val(currentCheckboxId);
+        }
+    });
+
+    function setItemList(itemList) {
+        $('input#itemList').val(itemList);
     }
-</script>
+    </script>
+}

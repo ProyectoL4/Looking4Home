@@ -6,33 +6,25 @@
     <meta name="description" content="Real estate HTML Template">
     <meta name="keywords" content="real estate, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- Favicon -->
     <link href="~/assets/img/favicon.ico" rel="shortcut icon" />
-
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900%7cRoboto:400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
 
-
     <!-- Stylesheets -->
-
     <link rel="stylesheet" href="~/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/assets/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/assets/css/slicknav.min.css" />
-
     <!-- Main Stylesheets -->
     <link rel="stylesheet" href="~/assets/css/style.css" />
     <link rel="stylesheet" href="~/assets/css/style2.css" />
     <link rel="stylesheet" href="~/assets/css/owl.carousel.min.css" type="text/css">
-
 </head>
 <body>
-
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
     <!-- Header Section -->
     <header class="header-section">
         <a href="/Home" class="site-logo">
@@ -43,7 +35,6 @@
                 <li><a href="/Home" class="active">Inicio</a></li>
                 <li><a href="/AcercaDe">Acerca de Nosotros</a></li>
                 <!--    <li><a href="#">Comprar</a></li>-->
-
                 <li>
                     <a href="#">Servicios</a>
                     <ul class="sub-menu">
@@ -66,14 +57,11 @@
     <!-- Header Section end -->
 
 
-    
     @RenderBody()
-
-    
 
     <!-- Footer Section Begin -->
     <footer class="footer-section set-bg" data-setbg="/assets/img/footer-bg.jpg">
-        
+
         <div class="container">
             <div class="footer-text">
                 <div class="row">
@@ -113,7 +101,6 @@
                                 <li><i class="fa fa-facebook"></i> <a href="#">Facebook</a></li>
                                 <li><i class="fa fa-instagram"></i> <a href="#">Instagram</a></li>
                                 <li><i class="fa fa-twitter"></i> <a href="#">Twitter</a></li>
-
                             </ul>
                         </div>
                     </div>
@@ -141,9 +128,6 @@
         </div>
     </footer>
     <!-- Footer Section End -->
-
-
-
     <!--====== Javascripts & Jquery ======-->
     <script src="~/assets/js/jquery-3.2.1.min.js"></script>
     <script src="~/assets/js/bootstrap.min.js"></script>
@@ -151,14 +135,13 @@
     <script src="~/assets/js/jquery.magnific-popup.min.js"></script>
     <script src="~/assets/js/main.js"></script>
 
-
     <!-- Js Plugins -->
     <script src="~/assets/js/jquery-3.3.1.min.js"></script>
     <script src="~/assets/js/jquery.nice-select.min.js"></script>
-
+    <script src="~/assets/js/jquery-ui.min.js"></script>
     <script src="~/assets/js/owl.carousel.min.js"></script>
     <script src="~/assets/js/main2.js"></script>
 
-    <script src="~/assets/js/jquery-ui.min.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
