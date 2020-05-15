@@ -130,6 +130,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\bootstrap-theme.min.css" />
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\font-awesome.min.css" />
     <Content Include="assets\css\magnific-popup.css" />
@@ -228,6 +229,7 @@
     <Content Include="assets\img\usuario.png" />
     <Content Include="assets\img\video-img.jpg" />
     <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\jquery-1.10.2.min.js" />
     <Content Include="assets\js\jquery-3.2.1.min.js" />
     <Content Include="assets\js\jquery-3.3.1.min.js" />
     <Content Include="assets\js\jquery-ui.min.js" />
@@ -235,6 +237,8 @@
     <Content Include="assets\js\jquery.nice-select.min.js" />
     <Content Include="assets\js\jquery.slicknav.js" />
     <Content Include="assets\js\jquery.slicknav.min.js" />
+    <Content Include="assets\js\jquery.validate.min.js" />
+    <Content Include="assets\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\js\main2.js" />
     <Content Include="assets\js\owl.carousel.min.js" />
@@ -314,9 +318,7 @@
     <Compile Include="Controllers\AcercaDeController.cs" />
     <Compile Include="Controllers\ContactanosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\CompraController.cs" />
     <Compile Include="Controllers\PropiedadIndividualController.cs" />
-    <Compile Include="Controllers\RentaController.cs" />
     <Compile Include="Controllers\ResultadoBusquedaController.cs" />
     <Compile Include="Controllers\VenderController.cs" />
     <Compile Include="Controllers\VistaServiciosCompraController.cs" />
@@ -344,9 +346,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Compra\Index.cshtml" />
-    <Content Include="Views\Renta\Index.cshtml" />
-    <Content Include="Views\Compra\Index2.cshtml" />
     <Content Include="Views\AcercaDe\Index.cshtml" />
     <Content Include="Views\VistaServiciosCompra\Index.cshtml" />
     <Content Include="Views\VistaServiciosRenta\Index.cshtml" />
@@ -355,6 +354,7 @@
     <Content Include="Views\PropiedadIndividual\Index.cshtml" />
     <Content Include="Views\Home\Buscar.cshtml" />
     <Content Include="Views\ResultadoBusqueda\Index.cshtml" />
+    <Content Include="Views\Vender\Crear.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

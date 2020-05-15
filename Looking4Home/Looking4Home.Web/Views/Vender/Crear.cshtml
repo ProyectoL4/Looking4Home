@@ -1,0 +1,267 @@
+﻿@model Looking4Home.BL.Producto
+
+@{
+    ViewBag.Title = "Crear";
+}
+
+<!--Plugin Maps-->
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyDHdisLNTeob3iVxuP0YiL_7DV9lh6TbXk"></script>
+<script src="~/assets/js/locationpicker.jquery.js"></script>
+
+
+<hr>
+
+<!-- Search Result Section end -->
+<section class="search-result-section">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-xl-6 p-0" style="max-width: 40%;">
+                <div class="search-result-map">
+
+                    <div id="ModalMapPreview" style="width:100%; height:350px;"></div>
+                    <div class="clearfix"> &nbsp;</div>
+
+
+
+                    <script>
+
+                                        //$('#Localizacion').click(function (e) {
+                                        //    e.preventDefault();
+                                        //});
+
+                                        $('#ModalMapPreview').locationpicker({
+                                            radius: 0,
+                                            location: {
+                                                latitude: 15.529231,
+                                                longitude: -88.037419
+                                            },
+                                            inputBinding: {
+                                                locationNameInput: $('#LocalizacionId')
+                                            },
+                                            enableAutocomplete: true
+
+                                        });
+
+                    </script>
+
+                </div>
+            </div>
+
+            <div class="col-xl-6 p-0" style="max-width: 60%;">
+
+                <div class="search-results">
+
+                    <!--INICIO-->
+                    <!--COLOCAR AQUI AGREGAR COMPRA-->
+
+
+
+                    @using (Html.BeginForm("Crear", "Vender", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <h2 style="padding-left: 10px;">CASA NUEVA</h2>
+                            <hr style="margin-bottom: 22px;" />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Vendedor, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("VendedorId", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.VendedorId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Etiqueta, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("EtiquetaId", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EtiquetaId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Categoria, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("CategoriaId", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CategoriaId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Estructura, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("EstructuraId", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EstructuraId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Localizacion, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Localizacion, new { htmlAttributes = new { @Class = "form-control", @id = "LocalizacionId", @Placeholder = "Ingrese la Ubicación" } })
+                                    @Html.ValidationMessageFor(model => model.Localizacion, "", new { @class = "text-danger" })
+                                    
+
+                                    <!--CODIGO DE MAPA QUITADO-->
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Parking, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Parking, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Parking, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Bano, "Baño", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Bano, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Bano, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Habitaciones, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Habitaciones, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Habitaciones, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Metros, "M² de construcción", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Metros, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Metros, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Precio, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Precio, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Seleccinar Imagen</label>
+                                <div class="col-md-10">
+                                    <input type="file" name="imagen" id="imagen" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Seleccinar 2 Imagen</label>
+                                <div class="col-md-10">
+                                    <input type="file" name="imagen2" id="imagen2" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Seleccinar 3 Imagen</label>
+                                <div class="col-md-10">
+                                    <input type="file" name="imagen3" id="imagen3" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Seleccinar 4 Imagen</label>
+                                <div class="col-md-10">
+                                    <input type="file" name="imagen4" id="imagen4" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Seleccinar 5 Imagen</label>
+                                <div class="col-md-10">
+                                    <input type="file" name="imagen5" id="imagen5" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <div class="checkbox">
+                                        @Html.EditorFor(model => model.Activo)
+                                        @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Crear" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div style="padding-left: 10px;">
+                        @Html.ActionLink("Regresar a la Lista", "Index")
+                    </div>
+
+                    <script src="~/assets/js/jquery-1.10.2.min.js"></script>
+                    <script src="~/assets/js/jquery.validate.min.js"></script>
+                    <script src="~/assets/js/jquery.validate.unobtrusive.min.js"></script>
+
+
+                    <!--FINAL-->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Search Result Section end -->
+
+<hr>
+
+
+@section scripts {
+    <script>
+    var arrItem = [];
+    var commaSeparatedIds = "";
+
+    $("#ItemList input[type=radio]").each(function (index, val) {
+        var checkId = $(val).attr("Id");
+
+        var arr = checkId.split('_');
+
+        var currentCheckboxId = arr[1];
+
+        var Ischecked = $("#" + checkId).is(":checked", true);
+
+        if (Ischecked) {
+            arrItem.push(currentCheckboxId);
+        }
+
+
+        if (index == 0) {
+            $('input#itemList').val(currentCheckboxId);
+        }
+    });
+
+    function setItemList(itemList) {
+        $('input#itemList').val(itemList);
+    }
+    </script>
+}

@@ -1,5 +1,6 @@
 ﻿using Lookig4Home.Web.Models;
 using Looking4Home.BL;
+using Looking4Home.Web.ViewModel;
 using Pagination;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,14 @@ namespace Looking4Home.Web.Controllers
                 MaxItemsPerPage = 10, // maximo elementos por pagina
                 DefaultItemsPerPage = 9 // elementos por pagina
             };
+
+            List<Busqueda> ItemList = new List<Busqueda>();
+            ItemList.Add(new Busqueda { ItemID = 1, Idtext = "buy", Nombre = "Venta", IsCheck = true });
+            ItemList.Add(new Busqueda { ItemID = 2, Idtext = "rent", Nombre = "Renta", IsCheck = false });
+            ItemList.Add(new Busqueda { ItemID = 3, Idtext = "property", Nombre = "Precio", IsCheck = false });
+            ItemList.Add(new Busqueda { ItemID = 4, Idtext = "agents", Nombre = "Vendedores", IsCheck = false });
+
+            ViewBag.ItemList = ItemList;
 
             var searchText = model.SearchText;
             if (!string.IsNullOrWhiteSpace(searchText)) listadeProductos

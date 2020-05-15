@@ -1,5 +1,6 @@
 ﻿using Lookig4Home.Web.Models;
 using Looking4Home.BL;
+using Looking4Home.Web.ViewModel;
 using Pagination;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,14 @@ namespace Looking4Home.Web.Controllers
         // GET: VistaServiciosRenta
         public ActionResult Index(SearchModel model)
         {
+
+            List<Busqueda> ItemList = new List<Busqueda>();
+            ItemList.Add(new Busqueda { ItemID = 1, Idtext = "buy", Nombre = "Venta", IsCheck = true });
+            ItemList.Add(new Busqueda { ItemID = 2, Idtext = "rent", Nombre = "Renta", IsCheck = false });
+            ItemList.Add(new Busqueda { ItemID = 3, Idtext = "property", Nombre = "Precio", IsCheck = false });
+            ItemList.Add(new Busqueda { ItemID = 4, Idtext = "agents", Nombre = "Vendedores", IsCheck = false });
+
+            ViewBag.ItemList = ItemList;
 
             var productosBL = new ProductosBL();
             var listadeProductos = productosBL.ObtenerProductosActivos().AsQueryable();  // Marcar como AsQueryable

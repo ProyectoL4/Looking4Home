@@ -5,169 +5,7 @@
 }
 
 
-<!--MUESTRA DE PARTE INICIAL/IMAGENES QUE CAMBIAN-->
-<!-- Hero Section Begin  IMPORTANTE -->
-<section class="hero-section">
-    <div class="hero-items owl-carousel">
 
-        <div class="single-hero-item set-bg" data-setbg="/assets/img/hero/hero-1.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <div class="hero-text">
-                            <p class="room-location"><i class="fa fa-map-marker"></i> 9721 Glen Creek Ave. Ballston Spa, NY</p>
-                            <h2>Villa 9721 Glen Creek</h2>
-                            <div class="room-price">
-                                <span>Precio desde:</span>
-                                <p>L. 3.000.000</p>
-                            </div>
-                            <ul class="room-features">
-                                <li>
-                                    <i class="fa fa-arrows"></i>
-                                    <p>5201 sqft</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-bed"></i>
-                                    <p>8 Cuartos</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-bath"></i>
-                                    <p>7 Baños</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-car"></i>
-                                    <p>1 Garaje</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="single-hero-item set-bg" data-setbg="/assets/img/hero/hero-2.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <div class="hero-text">
-                            <p class="room-location"><i class="fa fa-map-marker"></i> 9721 Glen Creek Ave. Ballston Spa, NY</p>
-                            <h2>Villa 9721 Glen Creek</h2>
-                            <div class="room-price">
-                                <span>Precio desde:</span>
-                                <p>L. 3.000.000</p>
-                            </div>
-                            <ul class="room-features">
-                                <li>
-                                    <i class="fa fa-arrows"></i>
-                                    <p>5201 sqft</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-bed"></i>
-                                    <p>8 Cuartos</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-bath"></i>
-                                    <p>7 Baños</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-car"></i>
-                                    <p>1 Garaje</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="single-hero-item set-bg" data-setbg="/assets/img/hero/hero-3.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <div class="hero-text">
-                            <p class="room-location"><i class="fa fa-map-marker"></i> 9721 Glen Creek Ave. Ballston Spa, NY</p>
-                            <h2>Villa 9721 Glen Creek</h2>
-                            <div class="room-price">
-                                <span>Precio desde:</span>
-                                <p>L 3.000.000</p>
-                            </div>
-                            <ul class="room-features">
-                                <li>
-                                    <i class="fa fa-arrows"></i>
-                                    <p>5201 sqft</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-bed"></i>
-                                    <p>8 Cuarto</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-bath"></i>
-                                    <p>7 Baño</p>
-                                </li>
-                                <li>
-                                    <i class="fa fa-car"></i>
-                                    <p>1 Garaje</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--   PARTE DE TRE IMAGENES INFERIORES   -->
-    <div class="thumbnail-pic">
-        <div class="thumbs owl-carousel">
-            <div class="item">
-                <img style="height: 94px;" src="/assets/img/hero/hero-1.jpg" alt="">
-            </div>
-            <div class="item">
-                <img style="height: 94px;" src="/assets/img/hero/hero-2.jpg" alt="">
-            </div>
-            <div class="item">
-                <img style="height: 94px;" src="/assets/img/hero/hero-3.jpg" alt="">
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section end -->
-<!--BUSCADOR-->
-<section class="hero-section set-bg">
-    <div class="search-form">
-        <div class="container">
-            <!--BUSCADOR-->
-            <div class="hero-warp">
-                @using (Html.BeginForm("SaveList", "Home", FormMethod.Post, new { @class = "main-search-form" }))
-                {
-                    <div id="ItemList" class="search-type">
-
-                        @foreach (var item in ViewBag.ItemList)
-
-                        {
-                            <div class="st-item">
-                                <input type="radio" name="st" id="Check_@item.Nombre" checked="@item.IsCheck">
-                                <label onclick="setItemList('@item.Nombre')" for="Check_@item.Nombre">@item.Nombre</label>
-                            </div>
-                        }
-
-                    </div>
-
-
-                    <div class="search-input">
-                        <input id="buscar" name="buscar" type="text" placeholder="Busca por estado o codigo postal">
-                        <input id="itemList" name="itemList" type="hidden">
-                        <button class="site-btn" type="submit">Buscar</button>
-                    </div>
-
-                    <p>Busca entre miles de Opciones, todo esta al alcanse de tus manos</p>
-                }
-            </div>
-
-        </div>
-    </div>
-</section>
-<!-- Hero Section End  FIN IMPORTANTE -->
 <!-- How It Works Section Begin -->
 <section class="howit-works spad">
     <div class="container">
@@ -205,6 +43,8 @@
     </div>
 </section>
 <!-- How It Works Section End -->
+
+
 <!-- Feature Section Begin -->
 <section class="feature-section spad">
     <div class="container">
@@ -220,9 +60,9 @@
             <div class="feature-carousel owl-carousel">
 
                 @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Venta")
-    .Take(6)
-    .OrderBy(r => Guid.NewGuid())
-    )
+                .Take(6)
+                .OrderBy(r => Guid.NewGuid())
+                )
                 {
 
                     <div class="col-lg-4">
@@ -249,13 +89,13 @@
 
 
                                         <h4>@producto.Descripcion </h4>
-                                        <input id="buscar" name="buscar" type="hidden" placeholder="" value="@producto.Descripcion" style="border: 0;">
+                                        <input id="buscar" name="buscar" type="hidden" placeholder="" value="@producto.Id" style="border: 0;">
                                         <ul>
                                             <li><i class="fa fa-map-marker"></i>@producto.Localizacion</li>
                                             <li><i class="fa fa-tag"></i>@producto.Etiqueta.Descripcion</li>
                                         </ul>
                                         <h5 class="price">L. @producto.Precio<span>/Mensual</span></h5>
-                                        <div><button class="site-btn" type="submit">Buscar</button></div>
+                                        <div><button class="site-btn" type="submit">Ver mas</button></div>
 
 
                                     }
@@ -403,7 +243,9 @@
 
 
 @section scripts {
-    <script>
+<script>
+ //CODIGO PARA BUSQUEDA
+
     var arrItem = [];
     var commaSeparatedIds = "";
 
@@ -429,5 +271,7 @@
     function setItemList(itemList) {
         $('input#itemList').val(itemList);
     }
-    </script>
+
+</script>
+
 }

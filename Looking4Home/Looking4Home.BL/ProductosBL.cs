@@ -20,13 +20,17 @@ namespace Looking4Home.BL
 
         public List<Producto> ObtenerProductos(string buscar, string etiqueta)
         {
+            string precio = "Precio";
+            string vendedores = "Vendedores";
             ListadeProductos = _contexto.Productos
                 .Include("Categoria")
                 .Include("Estructura")
                 .Include("Vendedor")
                 .Include("Etiqueta")
-                .Where(r => r.Descripcion.ToLower().Contains(buscar.ToLower()) &&
-                            r.Etiqueta.Descripcion.Contains(etiqueta)) // busca en cualquier parte de la descripcion
+                .Where(r => r.Localizacion.ToLower().Contains(buscar.ToLower()) &&
+                            r.Etiqueta.Descripcion.Contains(etiqueta) || 
+                            r.Precio.ToString().Contains(buscar) && etiqueta == precio || 
+                            r.Vendedor.Nombre.ToLower().Contains(buscar.ToLower()) && etiqueta == vendedores) // busca en cualquier parte de la descripcion
                 .ToList();
 
             return ListadeProductos;
@@ -39,7 +43,7 @@ namespace Looking4Home.BL
                 .Include("Estructura")
                 .Include("Vendedor")
                 .Include("Etiqueta")
-                .Where(r => r.Descripcion.ToLower().Contains(buscar.ToLower())) // busca en cualquier parte de la descripcion
+                .Where(r => r.Id.ToString().Contains(buscar.ToLower())) // busca en cualquier parte de la descripcion
                 .ToList();
 
             return ListadeProductos;

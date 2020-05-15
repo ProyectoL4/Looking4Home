@@ -36,11 +36,32 @@ namespace Looking4Home.Web.Controllers
 
 
         [HttpPost]
-        public ActionResult SaveList(string buscar, string ItemList)
+        public ActionResult Index(string buscar, string ItemList)
         {
+
+            var productosBL = new ProductosBL();
+            var listadeProductos = productosBL.ObtenerProductosActivos();
+
+            var vendedoresBL = new VendedoresBL();
+            var listaVendedores = vendedoresBL.ObtenerVendedoresActivos();
+
             if (string.IsNullOrEmpty(buscar))
             {
-                return View();
+                List<Busqueda> ItemList2 = new List<Busqueda>();
+                ItemList2.Add(new Busqueda { ItemID = 1, Idtext = "buy", Nombre = "Venta", IsCheck = true });
+                ItemList2.Add(new Busqueda { ItemID = 2, Idtext = "rent", Nombre = "Renta", IsCheck = false });
+                ItemList2.Add(new Busqueda { ItemID = 3, Idtext = "property", Nombre = "Precio", IsCheck = false });
+                ItemList2.Add(new Busqueda { ItemID = 4, Idtext = "agents", Nombre = "Vendedores", IsCheck = false });
+
+                ViewBag.ItemList = ItemList2;
+
+                ViewBag.adminWebsiteUrl =
+                    ConfigurationManager.AppSettings["adminWebsiteUrl"];
+
+                ViewBag.listaVendedores = listaVendedores;
+
+
+                return View(listadeProductos);
             }
 
             return RedirectToAction("Index", "ResultadoBusqueda", new { q = buscar, w = ItemList });

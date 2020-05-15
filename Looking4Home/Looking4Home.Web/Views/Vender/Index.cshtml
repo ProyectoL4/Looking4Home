@@ -1,53 +1,7 @@
-﻿@model List<Looking4Home.BL.Producto>
-
+﻿@model IEnumerable<Looking4Home.BL.Producto>
 @{
     ViewBag.Title = "Venta";
 }
-
-<!-- Hero Section end -->
-<section class="hero-section set-bg" data-setbg="assets/img/hero/hero-2.jpg" style="padding-top: 290px; padding-bottom: 34px">
-    <div class="search-form">
-        <div class="container">
-            <!--BUSCADOR-->
-            <div class="hero-warp">
-                <form class="main-search-form">
-                    <div class="search-type">
-                        <div class="st-item">
-                            <input type="radio" name="st" id="buy" checked>
-                            <label for="buy"><i id="buy"><a href="~/Compra">Compra</a></i></label>
-                        </div>
-                        <div class="st-item">
-                            <input type="radio" name="st" id="rent">
-                            <label for="rent"><i id="rent"><a href="~/Renta">Rentas</a></i></label>
-                        </div>
-                        <!--<div class="st-item">
-                                <input type="radio" name="st" id="sell">
-                                <label for="sell">Venta</label>
-                            </div>-->
-                        <div class="st-item">
-                            <input type="radio" name="st" id="property">
-                            <label for="property">Precio</label>
-                        </div>
-                        <div class="st-item">
-                            <input type="radio" name="st" id="agents">
-                            <label for="agents">Agentes</label>
-                        </div>
-                        <div class="st-item">
-                            <input type="radio" name="st" id="gps">
-                            <label for="gps">Localizacion</label>
-                        </div>
-                    </div>
-                    <div class="search-input">
-                        <input type="text" placeholder="Busca lo que necesites">
-                        <button class="site-btn">Buscar</button>
-                    </div>
-                    <p>Busca entre miles de Opciones, todo esta al alcanse de tus manos</p>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End  FIN IMPORTANTE -->
 
 <hr>
 
@@ -67,7 +21,20 @@
 
                     <!--INICIO-->
 
-                    <!--COLOCAR ASI AGREGAR COMPRA-->
+                    <!--COLOCAR AQUI AGREGAR COMPRA-->
+
+
+                    <h2 style="padding-left: 10px;">Productos</h2>
+                    <p style="color:black; padding-left: 40px;">
+                        @Html.ActionLink("Nuevo Producto", "Crear")
+                    </p>
+
+                    <table class="table">
+                        <tr>
+
+                        </tr>
+
+                    </table>
 
                     <!--FINAL-->
 
@@ -81,3 +48,33 @@
 
 <hr>
 
+
+@section scripts {
+    <script>
+    var arrItem = [];
+    var commaSeparatedIds = "";
+
+    $("#ItemList input[type=radio]").each(function (index, val) {
+        var checkId = $(val).attr("Id");
+
+        var arr = checkId.split('_');
+
+        var currentCheckboxId = arr[1];
+
+        var Ischecked = $("#" + checkId).is(":checked", true);
+
+        if (Ischecked) {
+            arrItem.push(currentCheckboxId);
+        }
+
+
+        if (index == 0) {
+            $('input#itemList').val(currentCheckboxId);
+        }
+    });
+
+    function setItemList(itemList) {
+        $('input#itemList').val(itemList);
+    }
+    </script>
+}

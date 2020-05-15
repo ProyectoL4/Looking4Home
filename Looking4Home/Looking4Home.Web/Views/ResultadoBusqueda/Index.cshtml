@@ -5,7 +5,7 @@
 @model IPageSourceModel<Producto, SearchModel>
 
 @{
-    ViewBag.Title = "Vista Compra";
+    ViewBag.Title = "Vista Busqueda";
 }
 
 @{
@@ -18,52 +18,7 @@
     @if (Model != null)
     {
         <!----------------------------------------------->
-<!-- Hero Section end -->
-        <section class="hero-section set-bg" data-setbg="assets/img/hero/hero-2.jpg" style="padding-top: 290px; padding-bottom: 34px">
-            <div class="search-form">
-                <div class="container">
-                    <!--BUSCADOR-->
-                    <div class="hero-warp">
-                    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "main-search-form" }))
-                    {
-                            <div class="search-type">
-                                <div class="st-item">
-                                    <input type="radio" name="st" id="buy" checked>
-                                    <label for="buy"><i id="buy"><a href="~/Compra">Compra</a></i></label>
-                                </div>
-                                <div class="st-item">
-                                    <input type="radio" name="st" id="rent">
-                                    <label for="rent"><i id="rent"><a href="~/Renta">Rentas</a></i></label>
-                                </div>
-                                <!--<div class="st-item">
-                                        <input type="radio" name="st" id="sell">
-                                        <label for="sell">Venta</label>
-                                    </div>-->
-                                <div class="st-item">
-                                    <input type="radio" name="st" id="property">
-                                    <label for="property">Precio</label>
-                                </div>
-                                <div class="st-item">
-                                    <input type="radio" name="st" id="agents">
-                                    <label for="agents">Agentes</label>
-                                </div>
-                                <div class="st-item">
-                                    <input type="radio" name="st" id="gps">
-                                    <label for="gps">Localizacion</label>
-                                </div>
-                            </div>
-                            <div class="search-input">
-                                <input id="buscar" name="buscar" type="text" placeholder="Busca por estado o codigo postal">
-                                <button class="site-btn" type="submit">Buscar</button>
-                            </div>
-                            <p>Busca entre miles de Opciones, todo esta al alcanse de tus manos</p>
-                       
-                    }
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Hero Section End  FIN IMPORTANTE -->
+
 
         <hr>
 
@@ -94,15 +49,20 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="property-text">
-                                                        <div class="s-text">@producto.Etiqueta.Descripcion</div>
-                                                        <h5 class="r-title">@producto.Localizacion</h5>
-                                                        <div class="room-price">
+                                                        <div  class="s-text">@producto.Etiqueta.Descripcion</div>
+                                                        
+                                                        <div style="padding-top:20px;" class="room-price">
                                                             <span>Precio:</span>
                                                             <h5>L. @producto.Precio</h5>
                                                         </div>
+
                                                         <div class="properties-location">
                                                             <i class="fa fa-map-marker"></i>@producto.Localizacion
                                                         </div>
+                                                        <div class="properties-location">
+                                                            <i class="fas fa-address-card"></i>Vendedor: @producto.Vendedor.Nombre
+                                                        </div>
+                                                        
                                                         <p>
                                                             @producto.Descripcion
                                                         </p>
@@ -155,16 +115,25 @@
                                                             </li>
                                                         </ul>
                                                     </div>
+                                                    @using (Html.BeginForm("Index2", "Home", FormMethod.Post)) //aqui
+                                                    {
+
+                                                        <input id="buscar" name="buscar" type="hidden" placeholder="" value="@producto.Id" style="border: 0;">
+                                                        <!--<a href="" class="readmore-btn">Leer Mas</a>-->
+                                                        <div style="padding-top:20px;" ><button style="padding: 8px 5px 10px; text-align: left;" class="site-btn" type="submit">Ver mas</button></div>
+
+                                                    }
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <hr style="padding-left:10px">
                             }
                             <!-- Paginacion -->
 
-                            <div class="property-pagination" style="padding-left: 310px">
 
+                            <div class="site-pagination" style="padding-left: 310px">
 
                                 <p>@pages.TotalItemCount registros en @pages.TotalPageCount @(pages.TotalPageCount == 1 ? "página" : "páginas")</p>
                                 <p>Página actual: @pages.First(p => p.IsRequestedPage).LinkPageBase1</p>
@@ -189,8 +158,9 @@
                                 }
 
                                 <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
-                                <!--FINAL-->
+
                             </div>
+
                     </div>
                 </div>
             </div>
@@ -198,19 +168,34 @@
         </section>
     <!-- Search Result Section end -->
 
+    }
         <hr>
 
+<input id="q" type="hidden" value="@Request.QueryString["q"]">
+<input id="w" type="hidden" value="@Request.QueryString["w"]">
 
 
+@section scripts {
+    <script>
+        
+        $('.site-pagination a').each(function () {
 
+            var tieneClassAttr = $(this).attr('class');
+            if (!tieneClassAttr) {
+                var url = $(this).attr('href');
+                if (url) {
+                    var q = $('#q').val();
+                    var w = $('#w').val();
+                    if (q && w) {
+                        $(this).attr('href', url + '&q=' + q + '&w=' + w);
+                    }
+                }
+            }
+        });
 
-    }
-    else
-    {
-        <p>No se encontraron resultados</p>
-    }
+    </script>
 
-
+}
 
 
 

@@ -14,50 +14,6 @@
     var pages = results.LinkPages(PageLinker.CreateDynamic(true, "<<", ">>"));
 }
 
-<!-- Hero Section end -->
-<section class="hero-section set-bg" data-setbg="assets/img/hero/hero-2.jpg" style="padding-top: 290px; padding-bottom: 34px">
-    <div class="search-form">
-        <div class="container">
-
-
-
-            <!--BUSCADOR-->
-            <div class="hero-warp">
-                <form class="main-search-form">
-                    <div class="search-type">
-                        <div class="st-item">
-                            <input type="radio" name="st" id="buy" checked>
-                            <label for="buy">Compra</label>
-                        </div>
-                        <div class="st-item">
-                            <input type="radio" name="st" id="rent">
-                            <label for="rent">Renta</label>
-                        </div>
-                        <!--<div class="st-item">
-                                <input type="radio" name="st" id="sell">
-                                <label for="sell">Venta</label>
-                            </div>-->
-                        <div class="st-item">
-                            <input type="radio" name="st" id="property">
-                            <label for="property">Precio</label>
-                        </div>
-                        <div class="st-item">
-                            <input type="radio" name="st" id="agents">
-                            <label for="agents">Agentes</label>
-                        </div>
-                    </div>
-                    <div class="search-input">
-                        <input type="text" placeholder="Busca por estado o codigo postal">
-                        <button class="site-btn">Buscar</button>
-                    </div>
-                    <p>Busca entre miles de Opciones, todo esta al alcanse de tus manos</p>
-                </form>
-            </div>
-
-        </div>
-    </div>
-</section>
-<!-- Hero Section End  FIN IMPORTANTE -->
 
 <hr>
 
@@ -94,10 +50,11 @@
 
         <div class="row">
 
+
             @foreach (var producto in productos.Where(r => r.Etiqueta.Descripcion == "Renta" && r.Categoria.Descripcion == "Casa")
-                                .Take(8)
-                                .OrderBy(r => r.Id)
-                                )
+            .Take(8)
+            .OrderBy(r => r.Id)
+            )
             {
 
                 <div class="col-lg-4 col-md-6">
@@ -156,12 +113,19 @@
                                     <span>  Estacionamientos</span>
                                 }
                             </div>
+                            @using (Html.BeginForm("Index2", "Home", FormMethod.Post)) //aqui
+                            {
 
-                            <a href="#" class="readmore-btn">Leer Mas</a>
+                                <input id="buscar" name="buscar" type="hidden" placeholder="" value="@producto.Id" style="border: 0;">
+                            <!--<a href="" class="readmore-btn">Leer Mas</a>-->
+                                <div><button style="padding: 8px 5px 10px; text-align: left;" class="site-btn" type="submit">Ver mas</button></div>
+
+                            }
                         </div>
                     </div>
                 </div>
             }
+
         </div>
 
         <div class="blog-item feature-blog">
@@ -223,7 +187,14 @@
 
                             </div>
 
-                            <a href="#" class="readmore-btn">Leer Mas</a>
+                            @using (Html.BeginForm("Index2", "Home", FormMethod.Post)) //aqui
+                            {
+
+                                <input id="buscar" name="buscar" type="hidden" placeholder="" value="@producto.Id" style="border: 0;">
+                            <!--<a href="" class="readmore-btn">Leer Mas</a>-->
+                                <div><button style="padding: 8px 5px 10px; text-align: left;" class="site-btn" type="submit">Ver mas</button></div>
+
+                            }
 
                         </div>
                     </div>
@@ -267,3 +238,34 @@
     </div>
 </section>
 <!-- Blog Section end -->
+
+
+@section scripts {
+    <script>
+    var arrItem = [];
+    var commaSeparatedIds = "";
+
+    $("#ItemList input[type=radio]").each(function (index, val) {
+        var checkId = $(val).attr("Id");
+
+        var arr = checkId.split('_');
+
+        var currentCheckboxId = arr[1];
+
+        var Ischecked = $("#" + checkId).is(":checked", true);
+
+        if (Ischecked) {
+            arrItem.push(currentCheckboxId);
+        }
+
+
+        if (index == 0) {
+            $('input#itemList').val(currentCheckboxId);
+        }
+    });
+
+    function setItemList(itemList) {
+        $('input#itemList').val(itemList);
+    }
+    </script>
+}
