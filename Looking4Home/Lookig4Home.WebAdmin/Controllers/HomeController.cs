@@ -10,6 +10,8 @@ namespace Lookig4Home.WebAdmin.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        public static Usuario usuario;
+
         UsuariosBL _usuariosBL;
 
         public HomeController()

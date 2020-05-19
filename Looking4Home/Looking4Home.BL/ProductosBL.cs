@@ -28,8 +28,8 @@ namespace Looking4Home.BL
                 .Include("Vendedor")
                 .Include("Etiqueta")
                 .Where(r => r.Localizacion.ToLower().Contains(buscar.ToLower()) &&
-                            r.Etiqueta.Descripcion.Contains(etiqueta) || 
-                            r.Precio.ToString().Contains(buscar) && etiqueta == precio || 
+                            r.Etiqueta.Descripcion.Contains(etiqueta) ||
+                            r.Precio.ToString().Contains(buscar) && etiqueta == precio ||
                             r.Vendedor.Nombre.ToLower().Contains(buscar.ToLower()) && etiqueta == vendedores) // busca en cualquier parte de la descripcion
                 .ToList();
 
@@ -51,7 +51,7 @@ namespace Looking4Home.BL
 
         public List<Producto> ObtenerProductos()
         {
-            ListadeProductos= _contexto.Productos
+            ListadeProductos = _contexto.Productos
                 .Include("Categoria")
                 .Include("Estructura")
                 .Include("Vendedor")
@@ -60,7 +60,7 @@ namespace Looking4Home.BL
 
             return ListadeProductos;
         }
-    
+
         public void GuardarProducto(Producto producto)
         {
 
@@ -76,7 +76,8 @@ namespace Looking4Home.BL
             if (producto.Id == 0)
             {
                 _contexto.Productos.Add(producto);
-            }else
+            }
+            else
             {
                 var productoExistente = _contexto.Productos.Find(producto.Id);
                 productoExistente.Descripcion = producto.Descripcion;
@@ -91,8 +92,8 @@ namespace Looking4Home.BL
                 productoExistente.Bano = producto.Bano;
                 productoExistente.EtiquetaId = producto.EtiquetaId;
                 productoExistente.VendedorId = producto.VendedorId;
-               
-                if (producto.UrlImagen != null || producto.UrlImagen2 != null || producto.UrlImagen3 != null 
+
+                if (producto.UrlImagen != null || producto.UrlImagen2 != null || producto.UrlImagen3 != null
                     || producto.UrlImagen4 != null || producto.UrlImagen5 != null)
                 {
                     productoExistente.UrlImagen = producto.UrlImagen;
@@ -101,14 +102,14 @@ namespace Looking4Home.BL
                     productoExistente.UrlImagen4 = producto.UrlImagen4;
                     productoExistente.UrlImagen5 = producto.UrlImagen5;
                 }
-                
+
             }
 
             if (producto.Activo == true)
             {
-               
+
             }
-            
+
             _contexto.SaveChanges();
         }
 
@@ -141,6 +142,36 @@ namespace Looking4Home.BL
                 .Include("Etiqueta")
                 .Where(r => r.Activo == true)
                 .OrderBy(r => r.Descripcion)
+                .ToList();
+
+            return ListadeProductos;
+        }
+
+        public List<Producto> ObtenerProductosActivos2()
+        {
+            string categoria = "Venta";
+            ListadeProductos = _contexto.Productos
+                .Include("Categoria")
+                .Include("Estructura")
+                .Include("Vendedor")
+                .Include("Etiqueta")
+                .Where(r => r.Activo == true && r.Etiqueta.Descripcion.Contains(categoria))
+                .OrderBy(r => r.Id)
+                .ToList();
+
+            return ListadeProductos;
+        }
+
+        public List<Producto> ObtenerProductosActivos3()
+        {
+            string categoria = "Renta";
+            ListadeProductos = _contexto.Productos
+                .Include("Categoria")
+                .Include("Estructura")
+                .Include("Vendedor")
+                .Include("Etiqueta")
+                .Where(r => r.Activo == true && r.Etiqueta.Descripcion.Contains(categoria))
+                .OrderBy(r => r.Id)
                 .ToList();
 
             return ListadeProductos;

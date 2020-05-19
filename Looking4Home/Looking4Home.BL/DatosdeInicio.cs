@@ -63,6 +63,33 @@ namespace Looking4Home.BL
             cliente4.Activo = true;
             contexto.Clientes.Add(cliente4);
 
+            var cliente5 = new Cliente();
+            cliente5.Nombre = "Ricardo Gonzales";
+            cliente5.Contraseña = "ricardo123";
+            cliente5.Telefono = "92543241";
+            cliente5.Celular = "98622457";
+            cliente5.Correo = "RicardoG@yahoo.com";
+            cliente5.Activo = true;
+            contexto.Clientes.Add(cliente5);
+
+            var cliente6 = new Cliente();
+            cliente6.Nombre = "David Rodriquez";
+            cliente6.Contraseña = "david123";
+            cliente6.Telefono = "92145241";
+            cliente6.Celular = "92324457";
+            cliente6.Correo = "DavidR@hotmail.com";
+            cliente6.Activo = true;
+            contexto.Clientes.Add(cliente6);
+
+            var cliente7 = new Cliente();
+            cliente7.Nombre = "Oscar Pineda";
+            cliente7.Contraseña = "oscar123";
+            cliente7.Telefono = "99944241";
+            cliente7.Celular = "93324259";
+            cliente7.Correo = "Oscar1993@hotmail.com";
+            cliente7.Activo = true;
+            contexto.Clientes.Add(cliente7);
+
 
             #endregion
 
@@ -214,7 +241,7 @@ namespace Looking4Home.BL
 
             var producto1 = new Producto();
             producto1.Descripcion = "Cerca de posta policial, bella vista y vecindad amistosa";
-            producto1.Localizacion = "Aun no Disponible";
+            producto1.Localizacion = "Colonia trejo 13 calle 7 avenida";
             producto1.Parking = 2;
             producto1.Habitaciones = 4;
             producto1.Metros = 4500;
@@ -236,7 +263,7 @@ namespace Looking4Home.BL
 
             var producto2 = new Producto();
             producto2.Descripcion = "Hospital cerca de la zona, Escuela a unas cuantas cuadras";
-            producto2.Localizacion = "Aun no Disponible";
+            producto2.Localizacion = "Barrio Rio Piedras";
             producto2.Parking = 1;
             producto2.Habitaciones = 3;
             producto2.Metros = 1200;
@@ -258,7 +285,7 @@ namespace Looking4Home.BL
 
             var producto3 = new Producto();
             producto3.Descripcion = "Escuela Bilingue de facil acceso, Campo de Football cerca";
-            producto3.Localizacion = "Aun no Disponible";
+            producto3.Localizacion = "Colonia Pedegral";
             producto3.Parking = 1;
             producto3.Habitaciones = 3;
             producto3.Metros = 1200;
@@ -280,7 +307,7 @@ namespace Looking4Home.BL
 
             var producto4 = new Producto();
             producto4.Descripcion = "Escuela catolica cercana, bella vista";
-            producto4.Localizacion = "Aun no Disponible";
+            producto4.Localizacion = "Barrio Primavera";
             producto4.Parking = 8;
             producto4.Habitaciones = 4;
             producto4.Metros = 12000;
@@ -302,7 +329,7 @@ namespace Looking4Home.BL
 
             var producto5 = new Producto();
             producto5.Descripcion = "Cerca de Hospital, bella vista y gran jardin";
-            producto5.Localizacion = "Aun no Disponible";
+            producto5.Localizacion = "Colonia Pedegral";
             producto5.Parking = 0;
             producto5.Habitaciones = 8;
             producto5.Metros = 52000;
@@ -324,7 +351,7 @@ namespace Looking4Home.BL
 
             var producto6 = new Producto();
             producto6.Descripcion = "Seguridad Privada, Wifi Gratis";
-            producto6.Localizacion = "Aun no Disponible";
+            producto6.Localizacion = "Colonia Universidad";
             producto6.Parking = 0;
             producto6.Habitaciones = 2;
             producto6.Metros = 200;
@@ -346,7 +373,7 @@ namespace Looking4Home.BL
 
             var producto7 = new Producto();
             producto7.Descripcion = "Seguridad Privada, Wifi Gratis";
-            producto7.Localizacion = "Aun no Disponible";
+            producto7.Localizacion = "Colonia Smith";
             producto7.Parking = 1;
             producto7.Habitaciones = 3;
             producto7.Metros = 200;
@@ -368,7 +395,7 @@ namespace Looking4Home.BL
 
             var producto8 = new Producto();
             producto8.Descripcion = "Una Hermoza vecindad, con escuela cerca";
-            producto8.Localizacion = "Aun no Disponible";
+            producto8.Localizacion = "Los Castaños";
             producto8.Parking = 4;
             producto8.Habitaciones = 8;
             producto8.Metros = 2000;
@@ -389,8 +416,8 @@ namespace Looking4Home.BL
 
 
             var producto9 = new Producto();
-            producto9.Descripcion = "Zona cercana a la Univercidad, punto de buses cercano";
-            producto9.Localizacion = "Aun no Disponible";
+            producto9.Descripcion = "Zona cercana a la Universidad, punto de buses cercano";
+            producto9.Localizacion = "Colonia El Roble";
             producto9.Parking = 0;
             producto9.Habitaciones = 3;
             producto9.Metros = 70000;
@@ -412,15 +439,15 @@ namespace Looking4Home.BL
 
             var producto10 = new Producto();
             producto10.Descripcion = "Zona Urbana con gran cantidad de Vegetacion, con un parque cerca.";
-            producto10.Localizacion = "Aun no Disponible";
+            producto10.Localizacion = "Merendon Hills";
             producto10.Parking = 5;
             producto10.Habitaciones = 4;
-            producto10.Metros = 20000;
+            producto10.Metros = 26000;
             producto10.Precio = 1500000;
             producto10.Bano = 2;
             producto10.Estado = "Disponible";
 
-            producto10.VendedorId = 4;
+            producto10.VendedorId = 2;
             producto10.EtiquetaId = 1;
             producto10.CategoriaId = 1;
             producto10.EstructuraId = 4;
@@ -431,9 +458,425 @@ namespace Looking4Home.BL
             producto10.UrlImagen5 = null;
             contexto.Productos.Add(producto10);
 
+            var producto11 = new Producto();
+            producto11.Descripcion = "Con seguridad privada, terreno 410v2 y metros de construcción 205 metros aproximado, sala, comedor, cocina con mueble";
+            producto11.Localizacion = "Casa de una planta en Res. Villas del Campo (frente a campisa)";
+            producto11.Parking = 1;
+            producto11.Habitaciones = 3;
+            producto11.Metros = 40000;
+            producto11.Precio = 1600000;
+            producto11.Bano = 2;
+            producto11.Estado = "Disponible";
 
+            producto11.VendedorId = 3;
+            producto11.EtiquetaId = 1;
+            producto11.CategoriaId = 1;
+            producto11.EstructuraId = 2;
+            producto11.UrlImagen = null;
+            producto11.UrlImagen2 = null;
+            producto11.UrlImagen3 = null;
+            producto11.UrlImagen4 = null;
+            producto11.UrlImagen5 = null;
+            contexto.Productos.Add(producto11);
 
+            var producto12 = new Producto();
+            producto12.Descripcion = "Seguridad las 24 horas, circuito cerrado, casa esquina, parqueo adicional, finos acabados, cerámica";
+            producto12.Localizacion = "Col, Sitratelh";
+            producto12.Parking = 2;
+            producto12.Habitaciones = 3;
+            producto12.Metros = 40000;
+            producto12.Precio = 2800000;
+            producto12.Bano = 2;
+            producto12.Estado = "Disponible";
 
+            producto12.VendedorId = 2;
+            producto12.EtiquetaId = 1;
+            producto12.CategoriaId = 1;
+            producto12.EstructuraId = 2;
+            producto12.UrlImagen = null;
+            producto12.UrlImagen2 = null;
+            producto12.UrlImagen3 = null;
+            producto12.UrlImagen4 = null;
+            producto12.UrlImagen5 = null;
+            contexto.Productos.Add(producto12);
+
+            var producto13 = new Producto();
+            producto13.Descripcion = "Casa circuito cerrado, seguridad privada, con parqueo.";
+            producto13.Localizacion = "Res Andalucia San Pedro Sula - Cortés";
+            producto13.Parking = 1;
+            producto13.Habitaciones = 4;
+            producto13.Metros = 32000;
+            producto13.Precio = 1800000;
+            producto13.Bano = 1;
+            producto13.Estado = "Disponible";
+
+            producto13.VendedorId = 4;
+            producto13.EtiquetaId = 1;
+            producto13.CategoriaId = 1;
+            producto13.EstructuraId = 4;
+            producto13.UrlImagen = null;
+            producto13.UrlImagen2 = null;
+            producto13.UrlImagen3 = null;
+            producto13.UrlImagen4 = null;
+            producto13.UrlImagen5 = null;
+            contexto.Productos.Add(producto13);
+
+            var producto14 = new Producto();
+            producto14.Descripcion = "Fuente de agua en jardín frontal, Instalaciones para central de aire en áreas de sala comedor y cocina";
+            producto14.Localizacion = "Res Villas Paraiso San Pedro Sula - Cortés";
+            producto14.Parking = 1;
+            producto14.Habitaciones = 3;
+            producto14.Metros = 20000;
+            producto14.Precio = 2300000;
+            producto14.Bano = 1;
+            producto14.Estado = "Disponible";
+
+            producto14.VendedorId = 2;
+            producto14.EtiquetaId = 1;
+            producto14.CategoriaId = 1;
+            producto14.EstructuraId = 4;
+            producto14.UrlImagen = null;
+            producto14.UrlImagen2 = null;
+            producto14.UrlImagen3 = null;
+            producto14.UrlImagen4 = null;
+            producto14.UrlImagen5 = null;
+            contexto.Productos.Add(producto14);
+
+            var producto15 = new Producto();
+            producto15.Descripcion = "Excelente Oportunidad para vivir en un lugar seguro y con buen vecindario. ";
+            producto15.Localizacion = "Casa Res, Brisas del Merendon.";
+            producto15.Parking = 1;
+            producto15.Habitaciones = 3;
+            producto15.Metros = 29000;
+            producto15.Precio = 1300000;
+            producto15.Bano = 2;
+            producto15.Estado = "Disponible";
+
+            producto15.VendedorId = 3;
+            producto15.EtiquetaId = 1;
+            producto15.CategoriaId = 1;
+            producto15.EstructuraId = 1;
+            producto15.UrlImagen = null;
+            producto15.UrlImagen2 = null;
+            producto15.UrlImagen3 = null;
+            producto15.UrlImagen4 = null;
+            producto15.UrlImagen5 = null;
+            contexto.Productos.Add(producto15);
+
+            var producto16 = new Producto();
+            producto16.Descripcion = "Casa de habitacion con 3 cuartos, 1 baño y seguridad privada";
+            producto16.Localizacion = "Col. Fesitranh San Pedro Sula, Cortés";
+            producto16.Parking = 1;
+            producto16.Habitaciones = 3;
+            producto16.Metros = 25000;
+            producto16.Precio = 1030000;
+            producto16.Bano = 1;
+            producto16.Estado = "Disponible";
+
+            producto16.VendedorId = 2;
+            producto16.EtiquetaId = 1;
+            producto16.CategoriaId = 1;
+            producto16.EstructuraId = 3;
+            producto16.UrlImagen = null;
+            producto16.UrlImagen2 = null;
+            producto16.UrlImagen3 = null;
+            producto16.UrlImagen4 = null;
+            producto16.UrlImagen5 = null;
+            contexto.Productos.Add(producto16);
+
+            var producto17 = new Producto();
+            producto17.Descripcion = "Casa Residencial con seguridad privada y circuito cerrado";
+            producto17.Localizacion = "Res La Foresta San Pedro Sula - Cortés";
+            producto17.Parking = 1;
+            producto17.Habitaciones = 3;
+            producto17.Metros = 40000;
+            producto17.Precio = 10200000;
+            producto17.Bano = 2;
+            producto17.Estado = "Disponible";
+
+            producto17.VendedorId = 1;
+            producto17.EtiquetaId = 1;
+            producto17.CategoriaId = 1;
+            producto17.EstructuraId = 2;
+            producto17.UrlImagen = null;
+            producto17.UrlImagen2 = null;
+            producto17.UrlImagen3 = null;
+            producto17.UrlImagen4 = null;
+            producto17.UrlImagen5 = null;
+            contexto.Productos.Add(producto17);
+
+            var producto18 = new Producto();
+            producto18.Descripcion = "Estudio. Dos salas, Comedor. Cocina con alacena y desayunador.";
+            producto18.Localizacion = "Rancho San Manuel contiguo a Col. Fesitranh S.P.S.";
+            producto18.Parking = 2;
+            producto18.Habitaciones = 3;
+            producto18.Metros = 20000;
+            producto18.Precio = 1020000;
+            producto18.Bano = 2;
+            producto18.Estado = "Disponible";
+
+            producto18.VendedorId = 1;
+            producto18.EtiquetaId = 1;
+            producto18.CategoriaId = 1;
+            producto18.EstructuraId = 1;
+            producto18.UrlImagen = null;
+            producto18.UrlImagen2 = null;
+            producto18.UrlImagen3 = null;
+            producto18.UrlImagen4 = null;
+            producto18.UrlImagen5 = null;
+            contexto.Productos.Add(producto18);
+
+            var producto19 = new Producto();
+            producto19.Descripcion = "475vr2 de terreno y 259 mtr2 de construccion!, 3 cuartos, 2.5 baños, pequeña sala familiar, estudio";
+            producto19.Localizacion = "Residencial Buena Vista";
+            producto19.Parking = 2;
+            producto19.Habitaciones = 3;
+            producto19.Metros = 20000;
+            producto19.Precio = 1200000;
+            producto19.Bano = 2;
+            producto19.Estado = "Disponible";
+
+            producto19.VendedorId = 3;
+            producto19.EtiquetaId = 1;
+            producto19.CategoriaId = 1;
+            producto19.EstructuraId = 3;
+            producto19.UrlImagen = null;
+            producto19.UrlImagen2 = null;
+            producto19.UrlImagen3 = null;
+            producto19.UrlImagen4 = null;
+            producto19.UrlImagen5 = null;
+            contexto.Productos.Add(producto19);
+
+            var producto20 = new Producto();
+            producto20.Descripcion = "Acceso controlado, Área de barbacoas, Área de bodegas, Área juegos infantiles";
+            producto20.Localizacion = "Residencial Buena Vista";
+            producto20.Parking = 2;
+            producto20.Habitaciones = 3;
+            producto20.Metros = 20000;
+            producto20.Precio = 12000000;
+            producto20.Bano = 2;
+            producto20.Estado = "Disponible";
+
+            producto20.VendedorId = 2;
+            producto20.EtiquetaId = 1;
+            producto20.CategoriaId = 1;
+            producto20.EstructuraId = 2;
+            producto20.UrlImagen = null;
+            producto20.UrlImagen2 = null;
+            producto20.UrlImagen3 = null;
+            producto20.UrlImagen4 = null;
+            producto20.UrlImagen5 = null;
+            contexto.Productos.Add(producto20);
+
+            var producto21 = new Producto();
+            producto21.Descripcion = "Casa en renta con: Sala, Cocina, Comedor ,Area lavanderia, Area social con Bar y Piscina";
+            producto21.Localizacion = "Residencial Las UVAS";
+            producto21.Parking = 1;
+            producto21.Habitaciones = 5;
+            producto21.Metros = 20000;
+            producto21.Precio = 1500000;
+            producto21.Bano = 3;
+            producto21.Estado = "Disponible";
+
+            producto21.VendedorId = 2;
+            producto21.EtiquetaId = 2;
+            producto21.CategoriaId = 1;
+            producto21.EstructuraId = 2;
+            producto21.UrlImagen = null;
+            producto21.UrlImagen2 = null;
+            producto21.UrlImagen3 = null;
+            producto21.UrlImagen4 = null;
+            producto21.UrlImagen5 = null;
+            contexto.Productos.Add(producto21);
+
+            var producto22 = new Producto();
+            producto22.Descripcion = "3 cuartos, 2 baños, pequeña sala familiar, estudio, 2 bodegas, aerea de servicio ampliado";
+            producto22.Localizacion = "Colonia Modelo";
+            producto22.Parking = 2;
+            producto22.Habitaciones = 3;
+            producto22.Metros = 20000;
+            producto22.Precio = 12000;
+            producto22.Bano = 2;
+            producto22.Estado = "Disponible";
+
+            producto22.VendedorId = 3;
+            producto22.EtiquetaId = 2;
+            producto22.CategoriaId = 2;
+            producto22.EstructuraId = 4;
+            producto22.UrlImagen = null;
+            producto22.UrlImagen2 = null;
+            producto22.UrlImagen3 = null;
+            producto22.UrlImagen4 = null;
+            producto22.UrlImagen5 = null;
+            contexto.Productos.Add(producto22);
+
+            var producto23 = new Producto();
+            producto23.Descripcion = "2 habitaciones, 2 baños, Sala , comedor, Cocina, Area lavanderia y Estacionamiento para 2 vehiculos";
+            producto23.Localizacion = "Apartamentos Lomas del Guijarro";
+            producto23.Parking = 2;
+            producto23.Habitaciones = 2;
+            producto23.Metros = 22000;
+            producto23.Precio = 8000;
+            producto23.Bano = 1;
+            producto23.Estado = "Disponible";
+
+            producto23.VendedorId = 2;
+            producto23.EtiquetaId = 2;
+            producto23.CategoriaId = 2;
+            producto23.EstructuraId = 2;
+            producto23.UrlImagen = null;
+            producto23.UrlImagen2 = null;
+            producto23.UrlImagen3 = null;
+            producto23.UrlImagen4 = null;
+            producto23.UrlImagen5 = null;
+            contexto.Productos.Add(producto23);
+
+            var producto24 = new Producto();
+            producto24.Descripcion = "Acceso controlado, Área de barbacoas, Área de bodegas, Área juegos infantiles, Área social, Ascensor, Azotea (Área social)";
+            producto24.Localizacion = "Barrio Las Palmas";
+            producto24.Parking = 2;
+            producto24.Habitaciones = 2;
+            producto24.Metros = 20000;
+            producto24.Precio = 8500;
+            producto24.Bano = 2;
+            producto24.Estado = "Disponible";
+
+            producto24.VendedorId = 1;
+            producto24.EtiquetaId = 2;
+            producto24.CategoriaId = 2;
+            producto24.EstructuraId = 4;
+            producto24.UrlImagen = null;
+            producto24.UrlImagen2 = null;
+            producto24.UrlImagen3 = null;
+            producto24.UrlImagen4 = null;
+            producto24.UrlImagen5 = null;
+            contexto.Productos.Add(producto24);
+
+            var producto25 = new Producto();
+            producto25.Descripcion = "Calentador, Closets, Extractores de baño, Instalación lavadora, Intercomunicador, Lámparas, Luces spot, Muebles de baño, Muebles de cocina, Walk-in closets";
+            producto25.Localizacion = "Departamentos Deluxe - Las lomas";
+            producto25.Parking = 2;
+            producto25.Habitaciones = 3;
+            producto25.Metros = 23000;
+            producto25.Precio = 9000;
+            producto25.Bano = 2;
+            producto25.Estado = "Disponible";
+
+            producto25.VendedorId = 4;
+            producto25.EtiquetaId = 2;
+            producto25.CategoriaId = 2;
+            producto25.EstructuraId = 4;
+            producto25.UrlImagen = null;
+            producto25.UrlImagen2 = null;
+            producto25.UrlImagen3 = null;
+            producto25.UrlImagen4 = null;
+            producto25.UrlImagen5 = null;
+            contexto.Productos.Add(producto25);
+
+            var producto26 = new Producto();
+            producto26.Descripcion = "Las lomas es un circuito cerrado de apartamentos famoso por sus hermosas áreas sociales, amplia piscina con aguas cristalinas estilo resort";
+            producto26.Localizacion = "Departamentos Deluxe - Las lomas";
+            producto26.Parking = 2;
+            producto26.Habitaciones = 3;
+            producto26.Metros = 20000;
+            producto26.Precio = 10000;
+            producto26.Bano = 2;
+            producto26.Estado = "Disponible";
+
+            producto26.VendedorId = 2;
+            producto26.EtiquetaId = 2;
+            producto26.CategoriaId = 2;
+            producto26.EstructuraId = 4;
+            producto26.UrlImagen = null;
+            producto26.UrlImagen2 = null;
+            producto26.UrlImagen3 = null;
+            producto26.UrlImagen4 = null;
+            producto26.UrlImagen5 = null;
+            contexto.Productos.Add(producto26);
+
+            var producto27 = new Producto();
+            producto27.Descripcion = "Las lomas es un circuito cerrado de apartamentos famoso por sus hermosas áreas sociales, amplia piscina con aguas cristalinas estilo resort";
+            producto27.Localizacion = "Departamentos Deluxe - Las lomas";
+            producto27.Parking = 2;
+            producto27.Habitaciones = 3;
+            producto27.Metros = 20000;
+            producto27.Precio = 95000;
+            producto27.Bano = 2;
+            producto27.Estado = "Disponible";
+
+            producto27.VendedorId = 1;
+            producto27.EtiquetaId = 2;
+            producto27.CategoriaId = 2;
+            producto27.EstructuraId = 4;
+            producto27.UrlImagen = null;
+            producto27.UrlImagen2 = null;
+            producto27.UrlImagen3 = null;
+            producto27.UrlImagen4 = null;
+            producto27.UrlImagen5 = null;
+            contexto.Productos.Add(producto27);
+
+            var producto28 = new Producto();
+            producto28.Descripcion = "Estilo, diseño y exclusividad definen este espacioso apartamento de 2 Dormitorios, 2.5 Baños con espectacular cocina estilo abierto equipada con muebles de madera de caoba finamente acabados top de cuarzo";
+            producto28.Localizacion = "Departamentos - Portal del bosque";
+            producto28.Parking = 2;
+            producto28.Habitaciones = 3;
+            producto28.Metros = 20000;
+            producto28.Precio = 1000;
+            producto28.Bano = 2;
+            producto28.Estado = "Disponible";
+
+            producto28.VendedorId = 2;
+            producto28.EtiquetaId = 2;
+            producto28.CategoriaId = 2;
+            producto28.EstructuraId = 2;
+            producto28.UrlImagen = null;
+            producto28.UrlImagen2 = null;
+            producto28.UrlImagen3 = null;
+            producto28.UrlImagen4 = null;
+            producto28.UrlImagen5 = null;
+            contexto.Productos.Add(producto28);
+
+            var producto29 = new Producto();
+            producto29.Descripcion = "Estilo, diseño y exclusividad definen este espacioso apartamento de 2 Dormitorios, 2.5 Baños con espectacular cocina estilo abierto equipada con muebles de madera de caoba finamente acabados top de cuarzo";
+            producto29.Localizacion = "Departamentos - Portal del bosque";
+            producto29.Parking = 2;
+            producto29.Habitaciones = 3;
+            producto29.Metros = 20000;
+            producto29.Precio = 1000000;
+            producto29.Bano = 2;
+            producto29.Estado = "Disponible";
+
+            producto29.VendedorId = 2;
+            producto29.EtiquetaId = 2;
+            producto29.CategoriaId = 2;
+            producto29.EstructuraId = 2;
+            producto29.UrlImagen = null;
+            producto29.UrlImagen2 = null;
+            producto29.UrlImagen3 = null;
+            producto29.UrlImagen4 = null;
+            producto29.UrlImagen5 = null;
+            contexto.Productos.Add(producto29);
+
+            var producto30 = new Producto();
+            producto30.Descripcion = "Estilo, diseño y exclusividad definen este espacioso apartamento de 2 Dormitorios, 2.5 Baños con espectacular cocina estilo abierto equipada con muebles de madera de caoba finamente acabados top de cuarzo";
+            producto30.Localizacion = "Departamentos - Portal del bosque";
+            producto30.Parking = 2;
+            producto30.Habitaciones = 3;
+            producto30.Metros = 23000;
+            producto30.Precio = 8900;
+            producto30.Bano = 2;
+            producto30.Estado = "Disponible";
+
+            producto30.VendedorId = 3;
+            producto30.EtiquetaId = 2;
+            producto30.CategoriaId = 2;
+            producto30.EstructuraId = 4;
+            producto30.UrlImagen = null;
+            producto30.UrlImagen2 = null;
+            producto30.UrlImagen3 = null;
+            producto30.UrlImagen4 = null;
+            producto30.UrlImagen5 = null;
+            contexto.Productos.Add(producto30);
 
             #endregion
 

@@ -31,13 +31,13 @@ namespace Looking4Home.Web.Controllers
         {
 
             var productosBL = new ProductosBL();
-            var listadeProductos = productosBL.ObtenerProductosActivos().AsQueryable();  // Marcar como AsQueryable
+            var listadeProductos = productosBL.ObtenerProductosActivos2().AsQueryable();  // Marcar como AsQueryable
 
             var factory = new PageSourceFactory
             {
 
                 MaxItemsPerPage = 10, // maximo elementos por pagina
-                DefaultItemsPerPage = 9 // elementos por pagina
+                DefaultItemsPerPage = 8 // elementos por pagina
             };
 
             List<Busqueda> ItemList = new List<Busqueda>();

@@ -23,6 +23,7 @@ namespace Looking4Home.BL
             var usuario = _contexto.Usuarios.
                 FirstOrDefault(r => r.Nombre == nombreUsuario && r.Contrasena == contrasenaEncriptada || r.Correo == correo 
                 && r.Contrasena == contrasenaEncriptada);
+
             if (usuario != null)
             {
                 return true;

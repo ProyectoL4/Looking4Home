@@ -51,10 +51,7 @@
         <div class="row">
 
 
-            @foreach (var producto in productos.Where(r => r.Etiqueta.Descripcion == "Renta" && r.Categoria.Descripcion == "Casa")
-            .Take(8)
-            .OrderBy(r => r.Id)
-            )
+            @foreach (var producto in productos)
             {
 
                 <div class="col-lg-4 col-md-6">
@@ -62,7 +59,7 @@
                     <div class="blog-item">
 
                         <div class="blog-date">
-                            <i style="color: #ffffff; background: #2cbdb8; font-style: normal; font-size: 15px; padding: 0px 15px 0px 15px;"> CASA </i>
+                            <i style="color: #ffffff; background: #2cbdb8; font-style: normal; font-size: 15px; padding: 0px 15px 0px 15px;">@producto.Categoria.Descripcion</i>
                         </div>
 
                         <img src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="">
@@ -128,79 +125,79 @@
 
         </div>
 
-        <div class="blog-item feature-blog">
-            <div class="row">
-                @foreach (var producto in productos.Where(r => r.Etiqueta.Descripcion == "Renta" && r.Categoria.Descripcion == "Departamento")
-            .Take(1)
-            .OrderBy(r => r.Id))
-                {
-                    <div class="col-lg-6">
-                        <img style="height: 300px;" src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="">
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="blog-text">
-
-                            <div style="margin-bottom: 30px;" class="blog-date">
-                                <i style="color: #ffffff; background: #2cbdb8; font-style: normal; font-size: 15px; padding: 0px 15px 0px 15px;"> DEPARTAMENTO </i>
-                            </div>
-
-                            <div class="blog-date"><i class="fa fa-map-marker" style="color: #2cbdb8;"></i> @producto.Localizacion</div>
-                            <h4>L. @producto.Precio </h4>
-                            <p>@producto.Descripcion</p>
-
-                            <!--EXTRA-->
-
-                            <div class="blog-date">
-                                <i class="fa fa-arrows" style="color: #2cbdb8;"></i>     @producto.Metros m<sup>2</sup>
-
-
-                                <i class="fa fa-bed" style="color: #2cbdb8; padding-left:15px;"></i> @producto.Habitaciones
-                                @if (producto.Habitaciones == 1)
-                                {
-                                    <span>  Habitacion</span>
-                                }
-                                else if (producto.Habitaciones != 1)
-                                {
-                                    <span>  Habitaciones</span>
-                                }
-
-                                <i class="fa fa-bath" style="color: #2cbdb8; padding-left:15px;"></i>  @producto.Bano
-                                @if (producto.Bano == 1)
-                                {
-                                    <span>  Baño</span>
-                                }
-                                else if (producto.Bano != 1)
-                                {
-                                    <span>  Baños</span>
-                                }
-
-                                <i class="fa fa-car" style="color: #2cbdb8; padding-left:15px;"></i>    @producto.Parking
-                                @if (producto.Parking == 1)
-                                {
-                                    <span>  Estacionamiento</span>
-                                }
-                                else if (producto.Parking != 1)
-                                {
-                                    <span>  Estacionamientos</span>
-                                }
-
-
-                            </div>
-
-                            @using (Html.BeginForm("Index2", "Home", FormMethod.Post)) //aqui
-                            {
-
-                                <input id="buscar" name="buscar" type="hidden" placeholder="" value="@producto.Id" style="border: 0;">
-                            <!--<a href="" class="readmore-btn">Leer Mas</a>-->
-                                <div><button style="padding: 8px 5px 10px; text-align: left;" class="site-btn" type="submit">Ver mas</button></div>
-
-                            }
-
+        @*<div class="blog-item feature-blog">
+                <div class="row">
+                    @foreach (var producto in productos.Where(r => r.Etiqueta.Descripcion == "Renta" && r.Categoria.Descripcion == "Departamento")
+                .Take(1)
+                .OrderBy(r => r.Id))
+                    {
+                        <div class="col-lg-6">
+                            <img style="height: 300px;" src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="">
                         </div>
-                    </div>
-                }
-            </div>
-        </div>
+                        <div class="col-lg-6">
+                            <div class="blog-text">
+
+                                <div style="margin-bottom: 30px;" class="blog-date">
+                                    <i style="color: #ffffff; background: #2cbdb8; font-style: normal; font-size: 15px; padding: 0px 15px 0px 15px;"> DEPARTAMENTO </i>
+                                </div>
+
+                                <div class="blog-date"><i class="fa fa-map-marker" style="color: #2cbdb8;"></i> @producto.Localizacion</div>
+                                <h4>L. @producto.Precio </h4>
+                                <p>@producto.Descripcion</p>
+
+                                <!--EXTRA-->
+
+                                <div class="blog-date">
+                                    <i class="fa fa-arrows" style="color: #2cbdb8;"></i>     @producto.Metros m<sup>2</sup>
+
+
+                                    <i class="fa fa-bed" style="color: #2cbdb8; padding-left:15px;"></i> @producto.Habitaciones
+                                    @if (producto.Habitaciones == 1)
+                                    {
+                                        <span>  Habitacion</span>
+                                    }
+                                    else if (producto.Habitaciones != 1)
+                                    {
+                                        <span>  Habitaciones</span>
+                                    }
+
+                                    <i class="fa fa-bath" style="color: #2cbdb8; padding-left:15px;"></i>  @producto.Bano
+                                    @if (producto.Bano == 1)
+                                    {
+                                        <span>  Baño</span>
+                                    }
+                                    else if (producto.Bano != 1)
+                                    {
+                                        <span>  Baños</span>
+                                    }
+
+                                    <i class="fa fa-car" style="color: #2cbdb8; padding-left:15px;"></i>    @producto.Parking
+                                    @if (producto.Parking == 1)
+                                    {
+                                        <span>  Estacionamiento</span>
+                                    }
+                                    else if (producto.Parking != 1)
+                                    {
+                                        <span>  Estacionamientos</span>
+                                    }
+
+
+                                </div>
+
+                                @using (Html.BeginForm("Index2", "Home", FormMethod.Post)) //aqui
+                                {
+
+                                    <input id="buscar" name="buscar" type="hidden" placeholder="" value="@producto.Id" style="border: 0;">
+                                <!--<a href="" class="readmore-btn">Leer Mas</a>-->
+                                    <div><button style="padding: 8px 5px 10px; text-align: left;" class="site-btn" type="submit">Ver mas</button></div>
+
+                                }
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>*@
 
         <!-- Paginacion -->
 

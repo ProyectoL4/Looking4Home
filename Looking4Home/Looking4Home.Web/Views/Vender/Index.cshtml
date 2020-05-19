@@ -48,6 +48,78 @@
 
 <hr>
 
+<!-- Top Properties Section Begin -->
+<div style="padding-top: 35px; padding-bottom: 15px;" class="top-properties-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="properties-title">
+                    <div class="section-title">
+                        <span>Propiedades en Renta</span>
+                        <h2>Exclusivas</h2>
+                    </div>
+                    <a href="#" class="top-property-all">Ver todas las propiedades</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="top-properties-carousel owl-carousel">
+            @foreach (var producto in Model.Where(r => r.Etiqueta.Descripcion == "Renta")
+           .Take(3)
+           .OrderBy(r => Guid.NewGuid())
+           )
+            {
+
+                <div class="single-top-properties">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="stp-pic">
+                                <img src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="stp-text">
+                                <div class="s-text">En @producto.Etiqueta.Descripcion</div>
+                                <h2>@producto.Estructura.Descripcion</h2>
+                                <div class="room-price">
+                                    <span>Comenzando desde:</span>
+                                    <h4>L. @producto.Precio</h4>
+                                </div>
+                                <div class="properties-location"><i class="fa fa-map-marker"></i>@producto.Localizacion</div>
+                                <p>@producto.Descripcion</p>
+                                <ul class="room-features">
+                                    <li>
+                                        <i class="fa fa-arrows"></i>
+                                        <p>@producto.Metros</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-bed"></i>
+                                        <p>@producto.Habitaciones</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-bath"></i>
+                                        <p>@producto.Bano</p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-car"></i>
+                                        <p>@producto.Parking</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+<!-- Top Properties Section End -->
+
+<hr>
 
 @section scripts {
     <script>
