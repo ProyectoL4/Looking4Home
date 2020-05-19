@@ -6,6 +6,9 @@
 
 <h2>Editar</h2>
 
+    <!--Plugin Maps-->
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyDEg7Q9nr2V_cDfRsKSgvC9CeiA68aSz18"></script>
+<script src="~/assets/js/locationpicker.jquery.js"></script>
 
 @using (Html.BeginForm("Editar", "Productos", FormMethod.Post, new { enctype = "multipart/form-data" } ))
 {
@@ -59,10 +62,36 @@
         </div>
 
         <div class="form-group">
+            
             @Html.LabelFor(model => model.Localizacion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Localizacion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Localizacion, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Localizacion, new { htmlAttributes = new { @class = "form-control", @id="Localizacion" } })                
+                @Html.ValidationMessageFor(model => model.Localizacion, "", new { @class = "text-danger" })                                
+                <p></p> 
+                
+                <div id="ModalMapPreview" style="width:100%; height:450px;"></div>
+                <div class="clearfix"> &nbsp;</div>
+
+
+
+                <script>
+                    //$('#Localizacion').click(function (e) {
+                    //    e.preventDefault();
+                    //});
+
+                    $('#ModalMapPreview').locationpicker({
+                        radius: 0,
+                        location: {
+                            latitude: 15.529231,
+                            longitude: -88.037419
+                        },
+                        inputBinding: {
+                            locationNameInput: $('#Localizacion')
+                        },
+                        enableAutocomplete: true
+
+                    });
+                </script>                                                            
             </div>
         </div>
 

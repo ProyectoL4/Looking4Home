@@ -1859,6 +1859,7 @@
     <Content Include="assets\js\lib\jquery-2.1.3.min.js" />
     <Content Include="assets\js\locationpicker.jquery.js" />
     <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\PlacePicker.js" />
     <Content Include="assets\js\popper.min.js" />
     <Content Include="assets\js\prueba.js" />
     <Content Include="assets\js\script.js" />

@@ -1,5 +1,7 @@
 /*! jquery-locationpicker - v0.1.16 - 2017-10-02 */
-(function($) {
+(function ($) {    
+
+    //Loctionpicker
     function GMapContext(domElement, options) {
         var _map = new google.maps.Map(domElement, options);
         var _marker = new google.maps.Marker({
@@ -9,7 +11,7 @@
             visible: options.markerVisible,
             draggable: options.markerDraggable,
             icon: options.markerIcon !== undefined ? options.markerIcon : undefined
-        });
+        });        
         return {
             map: _map,
             marker: _marker,
@@ -317,11 +319,11 @@
                 zoom: settings.zoom,
                 center: new google.maps.LatLng(settings.location.latitude, settings.location.longitude),
                 mapTypeId: settings.mapTypeId,
-                mapTypeControl: false,
+                mapTypeControl: true,
                 styles: settings.styles,
-                disableDoubleClickZoom: false,
+                disableDoubleClickZoom: true,
                 scrollwheel: settings.scrollwheel,
-                streetViewControl: false,
+                streetViewControl: true,
                 radius: settings.radius,
                 locationName: settings.locationName,
                 settings: settings,
@@ -330,7 +332,7 @@
                 draggable: settings.draggable,
                 markerIcon: settings.markerIcon,
                 markerDraggable: settings.markerDraggable,
-                markerVisible: settings.markerVisible
+                markerVisible: settings.markerVisible                
             }, settings.mapOptions));
             $target.data("locationpicker", gmapContext);
             function displayMarkerWithSelectedArea() {
@@ -353,12 +355,14 @@
                     }
                 });
             }
+
+
             google.maps.event.addListener(gmapContext.marker, "drag", function(event) {
                 updateInputValues(gmapContext.settings.inputBinding, gmapContext);
             });
             google.maps.event.addListener(gmapContext.marker, "dragend", function(event) {
                 displayMarkerWithSelectedArea();
-            });
+            });            
             GmUtility.setPosition(gmapContext, new google.maps.LatLng(settings.location.latitude, settings.location.longitude), function(context) {
                 updateInputValues(settings.inputBinding, gmapContext);
                 setupInputListenersInput(settings.inputBinding, gmapContext);
@@ -383,7 +387,7 @@
             longitudeInput: null,
             radiusInput: null,
             locationNameInput: null
-        },
+        },        
         enableAutocomplete: false,
         enableAutocompleteBlur: false,
         autocompleteOptions: null,
