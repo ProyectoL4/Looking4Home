@@ -93,9 +93,9 @@
                                     
                                     <script>
 
-                                        //$('#Localizacion').click(function (e) {
-                                        //    e.preventDefault();
-                                        //});
+                                        $('#Localizacion').click(function (e) {
+                                            e.preventDefault();
+                                        });
 
                                         $('#ModalMapPreview').locationpicker({
                                             radius: 0,                                            
@@ -103,10 +103,21 @@
                                                 latitude: 15.529231,
                                                 longitude: -88.037419
                                             },
+                                            enableAutocomplete: true,
                                             inputBinding: {
-                                                locationNameInput: $('#LocalizacionId'),
-                                            },
-                                            enableAutocomplete: true,                                            
+                                                locationNameInput: $('#LocalizacionId').click(function () {
+                                                    var input = document.getElementById('Localizacion');
+                                                    var searchBox = new google.maps.places.SearchBox(input);
+                                                    map.control[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+                                                    searchBox.addListener('ModalMapPreview', function () {
+                                                        var places = searchBox.getPlaces();
+                                                        if (places.length == 0) {
+                                                            return;
+                                                        }
+                                                    })
+                                                })
+                                            },                                                                                  
                                             enableReverseGeoCode: true
                                         });
 
