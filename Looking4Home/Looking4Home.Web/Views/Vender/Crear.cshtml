@@ -19,31 +19,8 @@
             <div class="col-xl-6 p-0" style="max-width: 40%;">
                 <div class="search-result-map">
 
-                    <div id="ModalMapPreview" style="width:100%; height:350px;"></div>
-                    <div class="clearfix"> &nbsp;</div>
-
-
-
-                    <script>
-
-                                        //$('#Localizacion').click(function (e) {
-                                        //    e.preventDefault();
-                                        //});
-
-                                        $('#ModalMapPreview').locationpicker({
-                                            radius: 0,
-                                            location: {
-                                                latitude: 15.529231,
-                                                longitude: -88.037419
-                                            },
-                                            inputBinding: {
-                                                locationNameInput: $('#LocalizacionId')
-                                            },
-                                            enableAutocomplete: true
-
-                                        });
-
-                    </script>
+                    <div id="ModalMapPreview" style="width:100%; height:100%;"></div>
+                    <div class="clearfix"> &nbsp;</div>                     
 
                 </div>
             </div>
@@ -114,7 +91,26 @@
                                     @Html.EditorFor(model => model.Localizacion, new { htmlAttributes = new { @Class = "form-control", @id = "LocalizacionId", @Placeholder = "Ingrese la Ubicación" } })
                                     @Html.ValidationMessageFor(model => model.Localizacion, "", new { @class = "text-danger" })
                                     
+                                    <script>
 
+                                        //$('#Localizacion').click(function (e) {
+                                        //    e.preventDefault();
+                                        //});
+
+                                        $('#ModalMapPreview').locationpicker({
+                                            radius: 0,                                            
+                                            location: {
+                                                latitude: 15.529231,
+                                                longitude: -88.037419
+                                            },
+                                            inputBinding: {
+                                                locationNameInput: $('#LocalizacionId'),
+                                            },
+                                            enableAutocomplete: true,                                            
+                                            enableReverseGeoCode: true
+                                        });
+
+                                    </script>
                                     <!--CODIGO DE MAPA QUITADO-->
 
                                 </div>
