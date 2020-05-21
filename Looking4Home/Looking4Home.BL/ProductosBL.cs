@@ -91,6 +91,8 @@ namespace Looking4Home.BL
                 productoExistente.Estado = producto.Estado;
                 productoExistente.Bano = producto.Bano;
                 productoExistente.EtiquetaId = producto.EtiquetaId;
+                productoExistente.Latitude = producto.Latitude;
+                productoExistente.Longitud = producto.Longitud;
                 productoExistente.VendedorId = producto.VendedorId;
 
                 if (producto.UrlImagen != null || producto.UrlImagen2 != null || producto.UrlImagen3 != null

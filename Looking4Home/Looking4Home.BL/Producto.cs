@@ -45,6 +45,8 @@ namespace Looking4Home.BL
         public Estructura Estructura { get; set; }
         public int EtiquetaId { get; set; }
         public Etiqueta Etiqueta { get; set; }
+        public double Latitude { get; set; }
+        public double Longitud { get; set; }
 
         [Display(Name = "Imagen")]
         public string UrlImagen { get; set; }

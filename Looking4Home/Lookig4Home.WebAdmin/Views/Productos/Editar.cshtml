@@ -1,7 +1,9 @@
 ﻿@model Looking4Home.BL.Producto
-
 @{
     ViewBag.Title = "Editar";
+}
+@{ 
+    
 }
 
 <h2>Editar</h2>
@@ -62,7 +64,17 @@
         </div>
 
         <div class="form-group">
-            
+            @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="width: 300px">
+                @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @Class = "form-control", @id = "Latitude" } })
+            </div>
+            @Html.LabelFor(model => model.Longitud, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="width: 300px;">
+                @Html.EditorFor(model => model.Longitud, new { htmlAttributes = new { @Class = "form-control", @id = "Longitud" } })
+            </div>
+        </div>
+
+        <div class="form-group" id="ModalMap">            
             @Html.LabelFor(model => model.Localizacion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Localizacion, new { htmlAttributes = new { @class = "form-control", @id="Localizacion" } })                
@@ -79,17 +91,25 @@
                     //    e.preventDefault();
                     //});
 
+                    var dataLat = @Model.Latitude;
+                    var dataLng = @Model.Longitud;
+
                     $('#ModalMapPreview').locationpicker({
-                        radius: 0,
+                     radius: 0,
                         location: {
-                            latitude: 15.529231,
-                            longitude: -88.037419
+                         latitude: dataLat,
+                         longitude: dataLng
                         },
                         inputBinding: {
-                            locationNameInput: $('#Localizacion')
+                            locationNameInput: $('#Localizacion'),
+                            latitudeInput: $('#Latitude'),
+                            longitudeInput: $('#Longitud')
                         },
                         enableAutocomplete: true
 
+                    });
+                    $('#ModalMap').on('shown.bs.modal', function () {
+                        $('#ModalMapPrevie').locationpicker('autozise');
                     });
                 </script>                                                            
             </div>
