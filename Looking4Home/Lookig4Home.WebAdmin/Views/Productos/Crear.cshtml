@@ -60,13 +60,23 @@
             </div>
         </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })            
+            <div class="col-md-10" style="width: 300px">
+                @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @Class = "form-control", @id = "Latitude" } })
+            </div> 
+            @Html.LabelFor(model => model.Longitud, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="width: 300px;">
+                @Html.EditorFor(model => model.Longitud, new { htmlAttributes = new { @Class = "form-control", @id = "Longitud" } })
+            </div>           
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Localizacion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Localizacion, new { htmlAttributes = new { @Class = "form-control", @id = "Localizacion", @Placeholder = "Ingrese la Ubicación" } })
                 @Html.ValidationMessageFor(model => model.Localizacion, "", new { @class = "text-danger" })                
-                <p></p>
+                <p></p>                
 
                 <div id="ModalMapPreview" style="width:100%; height:450px;"></div>
                 <div class="clearfix"> &nbsp;</div>
@@ -85,13 +95,14 @@
                             longitude: -88.037419
                         },
                         inputBinding: {
-                            locationNameInput: $('#Localizacion')
+                            locationNameInput: $('#Localizacion'),
+                            latitudeInput: $('#Latitude'),
+                            longitudeInput: $('#Longitud')
                         },
                         enableAutocomplete: true
 
                     });
                 </script>   
-
             </div>
         </div>
 
