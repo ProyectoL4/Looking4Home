@@ -16,20 +16,20 @@ namespace Looking4Home.BL
             _contexto = new Contexto();
         }
 
-        public bool Autorizar(string nombreUsuario, string contrasena, string correo)
+        public Usuario Autorizar(string nombreUsuario, string contrasena, string correo)
         {
             var contrasenaEncriptada = Encriptar.CodificarConstrasena(contrasena);
 
             var usuario = _contexto.Usuarios.
-                FirstOrDefault(r => r.Nombre == nombreUsuario && r.Contrasena == contrasenaEncriptada || r.Correo == correo 
+                FirstOrDefault(r => r.NombUsuario == nombreUsuario && r.Contrasena == contrasenaEncriptada || r.Correo == correo 
                 && r.Contrasena == contrasenaEncriptada);
 
             if (usuario != null)
             {
-                return true;
+                return usuario;
             }
 
-            return false;
+            return null;
         }
     }
 

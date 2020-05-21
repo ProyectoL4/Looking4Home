@@ -1,0 +1,29 @@
+﻿@if (Request.IsAuthenticated)
+{
+    var ident = (FormsIdentity)HttpContext.Current.User.Identity;
+    var ticket = ident.Ticket;
+    var usuario = Newtonsoft.Json.JsonConvert.DeserializeObject<Looking4Home.BL.Usuario>(ticket.UserData);
+
+    if (usuario.UrlImagen == null)
+    {
+        <div class="div-img">
+            <img class="img" src="~/assets/img/usuario.png" alt="Foto10" style="z-index: 1">
+            <label style="font-size: 8px; color: black"><strong>@usuario.Nombre @usuario.Apellido</strong></label>
+        </div>
+    }
+    else
+    {
+        <div class="div-img">
+            <img class="img" src="@usuario.UrlImagen" alt="Foto10" style="z-index: 1">
+            <label style="font-size: 8px; color: black"><strong>@usuario.Nombre @usuario.Apellido</strong></label>
+        </div>
+    }
+
+}
+else
+{
+    <div class="div-img">
+        <img class="img" src="~/assets/img/usuario.png" alt="Foto10" style="z-index: 1">
+        <label style="font-size: 8px; color: black"><strong>Visitante</strong></label>
+    </div>
+}

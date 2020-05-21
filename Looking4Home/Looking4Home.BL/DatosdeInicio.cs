@@ -206,33 +206,65 @@ namespace Looking4Home.BL
             #endregion
 
             #region Usuarios
+
             var UsuarioAdmin = new Usuario();
-            UsuarioAdmin.Nombre = "admin";
-            UsuarioAdmin.Contrasena = Encriptar.CodificarConstrasena("123");
+            UsuarioAdmin.NombUsuario = "admin";
+            UsuarioAdmin.Contrasena = Encriptar.CodificarConstrasena("123456");
+            UsuarioAdmin.Nombre = "Kevin";
+            UsuarioAdmin.Apellido = "Rivera";
+            UsuarioAdmin.Correo = "prueba1234@gmail.com";
+            UsuarioAdmin.edad = 22;
+            UsuarioAdmin.FechaInicio = new DateTime(1997, 4, 29);
+            UsuarioAdmin.Cedula = 0512199700879;
+            UsuarioAdmin.UrlImagen = "/Imagenes/foto1.jpg";
             contexto.Usuarios.Add(UsuarioAdmin);
 
             var usuario1 = new Usuario();
-            usuario1.Nombre = "German Mendoza";
-            usuario1.Correo = "german.mendoza1998@gmail.com";
-            usuario1.Contrasena = Encriptar.CodificarConstrasena("12345");
+            usuario1.NombUsuario = "gerente";
+            usuario1.Contrasena = Encriptar.CodificarConstrasena("123456");
+            usuario1.Nombre = "German";
+            usuario1.Apellido = "Mendoza";
+            usuario1.Correo = "prueba1234@gmail.com";
+            usuario1.edad = 21;
+            usuario1.FechaInicio = new DateTime(1998, 10, 18);
+            usuario1.Cedula = 0512199700666;
+            usuario1.UrlImagen = "/Imagenes/foto2.jpg";
             contexto.Usuarios.Add(usuario1);
 
             var usuario2 = new Usuario();
-            usuario2.Nombre = "Kevin Rivera";
-            usuario2.Correo = "kevrivera@gmail.com";
-            usuario2.Contrasena = Encriptar.CodificarConstrasena("12345");
+            usuario2.NombUsuario = "super";
+            usuario2.Contrasena = Encriptar.CodificarConstrasena("123456");
+            usuario2.Nombre = "Juan";
+            usuario2.Apellido = "Alvarado";
+            usuario2.Correo = "prueba1234@gmail.com";
+            usuario2.edad = 22;
+            usuario2.FechaInicio = new DateTime(2002, 12, 9);
+            usuario2.Cedula = 0512199700999;
+            usuario2.UrlImagen = null;
             contexto.Usuarios.Add(usuario2);
 
             var usuario3 = new Usuario();
-            usuario3.Nombre = "Juan Alvarado";
-            usuario3.Correo = "juanalva@gmail.com";
-            usuario3.Contrasena = Encriptar.CodificarConstrasena("12345");
+            usuario3.NombUsuario = "extra";
+            usuario3.Contrasena = Encriptar.CodificarConstrasena("123456");
+            usuario3.Nombre = "Andres";
+            usuario3.Apellido = "Baide";
+            usuario3.Correo = "andreswbaide@gmail.com";
+            usuario3.edad = 22;
+            usuario3.FechaInicio = new DateTime(2002, 12, 9);
+            usuario3.Cedula = 0512199700999;
+            usuario3.UrlImagen = null;
             contexto.Usuarios.Add(usuario3);
 
             var usuario4 = new Usuario();
-            usuario4.Nombre = "Andres Baide";
-            usuario4.Correo = "andreswbaide@gmail.com";
-            usuario4.Contrasena = Encriptar.CodificarConstrasena("12345");
+            usuario4.NombUsuario = "doctor";
+            usuario4.Contrasena = Encriptar.CodificarConstrasena("123456");
+            usuario4.Nombre = "Luis";
+            usuario4.Apellido = "Lopez";
+            usuario4.Correo = "luislopez@gmail.com";
+            usuario4.edad = 42;
+            usuario4.FechaInicio = new DateTime(2002, 12, 9);
+            usuario4.Cedula = 0512198400999;
+            usuario4.UrlImagen = null;
             contexto.Usuarios.Add(usuario4);
 
             #endregion

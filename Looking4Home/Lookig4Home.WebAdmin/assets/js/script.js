@@ -16,8 +16,6 @@
 	        $('#prueba').toggle();
 	}
 
-
-
 	/*------------------PESTAÑA PERFIL Y CERRAR SESION------------------*/
 
 	/* When the user clicks on the button, 

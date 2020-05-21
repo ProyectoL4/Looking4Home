@@ -25,5 +25,38 @@ namespace Looking4Home.BL
 
             return ListadeUsuarios;
         }
+
+
+        //EXTRA ---------------------------------------------------------------------->
+
+        public void Guardarusuario(Usuario usuario)
+        {
+            if (usuario.Id == 0)
+            {
+                _contexto.Usuarios.Add(usuario);
+            }
+            else
+            {
+                var usuarioExistente = _contexto.Usuarios.Find(usuario.Id);
+                usuarioExistente.Nombre = usuario.Nombre;
+            }
+
+            _contexto.SaveChanges();
+        }
+
+        public Usuario ObtenerUsuarios(int id)
+        {
+            var usuario = _contexto.Usuarios.Find(id);
+
+            return usuario;
+        }
+
+        public void EliminarUsuario(int id)
+        {
+            var usuario = _contexto.Usuarios.Find(id);
+
+            _contexto.Usuarios.Remove(usuario);
+            _contexto.SaveChanges();
+        }
     }
 }
