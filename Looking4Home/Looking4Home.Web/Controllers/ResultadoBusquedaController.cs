@@ -4,6 +4,7 @@ using Looking4Home.Web.ViewModel;
 using Pagination;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -22,7 +23,6 @@ namespace Looking4Home.Web.Controllers
         public ActionResult Index(SearchModel model)
         {
             var buscar = Request.QueryString["q"];
-
             var etiqueta = Request.QueryString["w"];
 
             if (string.IsNullOrEmpty(buscar))
