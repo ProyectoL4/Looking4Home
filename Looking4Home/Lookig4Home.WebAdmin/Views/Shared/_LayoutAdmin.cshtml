@@ -43,6 +43,8 @@
     </script>
 
 
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap-clearmin.min.css">
@@ -71,6 +73,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="~/assets/js/script2.js"></script>
     <title>@ViewBag.Title - Looking 4 HOME!</title>
+
 </head>
 <body id="header" class="cm-no-transition cm-1-navbar">
     <!-- jQuery handles to place the header background images -->
@@ -118,13 +121,42 @@
                 <button onclick="myFunction()" class="btn btn-primary md-account-circle-white" data-toggle="dropdown"></button>
                 <div id="myDropdown" class="dropdown-content">
                     <div class="container5">
-                        <div class="div-img">
-                            <img class="img" src="~/assets/img/lobo.jpg" alt="Foto10" style="z-index: 1">
-                            <label style="font-size: 8px; color: black"><strong>German Mendoza</strong></label>
-                        </div>
+
+                        <!-----------------------MOSTRAR NOMBRE Y FOTO DE USUARIO------------------------->
+
+                        @if (Request.IsAuthenticated)
+                        {
+                            var ident = (FormsIdentity)HttpContext.Current.User.Identity;
+                            var ticket = ident.Ticket;
+                            var usuario = Newtonsoft.Json.JsonConvert.DeserializeObject<Looking4Home.BL.Usuario>(ticket.UserData);
+
+                            if (usuario.UrlImagen == null)
+                            {
+                                <div class="div-img">
+                                    <img class="img" src="~/assets/img/usuario.png" alt="Foto10" style="z-index: 1">
+                                    <label style="font-size: 8px; color: black"><strong>@usuario.Nombre @usuario.Apellido</strong></label>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="div-img">
+                                    <img class="img" src="@usuario.UrlImagen" alt="Foto10" style="z-index: 1">
+                                    <label style="font-size: 8px; color: black"><strong>@usuario.Nombre @usuario.Apellido</strong></label>
+                                </div>
+                            }
+
+                        }
+                        else
+                        {
+                            <div class="div-img">
+                                <img class="img" src="~/assets/img/usuario.png" alt="Foto10" style="z-index: 1">
+                                <label style="font-size: 8px; color: black"><strong>Visitante</strong></label>
+                            </div>
+                        }
+
                         <nav class="barra-perfil">
                             <ul>
-                                <li><a href="#">Perfil</a></li>
+                                <li><a href="/Perfil">Perfil</a></li>
                                 <li><a href="/Login" class="btn-exit-system"><i class="fas fa-power-off"> Cerrar Sesión</i></a></li>
                             </ul>
                         </nav>
@@ -204,6 +236,22 @@
     <script src="~/assets/js/demo/home.js"></script>
     <script src="~/assets/js/script.js"></script>
     <script src="~/assets/js/PlacePicker.js"></script>
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="~/assets/js/script5.js"></script>
+
+
+    <script>
+	function myFunction2() {
+	var x = document.getElementById("UserPassword");
+	    if (x.type === "password") {
+	        x.type = "text";
+	    } else {
+	    x.type = "password";
+	   }
+	 }
+    </script>
 
 
 </body>

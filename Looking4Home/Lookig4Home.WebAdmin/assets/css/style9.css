@@ -1,0 +1,15 @@
+.limpio {
+	background-image: url('../img/login/listo.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+  transition: all .50s ease-in-out;
+}
+
+.borroso {
+	background-image: url('../img/login/borroso.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+  transition: all .50s ease-in-out;
+}

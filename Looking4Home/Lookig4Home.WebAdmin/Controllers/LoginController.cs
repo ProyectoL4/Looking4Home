@@ -1,4 +1,5 @@
 ﻿using Looking4Home.BL;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,9 +35,23 @@ namespace Lookig4Home.WebAdmin.Controllers
             var usuarioValido = _seguridadBL
                 .Autorizar(nombreUsuario, contrasena, correo);
 
-            if (usuarioValido)
+            if (usuarioValido != null)
             {
-                FormsAuthentication.SetAuthCookie(nombreUsuario, true);
+                //FormsAuthentication.SetAuthCookie(nombreUsuario, true);
+
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
+                                                                                 correo,
+                                                                                 DateTime.Now,
+                                                                                 DateTime.Now.AddDays(1),
+                                                                                 false,
+                                                                                 JsonConvert.SerializeObject(usuarioValido),
+                                                                                 FormsAuthentication.FormsCookiePath);
+
+                string hash = FormsAuthentication.Encrypt(ticket);
+                HttpCookie authcookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
+
+                Response.Cookies.Add(authcookie);                                                            
+                
                 return RedirectToAction("Index", "Home");
             }
 
