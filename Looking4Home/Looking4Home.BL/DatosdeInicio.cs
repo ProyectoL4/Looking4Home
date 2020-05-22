@@ -210,6 +210,7 @@ namespace Looking4Home.BL
             var UsuarioAdmin = new Usuario();
             UsuarioAdmin.NombUsuario = "admin";
             UsuarioAdmin.Contrasena = Encriptar.CodificarConstrasena("123456");
+            UsuarioAdmin.Contrasena2 = "123456";
             UsuarioAdmin.Nombre = "Kevin";
             UsuarioAdmin.Apellido = "Rivera";
             UsuarioAdmin.Correo = "prueba1234@gmail.com";
@@ -222,6 +223,7 @@ namespace Looking4Home.BL
             var usuario1 = new Usuario();
             usuario1.NombUsuario = "gerente";
             usuario1.Contrasena = Encriptar.CodificarConstrasena("123456");
+            usuario1.Contrasena2 = "123456";
             usuario1.Nombre = "German";
             usuario1.Apellido = "Mendoza";
             usuario1.Correo = "prueba1234@gmail.com";
@@ -234,6 +236,7 @@ namespace Looking4Home.BL
             var usuario2 = new Usuario();
             usuario2.NombUsuario = "super";
             usuario2.Contrasena = Encriptar.CodificarConstrasena("123456");
+            usuario2.Contrasena2 = "123456";
             usuario2.Nombre = "Juan";
             usuario2.Apellido = "Alvarado";
             usuario2.Correo = "prueba1234@gmail.com";
@@ -246,6 +249,7 @@ namespace Looking4Home.BL
             var usuario3 = new Usuario();
             usuario3.NombUsuario = "extra";
             usuario3.Contrasena = Encriptar.CodificarConstrasena("123456");
+            usuario3.Contrasena2 = "123456";
             usuario3.Nombre = "Andres";
             usuario3.Apellido = "Baide";
             usuario3.Correo = "andreswbaide@gmail.com";
@@ -258,6 +262,7 @@ namespace Looking4Home.BL
             var usuario4 = new Usuario();
             usuario4.NombUsuario = "doctor";
             usuario4.Contrasena = Encriptar.CodificarConstrasena("123456");
+            usuario4.Contrasena2 = "123456";
             usuario4.Nombre = "Luis";
             usuario4.Apellido = "Lopez";
             usuario4.Correo = "luislopez@gmail.com";

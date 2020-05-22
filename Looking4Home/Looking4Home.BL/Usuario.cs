@@ -20,12 +20,12 @@ namespace Looking4Home.BL
         [EmailAddress(ErrorMessage = "Ingrese un Correo")]
         public string Correo { get; set; }
 
-        [Range(1, 100, ErrorMessage = "Colocar un valor mayor a 0")]
+        [Range(18, 100, ErrorMessage = "Debe ser mayor a 18 años")]
         public int edad { get; set; }
 
         public DateTime FechaInicio { get; set; }
 
-        [Range(1, 1000000000000, ErrorMessage = "Colocar un valor mayor a 0")]
+        
         public double Cedula { get; set; }
 
         //SEGURIDAD
@@ -34,9 +34,15 @@ namespace Looking4Home.BL
 
         [Display(Name = "Contraseña")]
         [Required(ErrorMessage = "Este campo es requerido.")]
-        [StringLength(15, ErrorMessage = "Longitud entre 6 y 15 caracteres.", MinimumLength = 5)]
+        [MinLength(6, ErrorMessage = "Longitud minima es de 6 caracteres.")]
         [DataType(DataType.Password)]
         public string Contrasena { get; set; }
+
+        [Display(Name = "Confirmar Contraseña")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [MinLength(6, ErrorMessage = "Longitud minima es de 6 caracteres.")]
+        [DataType(DataType.Password)]
+        public string Contrasena2 { get; set; }
 
         [Display(Name = "Imagen")]
         public string UrlImagen { get; set; }
