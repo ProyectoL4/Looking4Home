@@ -284,8 +284,6 @@ namespace Looking4Home.BL
             producto1.Metros = 4500;
             producto1.Precio = 120500;
             producto1.Bano = 4;
-            producto1.Latitude = 15.5284040204682;
-            producto1.Longitud = -88.0305130535645;
             producto1.Estado = "Disponible";
 
             producto1.VendedorId = 1;
@@ -308,8 +306,6 @@ namespace Looking4Home.BL
             producto2.Metros = 1200;
             producto2.Precio = 20500;
             producto2.Bano = 5;
-            producto2.Latitude = 15.5099202600254;
-            producto2.Longitud = -88.0490524822754;
             producto2.Estado = "Disponible";
 
             producto2.VendedorId = 2;
@@ -332,8 +328,6 @@ namespace Looking4Home.BL
             producto3.Metros = 1200;
             producto3.Precio = 12500;
             producto3.Bano = 5;
-            producto3.Latitude = 15.5069428552243;
-            producto3.Longitud = -88.0348904186768;
             producto3.Estado = "Disponible";
 
             producto3.VendedorId = 3;
@@ -356,8 +350,6 @@ namespace Looking4Home.BL
             producto4.Metros = 12000;
             producto4.Precio = 200500;
             producto4.Bano = 5;
-            producto4.Latitude = 15.509878907475;
-            producto4.Longitud = -88.0343754345459;
             producto4.Estado = "Disponible";
 
             producto4.VendedorId = 4;

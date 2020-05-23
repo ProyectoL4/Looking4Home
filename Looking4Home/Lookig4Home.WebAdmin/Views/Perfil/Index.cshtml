@@ -117,15 +117,19 @@
                             {
 
                                 <div class="group">
-                                    @Html.ActionLink("Crear Nuevo Usuario", "Crear")
+                                    @Html.ActionLink("Crear Nuevo Usuario", "Crear",null, new { @class = "button", @type = "submit", @style="text-align: center;" })
                                 </div>
 
                             }
 
                             <div class="hr"></div>
+                            
+                            @if (usuario.NombUsuario == "admin")
+                            {
                             <div class="foot-lnk">
-                                <a href="#">Todo esta en Orden</a>
+                                @Html.ActionLink("Mostrar todos los Usuarios", "Index2")
                             </div>
+                            }
                         </div>
 
                         <!-----------SEGUNDA PARTE---------->
@@ -152,7 +156,7 @@
                                 <input id="pass" type="submit" class="input" value="@usuario.Correo">
                             </div>
                             <div class="group">
-                                <input type="submit" class="button" value="Editar Perfil">
+                                @Html.ActionLink("Editar Perfil", "Editar", new { id = usuario.Id }, new { @class = "button", @type = "submit", @style = "text-align: center;" })
                             </div>
                             <div class="hr"></div>
                             <div class="foot-lnk">

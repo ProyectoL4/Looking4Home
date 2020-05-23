@@ -46,7 +46,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.edad, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.edad,"Edad", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.edad, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.edad, "", new { @class = "text-danger" })
@@ -70,7 +70,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NombUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NombUsuario, "Nombre de Usuario", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NombUsuario, new { htmlAttributes = new { @class = "form-control"}})
                 @Html.ValidationMessageFor(model => model.NombUsuario, "", new { @class = "text-danger" })
@@ -84,8 +84,7 @@
             @Html.LabelFor(model => model.Contrasena, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Contrasena, new { htmlAttributes = new { @class = "form-control", @name = "pass1", @min = "6", @max = "10", @placeholder = "Escriba la contraseña" } })
-                @Html.ValidationMessageFor(model => model.Contrasena, "", new { @class = 
-               "text-danger" })
+                @Html.ValidationMessageFor(model => model.Contrasena, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -98,13 +97,10 @@
             </div>
         </div>
         
-
-
         <div class="form-group">
-            @Html.LabelFor(model => model.UrlImagen, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Seleccinar Imagen</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.UrlImagen, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UrlImagen, "", new { @class = "text-danger" })
+                <input type="file" name="imagen" id="imagen" />
             </div>
         </div>
 
@@ -117,5 +113,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Regresar atras", "Index")
 </div>

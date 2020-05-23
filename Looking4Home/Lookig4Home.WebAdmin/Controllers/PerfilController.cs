@@ -23,6 +23,14 @@ namespace Lookig4Home.WebAdmin.Controllers
             return View();
         }
 
+        public ActionResult Index2()
+        {
+
+            var listadeUsuarios = _usuariosBL.ObtenerUsuarios();
+
+            return View(listadeUsuarios);
+        }
+
         public ActionResult Crear()
         {
             var nuevoUsuario = new Usuario();
@@ -67,6 +75,11 @@ namespace Lookig4Home.WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (usuario.Contrasena != usuario.Contrasena2)
+                {
+                    ModelState.AddModelError(usuario.Contrasena2, "Las contraseñas no coinciden");
+                    return View(usuario);
+                }
 
                 if (imagen != null)
                 {
@@ -74,6 +87,7 @@ namespace Lookig4Home.WebAdmin.Controllers
                 }
 
                 _usuariosBL.Guardarusuario(usuario);
+
                 return RedirectToAction("Index");
             }
 

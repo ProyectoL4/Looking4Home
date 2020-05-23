@@ -20,6 +20,7 @@ namespace Looking4Home.BL
         [EmailAddress(ErrorMessage = "Ingrese un Correo")]
         public string Correo { get; set; }
 
+        [Display(Name = "Edad")]
         [Range(18, 100, ErrorMessage = "Debe ser mayor a 18 años")]
         public int edad { get; set; }
 
@@ -29,6 +30,7 @@ namespace Looking4Home.BL
         public double Cedula { get; set; }
 
         //SEGURIDAD
+        [Display(Name = "Nombre de Usuario")]
         [Required(ErrorMessage = "Ingrese el Nombre")]
         public string NombUsuario { get; set; }
 

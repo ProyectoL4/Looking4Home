@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Looking4Home.BL.Usuario>
+
+@{
+    ViewBag.Title = "Lista de Usuarios";
+}
+
+<h2>Index2</h2>
+
+<p>
+    @Html.ActionLink("Crear uno Nuevo", "Crear")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombUsuario)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Contrasena2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrlImagen)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaInicio)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.NombUsuario)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Contrasena2)
+        </td>
+        <td>
+            <img src="@item.UrlImagen" alt="Imagen" style="width:64px; height:auto; " />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Editar", new { id=item.Id }) |
+            @Html.ActionLink("Detalles", "Detalle", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Regresar atras", "Index")
+</div>
