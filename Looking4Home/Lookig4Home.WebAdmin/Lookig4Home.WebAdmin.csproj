@@ -1972,6 +1972,10 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Perfil\Index.cshtml" />
     <Content Include="Views\Perfil\Crear.cshtml" />
+    <Content Include="Views\Perfil\Editar.cshtml" />
+    <Content Include="Views\Perfil\Index2.cshtml" />
+    <Content Include="Views\Perfil\Eliminar.cshtml" />
+    <Content Include="Views\Perfil\Detalle.cshtml" />
     <None Include="Views\Productos\Crear.cshtml" />
     <Content Include="Views\Productos\Editar.cshtml" />
     <Content Include="Views\Productos\Detalle.cshtml" />

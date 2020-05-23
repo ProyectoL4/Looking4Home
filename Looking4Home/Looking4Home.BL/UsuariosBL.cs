@@ -44,7 +44,7 @@ namespace Looking4Home.BL
 
                 var usuarioExistente = _contexto.Usuarios.Find(usuario.Id);
 
-                Encriptar.CodificarConstrasena(usuario.Contrasena);
+                usuario.Contrasena = Encriptar.CodificarConstrasena(usuario.Contrasena);
 
                 usuarioExistente.Nombre = usuario.Nombre;
                 usuarioExistente.Apellido = usuario.Apellido;
